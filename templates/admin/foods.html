@@ -1,0 +1,367 @@
+{% extends "admin/base.html" %}
+
+{% block title %}
+Foods | MTC HOTEL
+{% endblock %}
+
+{% block page_title %}
+Foods
+{% endblock %}
+
+{% block content %}
+
+<!-- FOOD PAGE HEADER -->
+
+<div class="menu-page-header">
+
+    <div>
+
+        <h2>Food Management</h2>
+
+        <p>
+            {% if selected_category %}
+                Showing foods in <strong>{{ selected_category }}</strong> category.
+            {% else %}
+                Add, edit and manage all MTC HOTEL food items.
+            {% endif %}
+        </p>
+
+    </div>
+
+
+    <a
+        href="{{ url_for('add_food') }}"
+        class="menu-add-btn"
+    >
+        + Add Food
+    </a>
+
+</div>
+
+
+<!-- CATEGORY FILTER -->
+
+<div class="food-filter-bar">
+
+    {% if selected_category %}
+
+        <div class="active-category-label">
+            Category:
+            <strong>{{ selected_category }}</strong>
+        </div>
+
+        <a
+            href="{{ url_for('admin_foods') }}"
+            class="all-foods-btn"
+        >
+            ← All Foods
+        </a>
+
+    {% endif %}
+
+</div>
+
+
+<!-- FOOD TABLE -->
+
+{% if foods %}
+
+<div class="admin-table-card">
+
+    <table class="admin-table">
+
+        <thead>
+
+            <tr>
+
+                <th>Food</th>
+
+                <th>Category</th>
+
+                <th>Meal</th>
+
+                <th>Price</th>
+
+                <th>Availability</th>
+
+                <th>Featured</th>
+
+                <th>Actions</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            {% for food in foods %}
+
+            <tr>
+
+                <!-- FOOD -->
+
+                <td>
+
+                    <div class="table-food">
+
+                        {% if food.image %}
+
+                        <img
+                            src="{{ url_for('static', filename='uploads/foods/' + food.image) }}"
+                            class="table-food-image"
+                            alt="{{ food.name }}"
+                        >
+
+                        {% else %}
+
+                        <div
+                            class="table-food-image"
+                            style="display:flex;align-items:center;justify-content:center;font-size:22px;"
+                        >
+                            🍽️
+                        </div>
+
+                        {% endif %}
+
+
+                        <div>
+
+                            <div class="table-food-name">
+                                {{ food.name }}
+                            </div>
+
+
+                            {% if food.description %}
+
+                            <div class="table-food-category">
+
+                                {{ food.description[:45] }}
+
+                                {% if food.description|length > 45 %}
+                                    ...
+                                {% endif %}
+
+                            </div>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                </td>
+
+
+                <!-- CATEGORY -->
+
+                <td>
+                    {{ food.category or "—" }}
+                </td>
+
+
+                <!-- MEAL -->
+
+                <td>
+                    {{ food.meal or "—" }}
+                </td>
+
+
+                <!-- PRICE -->
+
+                <td>
+
+                    {% if food.offer_price %}
+
+                        <strong>
+                            ₹{{ "%.2f"|format(food.offer_price) }}
+                        </strong>
+
+                        <br>
+
+                        <small
+                            style="text-decoration:line-through;color:#888;"
+                        >
+                            ₹{{ "%.2f"|format(food.price) }}
+                        </small>
+
+                    {% else %}
+
+                        <strong>
+                            ₹{{ "%.2f"|format(food.price) }}
+                        </strong>
+
+                    {% endif %}
+
+                </td>
+
+
+                <!-- AVAILABILITY -->
+
+                <td>
+
+                    {% if food.available %}
+
+                        <span class="status-badge status-available">
+                            ● Available
+                        </span>
+
+                    {% else %}
+
+                        <span class="status-badge status-unavailable">
+                            ● Unavailable
+                        </span>
+
+                    {% endif %}
+
+                </td>
+
+
+                <!-- FEATURED -->
+
+                <td>
+
+                    {% if food.featured %}
+
+                        <span class="status-badge status-featured">
+                            ★ Featured
+                        </span>
+
+                    {% else %}
+
+                        <span style="color:#999;">
+                            —
+                        </span>
+
+                    {% endif %}
+
+                </td>
+
+
+                <!-- ACTIONS -->
+
+                <td>
+
+                    <div
+                        style="display:flex;gap:7px;flex-wrap:wrap;"
+                    >
+
+                        <a
+                            href="{{ url_for('edit_food', food_id=food.id) }}"
+                            class="admin-btn admin-btn-primary"
+                        >
+                            ✏️ Edit
+                        </a>
+
+
+                        <a
+                            href="{{ url_for('toggle_food', food_id=food.id) }}"
+                            class="admin-btn admin-btn-secondary"
+                        >
+
+                            {% if food.available %}
+                                ❌ Hide
+                            {% else %}
+                                ✅ Show
+                            {% endif %}
+
+                        </a>
+
+
+                        <a
+                            href="{{ url_for('toggle_featured', food_id=food.id) }}"
+                            class="admin-btn admin-btn-secondary"
+                        >
+
+                            {% if food.featured %}
+                                ☆ Unfeature
+                            {% else %}
+                                ⭐ Feature
+                            {% endif %}
+
+                        </a>
+
+
+                        <a
+                            href="{{ url_for('delete_food', food_id=food.id) }}"
+                            class="admin-btn admin-btn-danger"
+                            onclick="return confirm('Are you sure you want to delete {{ food.name }}?');"
+                        >
+                            🗑️ Delete
+                        </a>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+{% else %}
+
+
+<!-- EMPTY STATE -->
+
+<div class="admin-empty-state">
+
+    <div
+        style="font-size:50px;margin-bottom:15px;"
+    >
+        🍽️
+    </div>
+
+
+    {% if selected_category %}
+
+        <h2>
+            No Foods in {{ selected_category }}
+        </h2>
+
+        <p>
+            There are currently no food items in this category.
+        </p>
+
+        <br>
+
+        <a
+            href="{{ url_for('admin_foods') }}"
+            class="dashboard-add-btn"
+        >
+            ← View All Foods
+        </a>
+
+    {% else %}
+
+        <h2>
+            No Foods Added Yet
+        </h2>
+
+        <p>
+            Start building your MTC HOTEL menu by adding your first food item.
+        </p>
+
+        <br>
+
+        <a
+            href="{{ url_for('add_food') }}"
+            class="dashboard-add-btn"
+        >
+            + Add Your First Food
+        </a>
+
+    {% endif %}
+
+</div>
+
+
+{% endif %}
+
+{% endblock %}

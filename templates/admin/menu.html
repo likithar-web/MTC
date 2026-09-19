@@ -1,0 +1,169 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Menu | MTC HOTEL{% endblock %}
+{% block page_title %}Menu{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-welcome">
+    <div>
+        <h2>Hotel Menu</h2>
+        <p>View and manage your complete food menu.</p>
+    </div>
+</div>
+
+<div class="menu-filter-bar">
+    <button class="menu-filter active" data-meal="all">All</button>
+    <button class="menu-filter" data-meal="Breakfast">Breakfast</button>
+    <button class="menu-filter" data-meal="Lunch">Lunch</button>
+    <button class="menu-filter" data-meal="Evening">Evening</button>
+    <button class="menu-filter" data-meal="Dinner">Dinner</button>
+</div>
+
+<div class="admin-menu-grid">
+
+    {% for food in foods %}
+
+    <div class="admin-menu-card" data-meal="{{ food.meal }}">
+
+        <!-- FOOD IMAGE -->
+        <div class="admin-menu-image">
+
+            {% if food.name == "Chicken Biryani" %}
+
+                <img
+                    src="{{ url_for('static', filename='uploads/foods/chicken_biryani.jpg.jpg') }}"
+                    alt="Chicken Biryani"
+                >
+
+            {% elif food.image %}
+
+                <img
+                    src="{{ url_for('static', filename='uploads/foods/' + food.image) }}"
+                    alt="{{ food.name }}"
+                >
+
+            {% else %}
+
+                <div class="menu-image-placeholder">🍽</div>
+
+            {% endif %}
+
+            {% if food.featured %}
+                <span class="menu-featured">★ FEATURED</span>
+            {% endif %}
+
+        </div>
+
+        <!-- FOOD DETAILS -->
+        <div class="admin-menu-info">
+
+            <div class="menu-card-top">
+
+                <div>
+                    <h3>{{ food.name }}</h3>
+                    <span class="menu-category">
+                        {{ food.category }}
+                    </span>
+                </div>
+
+                <div class="menu-price">
+
+                    {% if food.offer_price %}
+
+                        <strong>
+                            ₹{{ "%.0f"|format(food.offer_price) }}
+                        </strong>
+
+                        <del>
+                            ₹{{ "%.0f"|format(food.price) }}
+                        </del>
+
+                    {% else %}
+
+                        <strong>
+                            ₹{{ "%.0f"|format(food.price) }}
+                        </strong>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            <p class="menu-description">
+                {{ food.description }}
+            </p>
+
+            <div class="menu-card-bottom">
+
+                <span class="menu-meal">
+                    {{ food.meal }}
+                </span>
+
+                {% if food.available %}
+
+                    <span class="menu-available">
+                        Available
+                    </span>
+
+                {% else %}
+
+                    <span class="menu-unavailable">
+                        Unavailable
+                    </span>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+
+<script>
+
+const menuButtons = document.querySelectorAll(".menu-filter");
+const menuCards = document.querySelectorAll(".admin-menu-card");
+
+menuButtons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        menuButtons.forEach(function(item) {
+            item.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        const selectedMeal =
+            button.getAttribute("data-meal");
+
+        menuCards.forEach(function(card) {
+
+            const cardMeal =
+                card.getAttribute("data-meal") || "";
+
+            if (
+                selectedMeal === "all" ||
+                cardMeal.includes(selectedMeal)
+            ) {
+                card.style.display = "";
+            } else {
+                card.style.display = "none";
+            }
+
+        });
+
+    });
+
+});
+
+</script>
+
+{% endblock %}

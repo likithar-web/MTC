@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="MTC HOTEL - Admin Dashboard">
+
+    <title>
+        {% block title %}MTC HOTEL{% endblock %}
+    </title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body class="admin-page">
+
+
+<!-- =====================================================
+     ADMIN HEADER
+     ===================================================== -->
+
+<header class="admin-header">
+
+    <div class="admin-header-left">
+
+        <div class="admin-page-heading">
+
+            <h1>
+                {% block page_title %}
+                Dashboard
+                {% endblock %}
+            </h1>
+
+            <p>
+                MTC HOTEL Management System
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="admin-header-right">
+
+        <div class="admin-profile">
+
+            <div class="admin-avatar">
+                A
+            </div>
+
+            <div class="admin-profile-info">
+
+                <div class="admin-profile-name">
+                    Administrator
+                </div>
+
+                <div class="admin-profile-role">
+                    Admin
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN ADMIN AREA
+     ===================================================== -->
+
+<main class="admin-main">
+
+    <div class="admin-container">
+
+        {% block content %}
+
+        {% endblock %}
+
+    </div>
+
+</main>
+
+
+
+<!-- =====================================================
+     ADMIN FOOTER
+     ===================================================== -->
+
+<footer class="admin-footer">
+
+    <div class="admin-footer-inner">
+
+        <div class="admin-footer-brand">
+
+            <!-- EXISTING LOGO - UNCHANGED -->
+
+            <div class="admin-footer-logo">
+
+                <div class="footer-logo-symbol">
+                    ♨
+                </div>
+
+                <div class="footer-logo-name">
+                    MTC
+                </div>
+
+                <div class="footer-logo-hotel">
+                    HOTEL
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="admin-footer-text">
+
+            <p>
+                Good Food | Great People | Since 1991
+            </p>
+
+            <span>
+                © 2026 MTC HOTEL. All Rights Reserved.
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+
+</body>
+
+</html>

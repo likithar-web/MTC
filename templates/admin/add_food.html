@@ -1,0 +1,148 @@
+﻿{% extends "admin/base.html" %}
+
+{% block title %}Add Food | MTC HOTEL{% endblock %}
+
+{% block page_title %}Add Food{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-welcome">
+
+    <div>
+        <h2>Add New Food</h2>
+        <p>Add a new food item to your MTC HOTEL menu.</p>
+    </div>
+
+    <a href="/admin/foods" class="admin-secondary-btn">
+        ← Back to Foods
+    </a>
+
+</div>
+
+<div class="food-form-panel">
+
+    <form method="POST" enctype="multipart/form-data">
+
+        <div class="food-form-grid">
+
+            <div class="form-group full-width">
+                <label for="name">Food Name *</label>
+                <input type="text" id="name" name="name"
+                       placeholder="Example: Chicken Biryani" required>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="description">Description</label>
+                <textarea id="description" name="description"
+                          rows="4"
+                          placeholder="Describe the food item..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price (₹) *</label>
+                <input type="number" id="price" name="price"
+                       placeholder="180" min="0" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label for="offer_price">Offer Price (₹)</label>
+                <input type="number" id="offer_price" name="offer_price"
+                       placeholder="150" min="0" step="0.01">
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category *</label>
+
+                <select id="category" name="category" required>
+                    <option value="">Select Category</option>
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="Rice & Biryani">Rice & Biryani</option>
+                    <option value="Meals">Meals</option>
+                    <option value="Starters">Starters</option>
+                    <option value="Curries">Curries</option>
+                    <option value="Breads">Breads</option>
+                    <option value="Drinks">Drinks</option>
+                    <option value="Desserts">Desserts</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="meal">Meal Time *</label>
+
+                <select id="meal" name="meal" required>
+                    <option value="">Select Meal</option>
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="Lunch">Lunch</option>
+                    <option value="Evening">Evening</option>
+                    <option value="Dinner">Dinner</option>
+                </select>
+            </div>
+
+            <div class="form-group full-width">
+
+                <label for="image">Food Image</label>
+
+                <div class="image-upload-box">
+
+                    <input type="file"
+                           id="image"
+                           name="image"
+                           accept="image/*">
+
+                    <div class="image-upload-text">
+                        <strong>Upload Food Image</strong>
+                        <small>JPG, JPEG, PNG or WEBP</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="form-check-card">
+
+                <input type="checkbox"
+                       id="available"
+                       name="available"
+                       checked>
+
+                <div>
+                    <label for="available">Available</label>
+                    <small>Customers can order this food.</small>
+                </div>
+
+            </div>
+
+            <div class="form-check-card">
+
+                <input type="checkbox"
+                       id="featured"
+                       name="featured">
+
+                <div>
+                    <label for="featured">Featured Food</label>
+                    <small>Show this food in featured sections.</small>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="food-form-footer">
+
+            <a href="/admin/foods"
+               class="admin-secondary-btn">
+                Cancel
+            </a>
+
+            <button type="submit"
+                    class="admin-primary-btn">
+                + Save Food
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

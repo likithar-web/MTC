@@ -1,0 +1,444 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Menu | MTC HOTEL{% endblock %}
+
+{% block page_title %}Menu{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* ==============================
+   MENU FILTERS
+================================ */
+
+.menu-filter-bar {
+    display: flex;
+    gap: 10px;
+    margin: 25px 0 30px;
+    flex-wrap: wrap;
+}
+
+.menu-filter {
+    padding: 10px 20px;
+    border: 1px solid #c9a653;
+    background: #ffffff;
+    color: #222;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.menu-filter:hover,
+.menu-filter.active {
+    background: #c9a653;
+    color: #111;
+}
+
+
+/* ==============================
+   FOOD GRID
+================================ */
+
+.admin-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+}
+
+
+/* ==============================
+   FOOD CARD
+================================ */
+
+.admin-menu-card {
+    background: #fffdf8;
+    border: 1px solid #dfc58b;
+    border-radius: 7px;
+    overflow: hidden;
+    min-width: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+
+/* ==============================
+   FOOD IMAGE
+================================ */
+
+.admin-menu-image {
+    position: relative;
+    width: 100%;
+    height: 225px;
+    overflow: hidden;
+    background: #171717;
+}
+
+.admin-menu-image img {
+    width: 100% !important;
+    height: 225px !important;
+    max-width: 100% !important;
+    max-height: 225px !important;
+    display: block !important;
+    object-fit: cover !important;
+}
+
+
+/* ==============================
+   FEATURED BADGE
+================================ */
+
+.menu-featured {
+    position: absolute;
+    top: 14px;
+    left: 18px;
+    background: #c9a653;
+    color: #111;
+    padding: 9px 14px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+}
+
+
+/* ==============================
+   CARD INFORMATION
+================================ */
+
+.admin-menu-info {
+    padding: 22px 26px 24px;
+}
+
+.menu-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.menu-card-top h3 {
+    margin: 6px 0 8px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    font-weight: 500;
+    color: #111;
+}
+
+.menu-category {
+    color: #a77b27;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+.menu-price {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.menu-price strong {
+    display: block;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+    color: #111;
+}
+
+.menu-price del {
+    display: block;
+    margin-top: 2px;
+    color: #999;
+    font-size: 13px;
+}
+
+
+/* ==============================
+   DESCRIPTION
+================================ */
+
+.menu-description {
+    margin: 17px 0 22px;
+    color: #707070;
+    font-size: 14px;
+    line-height: 1.65;
+    min-height: 46px;
+}
+
+
+/* ==============================
+   BOTTOM
+================================ */
+
+.menu-card-bottom {
+    border-top: 1px solid #e5dfd3;
+    padding-top: 17px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.menu-meal {
+    margin-right: auto;
+    color: #888;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.menu-available {
+    color: #4f7d45;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.menu-unavailable {
+    color: #a44b3c;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* ==============================
+   PLACEHOLDER
+================================ */
+
+.menu-image-placeholder {
+    width: 100%;
+    height: 225px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #171717;
+    color: #c9a653;
+    font-size: 40px;
+}
+
+
+/* ==============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1200px) {
+
+    .admin-menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .admin-menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-menu-info {
+        padding: 20px;
+    }
+
+}
+
+</style>
+
+
+<div class="dashboard-welcome">
+
+    <div>
+        <h2>Hotel Menu</h2>
+        <p>View and manage your complete food menu.</p>
+    </div>
+
+</div>
+
+
+<div class="menu-filter-bar">
+
+    <button class="menu-filter active" data-meal="all">
+        All
+    </button>
+
+    <button class="menu-filter" data-meal="Breakfast">
+        Breakfast
+    </button>
+
+    <button class="menu-filter" data-meal="Lunch">
+        Lunch
+    </button>
+
+    <button class="menu-filter" data-meal="Evening">
+        Evening
+    </button>
+
+    <button class="menu-filter" data-meal="Dinner">
+        Dinner
+    </button>
+
+</div>
+
+
+<div class="admin-menu-grid">
+
+{% for food in foods %}
+
+    <div class="admin-menu-card"
+         data-meal="{{ food.meal }}">
+
+        <div class="admin-menu-image">
+
+            {% if food.image %}
+
+                <img
+                    src="{{ url_for('static', filename='uploads/foods/' + food.image) }}"
+                    alt="{{ food.name }}"
+                >
+
+            {% else %}
+
+                <div class="menu-image-placeholder">
+                    🍽
+                </div>
+
+            {% endif %}
+
+
+            {% if food.featured %}
+
+                <span class="menu-featured">
+                    ★ FEATURED
+                </span>
+
+            {% endif %}
+
+        </div>
+
+
+        <div class="admin-menu-info">
+
+            <div class="menu-card-top">
+
+                <div>
+
+                    <span class="menu-category">
+                        {{ food.category }}
+                    </span>
+
+                    <h3>
+                        {{ food.name }}
+                    </h3>
+
+                </div>
+
+
+                <div class="menu-price">
+
+                    {% if food.offer_price %}
+
+                        <strong>
+                            ₹{{ "%.0f"|format(food.offer_price) }}
+                        </strong>
+
+                        <del>
+                            ₹{{ "%.0f"|format(food.price) }}
+                        </del>
+
+                    {% else %}
+
+                        <strong>
+                            ₹{{ "%.0f"|format(food.price) }}
+                        </strong>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+
+            <p class="menu-description">
+                {{ food.description }}
+            </p>
+
+
+            <div class="menu-card-bottom">
+
+                <span class="menu-meal">
+                    {{ food.meal }}
+                </span>
+
+
+                {% if food.available %}
+
+                    <span class="menu-available">
+                        Available
+                    </span>
+
+                {% else %}
+
+                    <span class="menu-unavailable">
+                        Unavailable
+                    </span>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endfor %}
+
+</div>
+
+
+<script>
+
+const menuButtons =
+    document.querySelectorAll(".menu-filter");
+
+const menuCards =
+    document.querySelectorAll(".admin-menu-card");
+
+
+menuButtons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        menuButtons.forEach(function(item) {
+            item.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        const selectedMeal =
+            button.getAttribute("data-meal");
+
+        menuCards.forEach(function(card) {
+
+            const cardMeal =
+                card.getAttribute("data-meal") || "";
+
+            if (
+                selectedMeal === "all" ||
+                cardMeal.includes(selectedMeal)
+            ) {
+
+                card.style.display = "";
+
+            } else {
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+});
+
+</script>
+
+{% endblock %}

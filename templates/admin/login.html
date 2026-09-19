@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login | MTC HOTEL</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #1b1b1b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .login-wrapper {
+            width: 100%;
+            max-width: 430px;
+        }
+
+        .login-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 42px 38px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.30);
+        }
+
+        .login-logo {
+            width: 72px;
+            height: 72px;
+            background: #b58a35;
+            border-radius: 14px;
+            margin: 0 auto 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .login-brand {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-brand h1 {
+            margin: 0;
+            color: #111827;
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+        .login-brand p {
+            margin: 7px 0 0;
+            color: #777777;
+            font-size: 14px;
+        }
+
+        .login-title {
+            margin-bottom: 22px;
+        }
+
+        .login-title h2 {
+            margin: 0 0 6px;
+            color: #111827;
+            font-size: 21px;
+        }
+
+        .login-title p {
+            margin: 0;
+            color: #777777;
+            font-size: 13px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            color: #333333;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            height: 46px;
+            padding: 0 14px;
+
+            border: 1px solid #ddd5c8;
+            border-radius: 8px;
+
+            background: #ffffff;
+            color: #111827;
+
+            font-size: 14px;
+            outline: none;
+
+            transition: 0.2s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #b58a35;
+            box-shadow: 0 0 0 3px rgba(181, 138, 53, 0.12);
+        }
+
+        .login-button {
+            width: 100%;
+            height: 46px;
+
+            border: none;
+            border-radius: 8px;
+
+            background: #b58a35;
+            color: #ffffff;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+        }
+
+        .login-button:hover {
+            background: #9f7629;
+            transform: translateY(-1px);
+        }
+
+        .login-error {
+            margin-bottom: 18px;
+            padding: 11px 13px;
+
+            background: #fdecec;
+            border: 1px solid #f2c8c5;
+            border-radius: 8px;
+
+            color: #b42318;
+            font-size: 13px;
+        }
+
+        .login-footer {
+            margin-top: 25px;
+            padding-top: 18px;
+
+            border-top: 1px solid #eee8dc;
+
+            text-align: center;
+        }
+
+        .login-footer p {
+            margin: 0;
+            color: #999999;
+            font-size: 12px;
+        }
+
+        @media (max-width: 500px) {
+
+            .login-card {
+                padding: 32px 24px;
+            }
+
+            .login-logo {
+                width: 64px;
+                height: 64px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="login-wrapper">
+
+        <div class="login-card">
+
+            <div class="login-logo">
+                MTC
+            </div>
+
+            <div class="login-brand">
+
+                <h1>MTC HOTEL</h1>
+
+                <p>
+                    Admin Management System
+                </p>
+
+            </div>
+
+            <div class="login-title">
+
+                <h2>Admin Login</h2>
+
+                <p>
+                    Sign in to access the hotel administration panel.
+                </p>
+
+            </div>
+
+            {% if error %}
+
+                <div class="login-error">
+                    {{ error }}
+                </div>
+
+            {% endif %}
+
+            <form method="POST">
+
+                <div class="form-group">
+
+                    <label for="username">
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter username"
+                        autocomplete="username"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="login-button"
+                >
+                    Login to Admin Panel
+                </button>
+
+            </form>
+
+            <div class="login-footer">
+
+                <p>
+                    MTC HOTEL • Since 1991
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,415 @@
+{% extends "admin/base.html" %}
+
+{% block title %}
+Dashboard | MTC HOTEL
+{% endblock %}
+
+{% block page_title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-welcome">
+    <div>
+        <h2>Welcome to MTC HOTEL 👋</h2>
+        <p>Manage your hotel menu, foods, orders and business from one place.</p>
+    </div>
+
+    <a href="{{ url_for('add_food') }}" class="dashboard-add-btn">
+        + Add Food
+    </a>
+</div>
+
+
+<!-- STAT CARDS -->
+
+<div class="dashboard-stats">
+
+    <div class="stat-card">
+        <div class="stat-icon">🍽️</div>
+        <div>
+            <span>Total Foods</span>
+            <strong>{{ total_foods }}</strong>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon">✅</div>
+        <div>
+            <span>Available</span>
+            <strong>{{ available_foods }}</strong>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon">❌</div>
+        <div>
+            <span>Unavailable</span>
+            <strong>{{ unavailable_foods }}</strong>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon">⭐</div>
+        <div>
+            <span>Featured Foods</span>
+            <strong>{{ featured_foods }}</strong>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- QUICK ACTIONS -->
+
+<div class="dashboard-section">
+
+    <div class="dashboard-section-title">
+        <h2>Quick Actions</h2>
+        <p>Frequently used MTC HOTEL management options.</p>
+    </div>
+
+    <div class="quick-actions">
+
+        <a href="{{ url_for('add_food') }}" class="quick-action-card">
+            <div class="quick-action-icon">➕</div>
+            <div>
+                <h3>Add New Food</h3>
+                <p>Add a new item to your hotel menu.</p>
+            </div>
+        </a>
+
+        <a href="{{ url_for('admin_foods') }}" class="quick-action-card">
+            <div class="quick-action-icon">🍴</div>
+            <div>
+                <h3>Manage Foods</h3>
+                <p>Edit, delete and manage food availability.</p>
+            </div>
+        </a>
+
+        <a href="{{ url_for('admin_menu') }}" class="quick-action-card">
+            <div class="quick-action-icon">📋</div>
+            <div>
+                <h3>View Menu</h3>
+                <p>See the complete MTC HOTEL menu.</p>
+            </div>
+        </a>
+
+        <a href="{{ url_for('admin_orders') }}" class="quick-action-card">
+            <div class="quick-action-icon">🛒</div>
+            <div>
+                <h3>Orders</h3>
+                <p>Manage customer orders.</p>
+            </div>
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- SYSTEM STATUS -->
+
+<div class="dashboard-section">
+
+    <div class="dashboard-section-title">
+        <h2>System Status</h2>
+        <p>Current MTC HOTEL website status.</p>
+    </div>
+
+    <div class="system-status-card">
+
+        <div class="status-row">
+            <span>Website</span>
+            <strong class="status-online">● Online</strong>
+        </div>
+
+        <div class="status-row">
+            <span>Food Database</span>
+            <strong class="status-online">● Connected</strong>
+        </div>
+
+        <div class="status-row">
+            <span>Menu</span>
+            <strong class="status-online">● Active</strong>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}/* =========================================================
+   MTC HOTEL - PROFESSIONAL DASHBOARD
+   Dashboard design only
+   ========================================================= */
+
+.dashboard-welcome {
+    background: #ffffff;
+    border: 1px solid #e8e2d8;
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.dashboard-welcome h2 {
+    margin: 0 0 5px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.dashboard-welcome p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.dashboard-add-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #b58a35;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    padding: 10px 18px;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(181, 138, 53, 0.22);
+    transition: 0.2s ease;
+}
+
+.dashboard-add-btn:hover {
+    background: #9f7629;
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   STATISTICS
+   ========================= */
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: #ffffff;
+    border: 1px solid #e8e2d8;
+    border-radius: 9px;
+    padding: 14px;
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.035);
+    transition: 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    border-radius: 9px;
+    background: #f7f0df;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.stat-card span {
+    display: block;
+    color: #6b7280;
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+
+.stat-card strong {
+    display: block;
+    color: #111827;
+    font-size: 21px;
+    line-height: 1;
+}
+
+
+/* =========================
+   SECTIONS
+   ========================= */
+
+.dashboard-section {
+    margin-bottom: 25px;
+}
+
+.dashboard-section-title {
+    margin-bottom: 12px;
+}
+
+.dashboard-section-title h2 {
+    margin: 0 0 3px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.dashboard-section-title p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+
+/* =========================
+   QUICK ACTIONS
+   ========================= */
+
+.quick-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.quick-action-card {
+    min-height: 72px;
+    background: #ffffff;
+    border: 1px solid #e8e2d8;
+    border-radius: 9px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    text-decoration: none !important;
+    color: inherit;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.035);
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.quick-action-card::after {
+    content: "›";
+    position: absolute;
+    right: 17px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 28px;
+    color: #555555;
+    font-weight: 300;
+}
+
+.quick-action-card:hover {
+    transform: translateY(-2px);
+    border-color: #d6bd86;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+}
+
+.quick-action-icon {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    border-radius: 50%;
+    background: #f7f0df;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.quick-action-card h3 {
+    margin: 0 0 3px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.quick-action-card p {
+    margin: 0;
+    padding-right: 25px;
+    color: #6b7280;
+    font-size: 12px;
+}
+
+
+/* =========================
+   SYSTEM STATUS
+   ========================= */
+
+.system-status-card {
+    background: #ffffff;
+    border: 1px solid #e8e2d8;
+    border-radius: 9px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.035);
+}
+
+.status-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 17px;
+    border-bottom: 1px solid #eeeae3;
+    font-size: 13px;
+}
+
+.status-row:last-child {
+    border-bottom: none;
+}
+
+.status-row span {
+    color: #374151;
+}
+
+.status-online {
+    color: #27965a;
+    font-size: 12px;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 1000px) {
+
+    .dashboard-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quick-actions {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .dashboard-welcome {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .dashboard-add-btn {
+        width: 100%;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        min-height: 65px;
+    }
+}

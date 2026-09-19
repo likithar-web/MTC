@@ -1,0 +1,132 @@
+{% extends "admin/base.html" %}
+
+{% block title %}
+Categories | MTC HOTEL
+{% endblock %}
+
+{% block page_title %}
+Categories
+{% endblock %}
+
+{% block content %}
+
+<!-- CATEGORY PAGE HEADER -->
+
+<div class="category-page-header">
+
+    <div>
+        <h2>Category Management</h2>
+
+        <p>
+            View all food categories currently used in MTC HOTEL.
+        </p>
+    </div>
+
+</div>
+
+
+<!-- CATEGORY SUMMARY -->
+
+<div class="category-summary">
+
+    <div class="category-summary-icon">
+        ▤
+    </div>
+
+    <div>
+
+        <span>
+            Total Categories
+        </span>
+
+        <strong>
+            {{ categories|length }}
+        </strong>
+
+    </div>
+
+</div>
+
+
+<!-- CATEGORY LIST -->
+
+{% if categories %}
+
+<div class="category-grid">
+
+    {% for category in categories %}
+
+    <!-- CLICKABLE CATEGORY -->
+
+    <a
+        href="{{ url_for('admin_foods', category=category) }}"
+        class="category-card"
+    >
+
+        <!-- ICON -->
+
+        <div class="category-card-icon">
+            🍽️
+        </div>
+
+
+        <!-- CATEGORY INFORMATION -->
+
+        <div class="category-card-content">
+
+            <h3>
+                {{ category }}
+            </h3>
+
+            <p>
+                View foods in this category
+            </p>
+
+        </div>
+
+
+        <!-- ARROW -->
+
+        <div class="category-arrow">
+            →
+        </div>
+
+    </a>
+
+    {% endfor %}
+
+</div>
+
+
+{% else %}
+
+
+<!-- EMPTY STATE -->
+
+<div class="category-empty">
+
+    <div class="category-empty-icon">
+        ▤
+    </div>
+
+    <h2>
+        No Categories Found
+    </h2>
+
+    <p>
+        Add categories while creating food items.
+    </p>
+
+    <a
+        href="{{ url_for('add_food') }}"
+        class="menu-add-btn"
+    >
+        + Add Food
+    </a>
+
+</div>
+
+
+{% endif %}
+
+{% endblock %}

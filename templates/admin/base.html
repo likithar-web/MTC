@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}MTC HOTEL Admin{% endblock %}
+    </title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+
+        /* =========================================
+           ADMIN MENU
+           ========================================= */
+
+        .admin-menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 28px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .admin-menu-card {
+            background: #ffffff;
+            border: 1px solid #e4d8c3;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            min-width: 0;
+        }
+
+        .admin-menu-image {
+            position: relative;
+            width: 100%;
+            height: 230px;
+            overflow: hidden;
+            background: #171717;
+        }
+
+        .admin-menu-image img {
+            display: block !important;
+            width: 100% !important;
+            height: 230px !important;
+            max-width: 100% !important;
+            max-height: 230px !important;
+            object-fit: cover !important;
+            object-position: center !important;
+        }
+
+        .menu-image-placeholder {
+            width: 100%;
+            height: 230px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #171717;
+            color: #ffffff;
+            font-size: 45px;
+        }
+
+        .menu-featured {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: #d4af57;
+            color: #111111;
+            padding: 11px 17px;
+            border-radius: 5px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            z-index: 2;
+        }
+
+        .admin-menu-info {
+            padding: 25px 28px 22px;
+            background: #fffdf9;
+        }
+
+        .menu-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .menu-card-top h3 {
+            margin: 0 0 8px;
+            font-size: 25px;
+            line-height: 1.2;
+            color: #111111;
+        }
+
+        .menu-category {
+            display: inline-block;
+            color: #a97816;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .menu-price {
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .menu-price strong {
+            display: block;
+            font-size: 27px;
+            line-height: 1;
+            color: #111111;
+        }
+
+        .menu-price del {
+            display: block;
+            margin-top: 7px;
+            color: #999999;
+            font-size: 14px;
+        }
+
+        .menu-description {
+            margin: 30px 0 22px;
+            color: #666666;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .menu-card-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 16px;
+            border-top: 1px solid #eee5d7;
+        }
+
+        .menu-meal {
+            color: #8b6419;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .menu-available {
+            color: #287a3d;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .menu-unavailable {
+            color: #b33a3a;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        /* =========================================
+           FILTER BUTTONS
+           ========================================= */
+
+        .menu-filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 25px 0 30px;
+        }
+
+        .menu-filter {
+            border: 1px solid #d5c39e;
+            background: #ffffff;
+            color: #4d3b20;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .menu-filter:hover,
+        .menu-filter.active {
+            background: #b78b2c;
+            border-color: #b78b2c;
+            color: #ffffff;
+        }
+
+        /* =========================================
+           WELCOME
+           ========================================= */
+
+        .dashboard-welcome {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .dashboard-welcome h2 {
+            margin: 0 0 6px;
+        }
+
+        .dashboard-welcome p {
+            margin: 0;
+            color: #777777;
+        }
+
+        /* =========================================
+           ADMIN BODY
+           ========================================= */
+
+        .admin-body {
+            margin: 0;
+            background: #f5f3ef;
+        }
+
+        .admin-layout {
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* =========================================
+           SIDEBAR
+           ========================================= */
+
+        .admin-sidebar {
+            width: 250px;
+            min-width: 250px;
+            background: #171717;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .admin-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 24px 20px;
+            border-bottom: 1px solid #333333;
+        }
+
+        .admin-logo {
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            background: #c59a3d;
+            color: #111111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+        }
+
+        .admin-hotel-name {
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .admin-label {
+            margin-top: 3px;
+            font-size: 10px;
+            color: #c59a3d;
+            letter-spacing: 1.5px;
+        }
+
+        .admin-nav {
+            padding: 20px 12px;
+            flex: 1;
+        }
+
+        .admin-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            margin-bottom: 5px;
+            color: #cccccc;
+            text-decoration: none;
+            border-radius: 7px;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .admin-nav-item:hover,
+        .admin-nav-item.active {
+            background: #2b2b2b;
+            color: #ffffff;
+        }
+
+        .admin-sidebar-bottom {
+            padding: 15px 12px;
+            border-top: 1px solid #333333;
+        }
+
+        /* =========================================
+           MAIN
+           ========================================= */
+
+        .admin-main {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .admin-topbar {
+            height: 90px;
+            background: #ffffff;
+            border-bottom: 1px solid #e5e1d9;
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+
+        .admin-topbar h1 {
+            margin: 0;
+            font-size: 25px;
+        }
+
+        .admin-topbar p {
+            margin: 5px 0 0;
+            color: #888888;
+            font-size: 13px;
+        }
+
+        .admin-user {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .admin-user-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #c59a3d;
+            color: #111111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .admin-user small {
+            display: block;
+            color: #888888;
+            margin-top: 2px;
+        }
+
+        .admin-content {
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        /* =========================================
+           PLACEHOLDER PAGES
+           ========================================= */
+
+        .admin-placeholder-card {
+            margin-top: 30px;
+            background: #ffffff;
+            border: 1px solid #e4d8c3;
+            border-radius: 12px;
+            padding: 60px 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .admin-placeholder-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .admin-placeholder-card h2 {
+            margin: 10px 0;
+            font-size: 28px;
+        }
+
+        .admin-placeholder-card p {
+            color: #666666;
+            font-size: 16px;
+        }
+
+        .admin-placeholder-small {
+            color: #999999 !important;
+            font-size: 14px !important;
+        }
+
+        /* =========================================
+           RESPONSIVE
+           ========================================= */
+
+        @media (max-width: 1100px) {
+
+            .admin-menu-grid {
+                grid-template-columns: repeat(2, minmax(0,1fr));
+            }
+
+        }
+
+        @media (max-width: 700px) {
+
+            .admin-menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .admin-menu-image,
+            .admin-menu-image img,
+            .menu-image-placeholder {
+                height: 220px !important;
+            }
+
+        }
+
+        @media (max-width: 800px) {
+
+            .admin-sidebar {
+                width: 210px;
+                min-width: 210px;
+            }
+
+            .admin-content {
+                padding: 20px;
+            }
+
+            .admin-topbar {
+                padding: 0 20px;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .admin-sidebar {
+                display: none;
+            }
+
+            .admin-menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="admin-body">
+
+
+<div class="admin-layout">
+
+
+    <!-- =========================================
+         SIDEBAR
+         ========================================= -->
+
+    <aside class="admin-sidebar">
+
+
+        <div class="admin-brand">
+
+            <div class="admin-logo">
+                MTC
+            </div>
+
+            <div>
+
+                <div class="admin-hotel-name">
+                    MTC HOTEL
+                </div>
+
+                <div class="admin-label">
+                    ADMIN PANEL
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <nav class="admin-nav">
+
+
+            <!-- DASHBOARD -->
+
+            <a href="{{ url_for('admin_dashboard') }}"
+               class="admin-nav-item {% if request.endpoint == 'admin_dashboard' %}active{% endif %}">
+
+                <span>▣</span>
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <!-- MENU -->
+
+            <a href="{{ url_for('admin_menu') }}"
+               class="admin-nav-item {% if request.endpoint == 'admin_menu' %}active{% endif %}">
+
+                <span>☰</span>
+                <span>Menu</span>
+
+            </a>
+
+
+            <!-- ORDERS -->
+
+            <a href="{{ url_for('admin_orders') }}"
+               class="admin-nav-item {% if request.endpoint == 'admin_orders' %}active{% endif %}">
+
+                <span>🛒</span>
+                <span>Orders</span>
+
+            </a>
+
+
+            <!-- FOODS -->
+
+            <a href="{{ url_for('admin_foods') }}"
+               class="admin-nav-item {% if request.endpoint == 'admin_foods' %}active{% endif %}">
+
+                <span>🍽</span>
+                <span>Foods</span>
+
+            </a>
+
+
+            <!-- CATEGORIES -->
+
+            <a href="{{ url_for('admin_categories') }}"
+               class="admin-nav-item {% if request.endpoint == 'admin_categories' %}active{% endif %}">
+
+                <span>▤</span>
+                <span>Categories</span>
+
+            </a>
+
+
+            <!-- MEAL TIMINGS -->
+
+            <a href="{{ url_for('admin_meal_timings') }}"
+               class="admin-nav-item {% if request.endpoint == 'admin_meal_timings' %}active{% endif %}">
+
+                <span>◷</span>
+                <span>Meal Timings</span>
+
+            </a>
+
+
+            <!-- OFFERS -->
+
+            <a href="{{ url_for('admin_offers') }}"
+               class="admin-nav-item {% if request.endpoint == 'admin_offers' %}active{% endif %}">
+
+                <span>✦</span>
+                <span>Offers & Combos</span>
+
+            </a>
+
+
+            <!-- CUSTOMERS -->
+
+            <a href="{{ url_for('admin_customers') }}"
+               class="admin-nav-item {% if request.endpoint == 'admin_customers' %}active{% endif %}">
+
+                <span>👥</span>
+                <span>Customers</span>
+
+            </a>
+
+
+            <!-- REPORTS -->
+
+            <a href="{{ url_for('admin_reports') }}"
+               class="admin-nav-item {% if request.endpoint == 'admin_reports' %}active{% endif %}">
+
+                <span>▥</span>
+                <span>Reports</span>
+
+            </a>
+
+
+            <!-- SETTINGS -->
+
+            <a href="{{ url_for('admin_settings') }}"
+               class="admin-nav-item {% if request.endpoint == 'admin_settings' %}active{% endif %}">
+
+                <span>⚙</span>
+                <span>Settings</span>
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- LOGOUT -->
+
+        <div class="admin-sidebar-bottom">
+
+            <a href="{{ url_for('admin_logout') }}"
+               class="admin-nav-item logout">
+
+                <span>↪</span>
+                <span>Logout</span>
+
+            </a>
+
+        </div>
+
+
+    </aside>
+
+
+    <!-- =========================================
+         MAIN CONTENT
+         ========================================= -->
+
+    <main class="admin-main">
+
+
+        <header class="admin-topbar">
+
+
+            <div>
+
+                <h1>
+                    {% block page_title %}
+                    Dashboard
+                    {% endblock %}
+                </h1>
+
+                <p>
+                    MTC HOTEL Management System
+                </p>
+
+            </div>
+
+
+            <div class="admin-user">
+
+                <div class="admin-user-icon">
+                    A
+                </div>
+
+                <div>
+
+                    <strong>
+                        Administrator
+                    </strong>
+
+                    <small>
+                        Admin
+                    </small>
+
+                </div>
+
+            </div>
+
+
+        </header>
+
+
+        <section class="admin-content">
+
+            {% block content %}
+            {% endblock %}
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+</body>
+
+</html>

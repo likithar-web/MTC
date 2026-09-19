@@ -1,0 +1,122 @@
+{% extends "admin/base.html" %}
+
+{% block title %}
+Meal Timings | MTC HOTEL
+{% endblock %}
+
+{% block page_title %}
+Meal Timings
+{% endblock %}
+
+{% block content %}
+
+<!-- PAGE HEADER -->
+
+<div class="meal-timings-header">
+
+    <div>
+        <h2>Meal Timings</h2>
+
+        <p>
+            Manage breakfast, lunch, evening and dinner timings.
+        </p>
+    </div>
+
+</div>
+
+
+<!-- SUMMARY -->
+
+<div class="meal-timings-summary">
+
+    <div class="meal-summary-icon">
+        ◷
+    </div>
+
+    <div>
+
+        <span>
+            Total Meal Periods
+        </span>
+
+        <strong>
+            {{ meal_timings|length }}
+        </strong>
+
+    </div>
+
+</div>
+
+
+<!-- MEAL TIMINGS -->
+
+<div class="meal-timings-grid">
+
+    {% for meal in meal_timings %}
+
+    <div class="meal-timing-card">
+
+        <!-- ICON -->
+
+        <div class="meal-timing-icon">
+            {{ meal.icon }}
+        </div>
+
+
+        <!-- CONTENT -->
+
+        <div class="meal-timing-content">
+
+            <h3>
+                {{ meal.name }}
+            </h3>
+
+            <div class="meal-time">
+                {{ meal.time }}
+            </div>
+
+            <p>
+                {{ meal.description }}
+            </p>
+
+        </div>
+
+
+        <!-- STATUS -->
+
+        <div class="meal-timing-status">
+            <span>●</span>
+            Active
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+
+<!-- INFORMATION -->
+
+<div class="meal-timing-info">
+
+    <div class="meal-info-icon">
+        ℹ
+    </div>
+
+    <div>
+
+        <strong>
+            Meal timing information
+        </strong>
+
+        <p>
+            These timings are currently displayed for the MTC HOTEL admin panel.
+            Database editing can be added later.
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

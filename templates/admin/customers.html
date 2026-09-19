@@ -1,0 +1,72 @@
+{% extends "admin/base.html" %}
+
+{% block title %}
+Customers | MTC HOTEL
+{% endblock %}
+
+{% block page_title %}
+Customers
+{% endblock %}
+
+{% block content %}
+
+<!-- CUSTOMER PAGE HEADER -->
+<div class="dashboard-welcome customers-welcome">
+    <div>
+        <h2>Customer Management</h2>
+        <p>View and manage customer information for MTC HOTEL.</p>
+    </div>
+</div>
+
+
+<!-- CUSTOMER STAT -->
+<div class="customer-stat-card">
+
+    <div class="customer-stat-icon">
+        👥
+    </div>
+
+    <div class="customer-stat-content">
+        <span>Total Customers</span>
+        <strong>{{ customer_count|default(0) }}</strong>
+    </div>
+
+</div>
+
+
+<!-- CUSTOMER CONTENT -->
+<div class="customers-content-card">
+
+    {% if customer_count|default(0) > 0 %}
+
+        <div class="customers-section-header">
+            <div>
+                <h2>Customers</h2>
+                <p>Registered customers of MTC HOTEL.</p>
+            </div>
+        </div>
+
+        <!-- Customer table can be added here later -->
+
+    {% else %}
+
+        <div class="customers-empty-state">
+
+            <div class="customers-empty-icon">
+                👥
+            </div>
+
+            <h2>No Customers Yet</h2>
+
+            <p>
+                Customer information will appear here when customers
+                place orders through the MTC HOTEL system.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

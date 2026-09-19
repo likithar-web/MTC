@@ -1,0 +1,267 @@
+{% extends "admin/base.html" %}
+
+{% block title %}
+Edit {{ food.name }} | MTC HOTEL
+{% endblock %}
+
+{% block page_title %}
+Edit Food
+{% endblock %}
+
+{% block content %}
+
+<div class="menu-page-header">
+    <div>
+        <h2>Edit Food</h2>
+        <p>Update food details, price, image and availability.</p>
+    </div>
+
+    <a href="{{ url_for('admin_foods') }}" class="menu-add-btn">
+        ← Back to Foods
+    </a>
+</div>
+
+
+<div class="admin-form-card">
+
+    <form method="POST" enctype="multipart/form-data">
+
+        <div class="admin-form-grid">
+
+            <div class="form-group">
+                <label>Food Name</label>
+
+                <input
+                    type="text"
+                    name="name"
+                    value="{{ food.name }}"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label>Category</label>
+
+                <input
+                    type="text"
+                    name="category"
+                    value="{{ food.category or '' }}"
+                    placeholder="Example: Breakfast"
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label>Meal Timing</label>
+
+                <select name="meal">
+
+                    <option value="">Select Meal</option>
+
+                    <option value="Breakfast"
+                    {% if food.meal == "Breakfast" %}selected{% endif %}>
+                        Breakfast
+                    </option>
+
+                    <option value="Lunch"
+                    {% if food.meal == "Lunch" %}selected{% endif %}>
+                        Lunch
+                    </option>
+
+                    <option value="Evening"
+                    {% if food.meal == "Evening" %}selected{% endif %}>
+                        Evening
+                    </option>
+
+                    <option value="Dinner"
+                    {% if food.meal == "Dinner" %}selected{% endif %}>
+                        Dinner
+                    </option>
+
+                    <option value="All Day"
+                    {% if food.meal == "All Day" %}selected{% endif %}>
+                        All Day
+                    </option>
+
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <label>Regular Price (₹)</label>
+
+                <input
+                    type="number"
+                    name="price"
+                    value="{{ food.price }}"
+                    step="0.01"
+                    min="0"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label>Offer Price (₹)</label>
+
+                <input
+                    type="number"
+                    name="offer_price"
+                    value="{{ food.offer_price or '' }}"
+                    step="0.01"
+                    min="0"
+                    placeholder="Optional"
+                >
+            </div>
+
+
+            <div class="form-group full-width">
+                <label>Description</label>
+
+                <textarea
+                    name="description"
+                    placeholder="Describe the food..."
+                >{{ food.description or '' }}</textarea>
+            </div>
+
+
+            <!-- CURRENT IMAGE -->
+
+            <div class="form-group">
+
+                <label>Current Image</label>
+
+                {% if food.image %}
+
+                <div style="
+                    width:220px;
+                    height:160px;
+                    max-width:220px;
+                    max-height:160px;
+                    overflow:hidden;
+                    border-radius:12px;
+                    border:2px solid #d4af37;
+                    background:#f1eee7;
+                ">
+
+                    <img
+                        src="{{ url_for('static', filename='uploads/foods/' + food.image) }}"
+                        alt="{{ food.name }}"
+                        style="
+                            display:block;
+                            width:100%;
+                            height:100%;
+                            max-width:100%;
+                            max-height:100%;
+                            object-fit:cover;
+                        "
+                    >
+
+                </div>
+
+                {% else %}
+
+                <div style="
+                    width:220px;
+                    height:160px;
+                    border-radius:12px;
+                    background:#f1eee7;
+                    border:1px solid #dedbd3;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    font-size:40px;
+                ">
+                    🍽️
+                </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- CHANGE IMAGE -->
+
+            <div class="form-group">
+
+                <label>Change Image</label>
+
+                <input
+                    type="file"
+                    name="image"
+                    accept=".jpg,.jpeg,.png,.webp"
+                >
+
+                <small style="color:#777;">
+                    Leave empty to keep the current image.
+                </small>
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div class="form-group full-width">
+
+                <label>Food Status</label>
+
+                <div class="form-checks">
+
+                    <label class="form-check">
+
+                        <input
+                            type="checkbox"
+                            name="available"
+                            {% if food.available %}checked{% endif %}
+                        >
+
+                        Available
+
+                    </label>
+
+
+                    <label class="form-check">
+
+                        <input
+                            type="checkbox"
+                            name="featured"
+                            {% if food.featured %}checked{% endif %}
+                        >
+
+                        Featured Food ⭐
+
+                    </label>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="form-actions">
+
+            <button
+                type="submit"
+                class="admin-btn admin-btn-primary"
+            >
+                💾 Save Changes
+            </button>
+
+            <a
+                href="{{ url_for('admin_foods') }}"
+                class="admin-btn admin-btn-secondary"
+            >
+                Cancel
+            </a>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

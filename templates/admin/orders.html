@@ -1,0 +1,126 @@
+{% extends "admin/base.html" %}
+
+{% block title %}
+Orders | MTC HOTEL
+{% endblock %}
+
+{% block page_title %}
+Orders
+{% endblock %}
+
+{% block content %}
+
+<!-- ORDER PAGE HEADER -->
+<div class="dashboard-welcome orders-welcome">
+
+    <div>
+        <h2>Order Management</h2>
+
+        <p>
+            Manage customer orders and order status for MTC HOTEL.
+        </p>
+    </div>
+
+</div>
+
+
+<!-- ORDER STATISTICS -->
+<div class="orders-stats">
+
+    <!-- TOTAL ORDERS -->
+    <div class="order-stat-card">
+
+        <div class="order-stat-icon">
+            🛒
+        </div>
+
+        <div class="order-stat-content">
+            <span>Total Orders</span>
+            <strong>0</strong>
+        </div>
+
+    </div>
+
+
+    <!-- COMPLETED -->
+    <div class="order-stat-card">
+
+        <div class="order-stat-icon order-stat-green">
+            ✓
+        </div>
+
+        <div class="order-stat-content">
+            <span>Completed</span>
+            <strong>0</strong>
+        </div>
+
+    </div>
+
+
+    <!-- PENDING -->
+    <div class="order-stat-card">
+
+        <div class="order-stat-icon order-stat-orange">
+            ⏱
+        </div>
+
+        <div class="order-stat-content">
+            <span>Pending</span>
+            <strong>0</strong>
+        </div>
+
+    </div>
+
+
+    <!-- CANCELLED -->
+    <div class="order-stat-card">
+
+        <div class="order-stat-icon order-stat-red">
+            ×
+        </div>
+
+        <div class="order-stat-content">
+            <span>Cancelled</span>
+            <strong>0</strong>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- RECENT ORDERS -->
+<div class="orders-card">
+
+    <div class="orders-card-header">
+
+        <div>
+            <h2>Recent Orders</h2>
+
+            <p>
+                View and manage customer orders.
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- EMPTY STATE -->
+    <div class="orders-empty-state">
+
+        <div class="orders-empty-icon">
+            🛒
+        </div>
+
+        <h2>No Orders Yet</h2>
+
+        <p>
+            Customer orders will appear here when customers
+            place orders through the MTC HOTEL system.
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

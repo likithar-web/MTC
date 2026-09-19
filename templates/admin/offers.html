@@ -1,0 +1,141 @@
+{% extends "admin/base.html" %}
+
+{% block title %}
+Offers & Combos | MTC HOTEL
+{% endblock %}
+
+{% block page_title %}
+Offers & Combos
+{% endblock %}
+
+{% block content %}
+
+<!-- PAGE HEADER -->
+
+<div class="offers-page-header">
+
+    <div>
+        <h2>Offers & Combos</h2>
+
+        <p>
+            Create and manage special offers and food combos.
+        </p>
+    </div>
+
+</div>
+
+
+<!-- SUMMARY -->
+
+<div class="offers-summary">
+
+    <div class="offers-summary-icon">
+        ✦
+    </div>
+
+    <div>
+
+        <span>
+            Total Offers
+        </span>
+
+        <strong>
+            {{ offers|length }}
+        </strong>
+
+    </div>
+
+</div>
+
+
+<!-- OFFERS GRID -->
+
+<div class="offers-grid">
+
+    {% for offer in offers %}
+
+    <div class="offer-card">
+
+        <!-- OFFER ICON -->
+
+        <div class="offer-card-icon">
+            {{ offer.icon }}
+        </div>
+
+
+        <!-- OFFER CONTENT -->
+
+        <div class="offer-card-content">
+
+            <div class="offer-card-heading">
+
+                <h3>
+                    {{ offer.name }}
+                </h3>
+
+                <span class="offer-status">
+                    ● {{ offer.status }}
+                </span>
+
+            </div>
+
+
+            <p class="offer-description">
+                {{ offer.description }}
+            </p>
+
+
+            <div class="offer-card-bottom">
+
+                <div>
+
+                    <span class="offer-price-label">
+                        Combo Price
+                    </span>
+
+                    <strong class="offer-price">
+                        {{ offer.price }}
+                    </strong>
+
+                </div>
+
+                <div class="offer-action">
+                    View
+                    →
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+
+<!-- INFORMATION -->
+
+<div class="offers-info">
+
+    <div class="offers-info-icon">
+        ℹ
+    </div>
+
+    <div>
+
+        <strong>
+            Offers & Combos information
+        </strong>
+
+        <p>
+            These offers are currently displayed for the MTC HOTEL admin panel.
+            Database-based offer management can be added later.
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

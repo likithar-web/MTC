@@ -1,0 +1,8238 @@
+/* =========================================
+   ADMIN PANEL
+   ========================================= */
+
+.admin-body {
+    margin: 0;
+    background: #f5f3ee;
+    color: #222;
+}
+
+.admin-layout {
+    min-height: 100vh;
+    display: flex;
+}
+
+/* SIDEBAR */
+
+.admin-sidebar {
+    width: 250px;
+    min-height: 100vh;
+    background: #171717;
+    color: #fff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.admin-brand {
+    height: 90px;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 1px solid #303030;
+}
+
+.admin-logo {
+    width: 45px;
+    height: 45px;
+    border: 1px solid #c9a45c;
+    color: #c9a45c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.admin-hotel-name {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.admin-label {
+    margin-top: 4px;
+    font-size: 10px;
+    color: #c9a45c;
+    letter-spacing: 2px;
+}
+
+/* NAVIGATION */
+
+.admin-nav {
+    padding: 22px 14px;
+    flex: 1;
+}
+
+.admin-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    height: 46px;
+    padding: 0 14px;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    color: #bdbdbd;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.admin-nav-item span:first-child {
+    width: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.admin-nav-item:hover {
+    background: #242424;
+    color: #fff;
+}
+
+.admin-nav-item.active {
+    background: #c9a45c;
+    color: #171717;
+    font-weight: 600;
+}
+
+.admin-sidebar-bottom {
+    padding: 14px;
+    border-top: 1px solid #303030;
+}
+
+.admin-nav-item.logout:hover {
+    color: #fff;
+    background: #2b2020;
+}
+
+/* MAIN AREA */
+
+.admin-main {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    min-height: 100vh;
+}
+
+/* TOP BAR */
+
+.admin-topbar {
+    height: 90px;
+    background: #fff;
+    border-bottom: 1px solid #e5e1d8;
+    padding: 0 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.admin-topbar h1 {
+    margin: 0;
+    font-size: 25px;
+    color: #1b1b1b;
+}
+
+.admin-topbar p {
+    margin: 5px 0 0;
+    color: #888;
+    font-size: 13px;
+}
+
+.admin-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.admin-user-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #c9a45c;
+    color: #171717;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.admin-user strong {
+    display: block;
+    font-size: 13px;
+}
+
+.admin-user small {
+    color: #888;
+    font-size: 11px;
+}
+
+/* CONTENT */
+
+.admin-content {
+    padding: 35px;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .admin-sidebar {
+        width: 70px;
+    }
+
+    .admin-brand {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .admin-hotel-name,
+    .admin-label,
+    .admin-nav-item span:last-child {
+        display: none;
+    }
+
+    .admin-nav-item {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .admin-main {
+        margin-left: 70px;
+        width: calc(100% - 70px);
+    }
+
+    .admin-topbar {
+        padding: 0 20px;
+    }
+
+    .admin-user div:last-child {
+        display: none;
+    }
+
+    .admin-content {
+        padding: 20px;
+    }
+}
+/* =========================================
+   DASHBOARD
+   ========================================= */
+
+.dashboard-welcome {
+    background: #ffffff;
+    border: 1px solid #e7e2d8;
+    padding: 25px 28px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+}
+
+.dashboard-welcome h2 {
+    margin: 0 0 6px;
+    font-size: 22px;
+    color: #1b1b1b;
+}
+
+.dashboard-welcome p {
+    margin: 0;
+    color: #888;
+    font-size: 14px;
+}
+
+
+/* STATISTICS */
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: #ffffff;
+    border: 1px solid #e7e2d8;
+    border-radius: 10px;
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    background: #f5ead0;
+    color: #a9823c;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.stat-card span {
+    display: block;
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.stat-card h3 {
+    margin: 0;
+    font-size: 24px;
+    color: #1b1b1b;
+}
+
+.stat-card small {
+    color: #999;
+    font-size: 11px;
+}
+
+
+/* LOWER GRID */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 25px;
+}
+
+.dashboard-panel {
+    background: #ffffff;
+    border: 1px solid #e7e2d8;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #eee;
+}
+
+.panel-header h3 {
+    margin: 0 0 5px;
+    font-size: 18px;
+    color: #222;
+}
+
+.panel-header p {
+    margin: 0;
+    font-size: 12px;
+    color: #999;
+}
+
+.panel-link {
+    color: #a9823c;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* EMPTY STATE */
+
+.empty-state {
+    text-align: center;
+    padding: 45px 20px;
+}
+
+.empty-icon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.empty-state h4 {
+    margin: 0 0 6px;
+    font-size: 16px;
+}
+
+.empty-state p {
+    margin: 0;
+    color: #999;
+    font-size: 13px;
+}
+
+
+/* QUICK ACTIONS */
+
+.quick-actions {
+    padding-top: 8px;
+}
+
+.quick-action {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 5px;
+    border-bottom: 1px solid #eee;
+    text-decoration: none;
+    color: #222;
+}
+
+.quick-action:last-child {
+    border-bottom: none;
+}
+
+.quick-action > span {
+    width: 40px;
+    height: 40px;
+    border-radius: 7px;
+    background: #f5ead0;
+    color: #a9823c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.quick-action strong {
+    display: block;
+    font-size: 14px;
+}
+
+.quick-action small {
+    display: block;
+    margin-top: 3px;
+    color: #999;
+    font-size: 11px;
+}
+
+
+/* DASHBOARD MOBILE */
+
+@media (max-width: 1000px) {
+
+    .dashboard-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-welcome {
+        padding: 20px;
+    }
+
+    .dashboard-panel {
+        padding: 20px;
+    }
+}
+/* =========================================
+   FOODS MANAGEMENT PAGE
+   ========================================= */
+
+.page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 25px;
+}
+
+.page-heading h2 {
+    margin: 0 0 6px;
+    font-size: 24px;
+    color: #1b1b1b;
+}
+
+.page-heading p {
+    margin: 0;
+    color: #888;
+    font-size: 14px;
+}
+
+.admin-primary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 18px;
+    background: #c9a45c;
+    color: #171717;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid #c9a45c;
+    transition: 0.2s ease;
+}
+
+.admin-primary-btn:hover {
+    background: #b89249;
+    border-color: #b89249;
+}
+
+
+/* FOOD SUMMARY */
+
+.food-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.food-summary-card {
+    background: #ffffff;
+    border: 1px solid #e7e2d8;
+    border-radius: 10px;
+    padding: 20px 22px;
+}
+
+.food-summary-card span {
+    display: block;
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.food-summary-card strong {
+    display: block;
+    color: #1b1b1b;
+    font-size: 24px;
+}
+
+
+/* FOOD PANEL */
+
+.food-panel {
+    background: #ffffff;
+    border: 1px solid #e7e2d8;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.food-panel-header {
+    padding: 22px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.food-panel-header h3 {
+    margin: 0 0 5px;
+    font-size: 18px;
+    color: #222;
+}
+
+.food-panel-header p {
+    margin: 0;
+    color: #999;
+    font-size: 12px;
+}
+
+.food-tools {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.food-search,
+.food-filter {
+    height: 40px;
+    border: 1px solid #ddd7cc;
+    border-radius: 6px;
+    background: #fff;
+    color: #333;
+    font-size: 13px;
+    outline: none;
+}
+
+.food-search {
+    width: 210px;
+    padding: 0 12px;
+}
+
+.food-filter {
+    min-width: 150px;
+    padding: 0 10px;
+}
+
+.food-search:focus,
+.food-filter:focus {
+    border-color: #c9a45c;
+}
+
+
+/* FOOD TABLE */
+
+.food-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.food-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.food-table th {
+    background: #faf8f3;
+    color: #777;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: left;
+    padding: 14px 18px;
+    border-bottom: 1px solid #e8e3da;
+    white-space: nowrap;
+}
+
+.food-table td {
+    padding: 15px 18px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+    font-size: 13px;
+}
+
+.food-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* EMPTY FOOD STATE */
+
+.food-empty {
+    text-align: center;
+    padding: 65px 20px;
+}
+
+.food-empty-icon {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 15px;
+    border-radius: 10px;
+    background: #f5ead0;
+    color: #a9823c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.food-empty h4 {
+    margin: 0 0 8px;
+    font-size: 17px;
+    color: #222;
+}
+
+.food-empty p {
+    margin: 0 auto 20px;
+    max-width: 430px;
+    color: #999;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   FOODS RESPONSIVE
+   ========================================= */
+
+@media (max-width: 1000px) {
+
+    .food-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .food-panel-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .food-tools {
+        width: 100%;
+    }
+
+    .food-search {
+        flex: 1;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .page-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .food-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .food-tools {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .food-search,
+    .food-filter {
+        width: 100%;
+    }
+
+    .food-panel-header {
+        padding: 20px;
+    }
+
+    .food-empty {
+        padding: 45px 15px;
+    }
+}
+/* =========================================
+   FOODS MANAGEMENT PAGE
+   ========================================= */
+
+.page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 25px;
+}
+
+.page-heading h2 {
+    margin: 0 0 6px;
+    font-size: 24px;
+    color: #1b1b1b;
+}
+
+.page-heading p {
+    margin: 0;
+    color: #888;
+    font-size: 14px;
+}
+
+.admin-primary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 18px;
+    background: #c9a45c;
+    color: #171717;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid #c9a45c;
+    transition: 0.2s ease;
+}
+
+.admin-primary-btn:hover {
+    background: #b89249;
+    border-color: #b89249;
+}
+
+
+/* FOOD SUMMARY */
+
+.food-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.food-summary-card {
+    background: #ffffff;
+    border: 1px solid #e7e2d8;
+    border-radius: 10px;
+    padding: 20px 22px;
+}
+
+.food-summary-card span {
+    display: block;
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.food-summary-card strong {
+    display: block;
+    color: #1b1b1b;
+    font-size: 24px;
+}
+
+
+/* FOOD PANEL */
+
+.food-panel {
+    background: #ffffff;
+    border: 1px solid #e7e2d8;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.food-panel-header {
+    padding: 22px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.food-panel-header h3 {
+    margin: 0 0 5px;
+    font-size: 18px;
+    color: #222;
+}
+
+.food-panel-header p {
+    margin: 0;
+    color: #999;
+    font-size: 12px;
+}
+
+.food-tools {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.food-search,
+.food-filter {
+    height: 40px;
+    border: 1px solid #ddd7cc;
+    border-radius: 6px;
+    background: #fff;
+    color: #333;
+    font-size: 13px;
+    outline: none;
+}
+
+.food-search {
+    width: 210px;
+    padding: 0 12px;
+}
+
+.food-filter {
+    min-width: 150px;
+    padding: 0 10px;
+}
+
+.food-search:focus,
+.food-filter:focus {
+    border-color: #c9a45c;
+}
+
+
+/* FOOD TABLE */
+
+.food-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.food-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.food-table th {
+    background: #faf8f3;
+    color: #777;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: left;
+    padding: 14px 18px;
+    border-bottom: 1px solid #e8e3da;
+    white-space: nowrap;
+}
+
+.food-table td {
+    padding: 15px 18px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+    font-size: 13px;
+}
+
+.food-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* EMPTY FOOD STATE */
+
+.food-empty {
+    text-align: center;
+    padding: 65px 20px;
+}
+
+.food-empty-icon {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 15px;
+    border-radius: 10px;
+    background: #f5ead0;
+    color: #a9823c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.food-empty h4 {
+    margin: 0 0 8px;
+    font-size: 17px;
+    color: #222;
+}
+
+.food-empty p {
+    margin: 0 auto 20px;
+    max-width: 430px;
+    color: #999;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   FOODS RESPONSIVE
+   ========================================= */
+
+@media (max-width: 1000px) {
+
+    .food-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .food-panel-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .food-tools {
+        width: 100%;
+    }
+
+    .food-search {
+        flex: 1;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .page-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .food-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .food-tools {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .food-search,
+    .food-filter {
+        width: 100%;
+    }
+
+    .food-panel-header {
+        padding: 20px;
+    }
+
+    .food-empty {
+        padding: 45px 15px;
+    }
+}
+/* =========================================
+   FOODS MANAGEMENT PAGE
+   ========================================= */
+
+.page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 25px;
+}
+
+.page-heading h2 {
+    margin: 0 0 6px;
+    font-size: 24px;
+    color: #1b1b1b;
+}
+
+.page-heading p {
+    margin: 0;
+    color: #888;
+    font-size: 14px;
+}
+
+.admin-primary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 18px;
+    background: #c9a45c;
+    color: #171717;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid #c9a45c;
+    transition: 0.2s ease;
+}
+
+.admin-primary-btn:hover {
+    background: #b89249;
+    border-color: #b89249;
+}
+
+
+/* FOOD SUMMARY */
+
+.food-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.food-summary-card {
+    background: #ffffff;
+    border: 1px solid #e7e2d8;
+    border-radius: 10px;
+    padding: 20px 22px;
+}
+
+.food-summary-card span {
+    display: block;
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.food-summary-card strong {
+    display: block;
+    color: #1b1b1b;
+    font-size: 24px;
+}
+
+
+/* FOOD PANEL */
+
+.food-panel {
+    background: #ffffff;
+    border: 1px solid #e7e2d8;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.food-panel-header {
+    padding: 22px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.food-panel-header h3 {
+    margin: 0 0 5px;
+    font-size: 18px;
+    color: #222;
+}
+
+.food-panel-header p {
+    margin: 0;
+    color: #999;
+    font-size: 12px;
+}
+
+.food-tools {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.food-search,
+.food-filter {
+    height: 40px;
+    border: 1px solid #ddd7cc;
+    border-radius: 6px;
+    background: #fff;
+    color: #333;
+    font-size: 13px;
+    outline: none;
+}
+
+.food-search {
+    width: 210px;
+    padding: 0 12px;
+}
+
+.food-filter {
+    min-width: 150px;
+    padding: 0 10px;
+}
+
+.food-search:focus,
+.food-filter:focus {
+    border-color: #c9a45c;
+}
+
+
+/* FOOD TABLE */
+
+.food-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.food-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.food-table th {
+    background: #faf8f3;
+    color: #777;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: left;
+    padding: 14px 18px;
+    border-bottom: 1px solid #e8e3da;
+    white-space: nowrap;
+}
+
+.food-table td {
+    padding: 15px 18px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+    font-size: 13px;
+}
+
+.food-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* EMPTY FOOD STATE */
+
+.food-empty {
+    text-align: center;
+    padding: 65px 20px;
+}
+
+.food-empty-icon {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 15px;
+    border-radius: 10px;
+    background: #f5ead0;
+    color: #a9823c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.food-empty h4 {
+    margin: 0 0 8px;
+    font-size: 17px;
+    color: #222;
+}
+
+.food-empty p {
+    margin: 0 auto 20px;
+    max-width: 430px;
+    color: #999;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   FOODS RESPONSIVE
+   ========================================= */
+
+@media (max-width: 1000px) {
+
+    .food-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .food-panel-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .food-tools {
+        width: 100%;
+    }
+
+    .food-search {
+        flex: 1;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .page-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .food-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .food-tools {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .food-search,
+    .food-filter {
+        width: 100%;
+    }
+
+    .food-panel-header {
+        padding: 20px;
+    }
+
+    .food-empty {
+        padding: 45px 15px;
+    }
+}
+/* =========================================
+   FOODS PAGE - MATCH DASHBOARD DESIGN
+   ========================================= */
+
+.page-heading {
+    background: #ffffff;
+    border: 1px solid #e7e2d8;
+    padding: 25px 28px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.page-heading h2 {
+    margin: 0 0 6px;
+    font-size: 22px;
+    color: #1b1b1b;
+}
+
+.page-heading p {
+    margin: 0;
+    color: #888;
+    font-size: 14px;
+}
+
+.admin-primary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 42px;
+    padding: 0 18px;
+
+    background: #c9a45c;
+    color: #171717;
+
+    text-decoration: none;
+    border: 1px solid #c9a45c;
+    border-radius: 6px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.admin-primary-btn:hover {
+    background: #b89249;
+    border-color: #b89249;
+}
+
+
+/* =========================================
+   FOOD SUMMARY CARDS
+   SAME AS DASHBOARD STAT CARDS
+   ========================================= */
+
+.food-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.food-summary-card {
+    background: #ffffff;
+    border: 1px solid #e7e2d8;
+    border-radius: 10px;
+
+    padding: 22px;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.food-summary-card::before {
+    width: 50px;
+    height: 50px;
+
+    background: #f5ead0;
+    color: #a9823c;
+
+    border-radius: 8px;
+}
+
+.food-summary-card span {
+    display: block;
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.food-summary-card strong {
+    display: block;
+    color: #1b1b1b;
+    font-size: 24px;
+}
+
+
+/* =========================================
+   ALL FOODS PANEL
+   ========================================= */
+
+.food-panel {
+    background: #ffffff;
+    border: 1px solid #e7e2d8;
+    border-radius: 10px;
+
+    padding: 25px;
+
+    overflow: hidden;
+}
+
+.food-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 18px;
+    border-bottom: 1px solid #eee;
+
+    margin-bottom: 0;
+}
+
+.food-panel-header h3 {
+    margin: 0 0 5px;
+    font-size: 18px;
+    color: #222;
+}
+
+.food-panel-header p {
+    margin: 0;
+    color: #999;
+    font-size: 12px;
+}
+
+
+/* =========================================
+   SEARCH + FILTER
+   ========================================= */
+
+.food-tools {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.food-search,
+.food-filter {
+    height: 40px;
+
+    background: #ffffff;
+    border: 1px solid #ddd7cc;
+    border-radius: 6px;
+
+    color: #333;
+    font-size: 13px;
+
+    outline: none;
+}
+
+.food-search {
+    width: 210px;
+    padding: 0 12px;
+}
+
+.food-filter {
+    min-width: 150px;
+    padding: 0 10px;
+}
+
+.food-search:focus,
+.food-filter:focus {
+    border-color: #c9a45c;
+}
+
+
+/* =========================================
+   FOOD TABLE
+   ========================================= */
+
+.food-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.food-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.food-table th {
+    background: #faf8f3;
+
+    color: #777;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    text-align: left;
+
+    padding: 14px 18px;
+
+    border-bottom: 1px solid #e8e3da;
+
+    white-space: nowrap;
+}
+
+.food-table td {
+    padding: 15px 18px;
+
+    border-bottom: 1px solid #eee;
+
+    color: #333;
+    font-size: 13px;
+}
+
+
+/* =========================================
+   EMPTY STATE
+   ========================================= */
+
+.food-empty {
+    text-align: center;
+    padding: 55px 20px;
+}
+
+.food-empty-icon {
+    width: 50px;
+    height: 50px;
+
+    margin: 0 auto 12px;
+
+    border-radius: 8px;
+
+    background: #f5ead0;
+    color: #a9823c;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+}
+
+.food-empty h4 {
+    margin: 0 0 6px;
+
+    font-size: 16px;
+
+    color: #222;
+}
+
+.food-empty p {
+    margin: 0 auto 18px;
+
+    max-width: 430px;
+
+    color: #999;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 1000px) {
+
+    .food-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .food-panel-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .food-tools {
+        width: 100%;
+    }
+
+    .food-search {
+        flex: 1;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .page-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .food-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .food-tools {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .food-search,
+    .food-filter {
+        width: 100%;
+    }
+
+    .food-panel {
+        padding: 20px;
+    }
+}
+/* =========================================
+   FOODS PAGE - DASHBOARD MATCH
+   ========================================= */
+
+.foods-welcome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.foods-welcome .admin-primary-btn {
+    flex-shrink: 0;
+}
+
+.foods-main-panel {
+    width: 100%;
+}
+
+.foods-main-panel .panel-header {
+    margin-bottom: 0;
+}
+
+.food-tools {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.food-search {
+    width: 210px;
+    height: 40px;
+    padding: 0 12px;
+    box-sizing: border-box;
+
+    border: 1px solid #ddd7cc;
+    border-radius: 6px;
+
+    background: #ffffff;
+    color: #333;
+
+    font-size: 13px;
+    outline: none;
+}
+
+.food-filter {
+    width: 160px;
+    height: 40px;
+    padding: 0 10px;
+    box-sizing: border-box;
+
+    border: 1px solid #ddd7cc;
+    border-radius: 6px;
+
+    background: #ffffff;
+    color: #333;
+
+    font-size: 13px;
+    outline: none;
+}
+
+.food-search:focus,
+.food-filter:focus {
+    border-color: #c9a45c;
+}
+
+.food-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 0;
+}
+
+.food-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.food-table th {
+    padding: 14px 18px;
+
+    background: #faf8f3;
+
+    border-bottom: 1px solid #eee;
+
+    color: #777;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    text-align: left;
+}
+
+.food-table td {
+    padding: 0 18px;
+
+    border-bottom: 1px solid #eee;
+
+    font-size: 13px;
+    color: #333;
+}
+
+.food-empty {
+    text-align: center;
+    padding: 55px 20px;
+}
+
+.food-empty-icon {
+    width: 50px;
+    height: 50px;
+
+    margin: 0 auto 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f5ead0;
+    color: #a9823c;
+
+    border-radius: 8px;
+
+    font-size: 22px;
+}
+
+.food-empty h4 {
+    margin: 0 0 6px;
+
+    color: #222;
+    font-size: 16px;
+}
+
+.food-empty p {
+    max-width: 430px;
+    margin: 0 auto 18px;
+
+    color: #999;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+
+    .foods-welcome {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .food-tools {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .food-search,
+    .food-filter {
+        width: 100%;
+    }
+}
+/* =========================================
+   ADD FOOD PAGE
+   ========================================= */
+
+.food-form-panel {
+    background: #ffffff;
+    border: 1px solid #e7e2d8;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.food-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 14px;
+    border: 1px solid #ddd8ce;
+    border-radius: 6px;
+    background: #fff;
+    color: #222;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #c9a45c;
+    box-shadow: 0 0 0 3px rgba(201, 164, 92, 0.12);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.image-upload-box {
+    border: 1px dashed #cfc8bb;
+    border-radius: 8px;
+    padding: 25px;
+    background: #faf9f6;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.image-upload-box input[type="file"] {
+    width: auto;
+    border: none;
+    padding: 0;
+    background: transparent;
+}
+
+.image-upload-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.image-upload-text strong {
+    font-size: 14px;
+    color: #333;
+}
+
+.image-upload-text small {
+    color: #999;
+    font-size: 12px;
+}
+
+.form-check-card {
+    border: 1px solid #e2ddd3;
+    border-radius: 8px;
+    padding: 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: #fff;
+}
+
+.form-check-card input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    accent-color: #c9a45c;
+}
+
+.form-check-card label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+}
+
+.form-check-card small {
+    display: block;
+    margin-top: 4px;
+    color: #999;
+    font-size: 11px;
+}
+
+.food-form-footer {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #eee7dc;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.admin-primary-btn,
+.admin-secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.admin-primary-btn {
+    background: #c9a45c;
+    color: #171717;
+    border: 1px solid #c9a45c;
+}
+
+.admin-primary-btn:hover {
+    background: #b99145;
+    border-color: #b99145;
+}
+
+.admin-secondary-btn {
+    background: #ffffff;
+    color: #555;
+    border: 1px solid #d8d2c7;
+}
+
+.admin-secondary-btn:hover {
+    background: #f7f5f0;
+    color: #222;
+}
+
+.dashboard-welcome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .food-form-panel {
+        padding: 20px;
+    }
+
+    .food-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full-width {
+        grid-column: auto;
+    }
+
+    .image-upload-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .food-form-footer {
+        flex-direction: column-reverse;
+    }
+
+    .food-form-footer a,
+    .food-form-footer button {
+        width: 100%;
+    }
+
+}
+/* =========================================
+   FOODS TABLE - SPACIOUS PROFESSIONAL LAYOUT
+   ========================================= */
+
+.foods-main-panel {
+    overflow: hidden;
+}
+
+.food-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 18px;
+}
+
+.food-table {
+    width: 100%;
+    min-width: 1100px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.food-table th {
+    padding: 16px 20px;
+    background: #faf8f3;
+    border-top: 1px solid #eee7dc;
+    border-bottom: 1px solid #e8e2d8;
+    color: #777;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.food-table td {
+    padding: 18px 20px;
+    border-bottom: 1px solid #eeeae3;
+    font-size: 13px;
+    color: #333;
+    vertical-align: middle;
+    line-height: 1.5;
+}
+
+.food-table tbody tr:hover {
+    background: #fcfbf8;
+}
+
+/* Food name */
+
+.food-table td:first-child {
+    min-width: 280px;
+    max-width: 360px;
+}
+
+.food-table td:first-child strong {
+    display: block;
+    color: #222;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.food-description {
+    display: block;
+    max-width: 330px;
+    color: #999;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* Price */
+
+.food-table td:nth-child(4) {
+    white-space: nowrap;
+}
+
+.food-table td:nth-child(4) strong {
+    display: inline-block;
+    color: #222;
+    font-size: 14px;
+}
+
+.old-price {
+    display: block;
+    margin-top: 2px;
+    color: #aaa;
+    font-size: 11px;
+    text-decoration: line-through;
+}
+
+/* Status */
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 78px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.status-badge.available {
+    background: #edf7ed;
+    color: #3d7a45;
+}
+
+.status-badge.unavailable {
+    background: #f9eded;
+    color: #a34d4d;
+}
+
+/* Featured */
+
+.featured-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #a9823c;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.not-featured {
+    color: #aaa;
+}
+
+/* Actions */
+
+.food-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.food-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+    padding: 0 11px;
+    border-radius: 5px;
+    border: 1px solid #ddd7cc;
+    background: #fff;
+    color: #555;
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.food-action:hover {
+    background: #f7f4ed;
+    color: #222;
+}
+
+.food-action.disable {
+    color: #9a5c5c;
+    border-color: #e5d2d2;
+}
+
+.food-action.disable:hover {
+    background: #faf0f0;
+}
+
+/* Better spacing for the table header */
+
+.foods-main-panel .panel-header {
+    padding-bottom: 20px;
+}
+
+/* Mobile */
+
+@media (max-width: 900px) {
+
+    .food-table {
+        min-width: 1050px;
+    }
+
+    .food-table th,
+    .food-table td {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+/* CUSTOMER TEST */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f3ee;
+    color: #222;
+}
+
+.site-header {
+    background: #171717;
+    color: white;
+    padding: 20px 40px;
+}
+
+.site-header a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    min-height: 500px;
+}
+/* =========================================================
+   MTC HOTEL - PROFESSIONAL HOME PAGE ONLY
+   These styles are restricted to .home-page
+   ========================================================= */
+
+.home-page {
+    width: 100%;
+    background: #f5f1e8;
+    color: #1b1b1b;
+}
+
+/* HERO */
+
+.home-page .home-hero {
+    min-height: 650px;
+    background:
+        radial-gradient(circle at center, #242424 0%, #111 55%, #080808 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.home-page .home-hero::before,
+.home-page .home-hero::after {
+    content: "";
+    position: absolute;
+    width: 430px;
+    height: 430px;
+    border: 1px solid rgba(201, 164, 92, 0.25);
+    transform: rotate(45deg);
+}
+
+.home-page .home-hero::before {
+    left: -280px;
+    top: 80px;
+}
+
+.home-page .home-hero::after {
+    right: -280px;
+    bottom: 80px;
+}
+
+.home-page .home-hero-content {
+    width: min(900px, 92%);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 70px 20px;
+}
+
+/* LOGO */
+
+.home-page .home-logo-mark {
+    width: 170px;
+    margin: 0 auto 30px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: auto auto auto;
+    align-items: center;
+    gap: 7px;
+    color: #c9a45c;
+}
+
+.home-page .logo-icon {
+    grid-column: 1 / -1;
+    font-size: 42px;
+    line-height: 1;
+    font-family: Georgia, serif;
+}
+
+.home-page .logo-text {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.home-page .logo-hotel {
+    grid-column: 1 / -1;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 7px;
+    margin-left: 7px;
+}
+
+.home-page .logo-line {
+    height: 1px;
+    background: #c9a45c;
+}
+
+/* WELCOME */
+
+.home-page .home-eyebrow {
+    color: #c9a45c;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    margin-bottom: 18px;
+}
+
+.home-page .home-hero h1 {
+    margin: 0;
+    color: #fff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(58px, 8vw, 96px);
+    font-weight: 400;
+    letter-spacing: 3px;
+    line-height: 1;
+}
+
+.home-page .home-hero h1 span {
+    color: #c9a45c;
+}
+
+.home-page .home-tagline {
+    margin: 25px 0 12px;
+    color: #fff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+    letter-spacing: 2px;
+}
+
+.home-page .home-description {
+    width: min(620px, 100%);
+    margin: 0 auto 32px;
+    color: #cfcfcf;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* BUTTONS */
+
+.home-page .home-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+}
+
+.home-page .home-btn {
+    min-width: 155px;
+    min-height: 46px;
+    padding: 0 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    border-radius: 4px;
+    transition: all 0.25s ease;
+}
+
+.home-page .home-btn-primary {
+    background: #c9a45c;
+    color: #171717;
+    border: 1px solid #c9a45c;
+}
+
+.home-page .home-btn-primary:hover {
+    background: #dfbc75;
+    transform: translateY(-2px);
+}
+
+.home-page .home-btn-outline {
+    color: #fff;
+    border: 1px solid #c9a45c;
+    background: transparent;
+}
+
+.home-page .home-btn-outline:hover {
+    background: #c9a45c;
+    color: #171717;
+    transform: translateY(-2px);
+}
+
+/* SPECIALITIES */
+
+.home-page .home-specialities {
+    padding: 90px 0;
+    background: #f7f3eb;
+}
+
+.home-page .home-container {
+    width: min(1120px, 92%);
+    margin: 0 auto;
+}
+
+.home-page .home-section-heading {
+    max-width: 760px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.home-page .heading-decoration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    color: #b08335;
+}
+
+.home-page .heading-decoration span {
+    width: 45px;
+    height: 1px;
+    background: #c9a45c;
+}
+
+.home-page .heading-decoration strong {
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.home-page .home-section-heading h2 {
+    margin: 14px 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 38px;
+    font-weight: 400;
+    color: #202020;
+}
+
+.home-page .small-logo-mark {
+    color: #b08335;
+    font-size: 25px;
+    margin: 10px 0;
+}
+
+.home-page .home-section-heading p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #777;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* SPECIALITY CARDS */
+
+.home-page .home-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.home-page .home-feature-card {
+    padding: 35px 28px;
+    text-align: center;
+    background: #fffdf8;
+    border: 1px solid #dfc58e;
+    border-radius: 4px;
+    transition: 0.25s ease;
+}
+
+.home-page .home-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+}
+
+.home-page .feature-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 20px;
+    border: 1px solid #c9a45c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b08335;
+    font-size: 21px;
+}
+
+.home-page .home-feature-card h3 {
+    margin: 0 0 12px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
+}
+
+.home-page .home-feature-card p {
+    margin: 0;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* MEALS */
+
+.home-page .home-meals {
+    padding: 90px 0;
+    background: #111;
+}
+
+.home-page .dark-heading .heading-decoration {
+    color: #c9a45c;
+}
+
+.home-page .dark-heading h2 {
+    color: #fff;
+}
+
+.home-page .home-meal-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.home-page .home-meal-card {
+    min-height: 270px;
+    padding: 30px 22px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #765b28;
+    background: #151515;
+    transition: 0.25s ease;
+}
+
+.home-page .home-meal-card:hover {
+    border-color: #c9a45c;
+    background: #1b1b1b;
+    transform: translateY(-5px);
+}
+
+.home-page .meal-number {
+    color: #c9a45c;
+    font-family: Georgia, serif;
+    font-size: 18px;
+    margin-bottom: 22px;
+}
+
+.home-page .home-meal-card h3 {
+    margin: 0 0 12px;
+    font-family: Georgia, serif;
+    font-size: 23px;
+    font-weight: 400;
+}
+
+.home-page .home-meal-card p {
+    min-height: 48px;
+    color: #aaa;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.home-page .home-meal-card span {
+    display: inline-block;
+    margin-top: 15px;
+    color: #c9a45c;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* CTA */
+
+.home-page .home-cta {
+    padding: 75px 0;
+    background: #f5f0e5;
+    border-bottom: 1px solid #ded6c7;
+}
+
+.home-page .home-cta-content {
+    text-align: center;
+}
+
+.home-page .home-cta-content > span {
+    color: #b08335;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.home-page .home-cta h2 {
+    margin: 12px 0 10px;
+    color: #222;
+    font-family: Georgia, serif;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.home-page .home-cta p {
+    margin: 0 0 25px;
+    color: #777;
+    font-size: 14px;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .home-page .home-hero {
+        min-height: 600px;
+    }
+
+    .home-page .home-hero h1 {
+        font-size: 52px;
+    }
+
+    .home-page .home-feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-page .home-meal-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .home-page .home-hero {
+        min-height: 580px;
+    }
+
+    .home-page .home-logo-mark {
+        margin-bottom: 20px;
+    }
+
+    .home-page .home-hero h1 {
+        font-size: 42px;
+    }
+
+    .home-page .home-tagline {
+        font-size: 19px;
+    }
+
+    .home-page .home-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home-page .home-btn {
+        width: 180px;
+    }
+
+    .home-page .home-section-heading h2 {
+        font-size: 30px;
+    }
+
+    .home-page .home-meal-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* =====================================================
+   MTC HOTEL - CUSTOMER HOME PAGE
+   HOME PAGE ONLY
+   ===================================================== */
+
+.home-page {
+    width: 100%;
+    background: #f5f1e8;
+    color: #222;
+}
+
+/* HERO */
+
+.home-page .home-hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #292929 0%,
+            #151515 55%,
+            #080808 100%
+        );
+}
+
+.home-page .home-hero::before {
+    content: "";
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    border: 1px solid rgba(201,164,92,.22);
+    transform: rotate(45deg);
+    left: -330px;
+    top: 70px;
+}
+
+.home-page .home-hero::after {
+    content: "";
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    border: 1px solid rgba(201,164,92,.22);
+    transform: rotate(45deg);
+    right: -330px;
+    bottom: 70px;
+}
+
+.home-page .home-hero-content {
+    width: min(900px, 92%);
+    padding: 70px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* LOGO */
+
+.home-page .home-brand {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.home-page .brand-symbol {
+    color: #c9a45c;
+    font-family: Georgia, serif;
+    font-size: 38px;
+    line-height: 1;
+    margin-bottom: 7px;
+}
+
+.home-page .brand-name {
+    color: #ffffff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 7px;
+    padding-left: 7px;
+}
+
+.home-page .brand-hotel {
+    color: #c9a45c;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 7px;
+    padding-left: 7px;
+    margin-top: 4px;
+}
+
+/* HERO TEXT */
+
+.home-page .home-eyebrow {
+    color: #c9a45c;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    margin-bottom: 18px;
+}
+
+.home-page .home-hero h1 {
+    margin: 0;
+    color: #ffffff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(55px, 8vw, 92px);
+    font-weight: 400;
+    letter-spacing: 4px;
+    line-height: 1;
+}
+
+.home-page .home-hero h1 span {
+    color: #c9a45c;
+}
+
+.home-page .home-tagline {
+    margin: 25px 0 12px;
+    color: #ffffff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
+.home-page .home-description {
+    width: min(620px, 100%);
+    margin: 0 auto 32px;
+    color: #bdbdbd;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* BUTTONS */
+
+.home-page .home-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+}
+
+.home-page .home-btn {
+    min-width: 155px;
+    min-height: 46px;
+    padding: 0 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: .25s ease;
+}
+
+.home-page .home-btn-primary {
+    background: #c9a45c;
+    color: #171717;
+    border: 1px solid #c9a45c;
+}
+
+.home-page .home-btn-primary:hover {
+    background: #dfbd78;
+    border-color: #dfbd78;
+    transform: translateY(-2px);
+}
+
+.home-page .home-btn-outline {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #c9a45c;
+}
+
+.home-page .home-btn-outline:hover {
+    background: #c9a45c;
+    color: #171717;
+    transform: translateY(-2px);
+}
+
+/* SPECIALITIES */
+
+.home-page .home-specialities {
+    padding: 90px 0;
+    background: #f7f3eb;
+}
+
+.home-page .home-container {
+    width: min(1120px, 92%);
+    margin: auto;
+}
+
+.home-page .home-section-heading {
+    max-width: 760px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.home-page .heading-decoration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    color: #a77c32;
+}
+
+.home-page .heading-decoration span {
+    width: 45px;
+    height: 1px;
+    background: #c9a45c;
+}
+
+.home-page .heading-decoration strong {
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.home-page .home-section-heading h2 {
+    margin: 15px 0;
+    color: #222;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 38px;
+    font-weight: 400;
+}
+
+.home-page .small-logo-mark {
+    margin: 10px 0;
+    color: #b08335;
+    font-size: 23px;
+}
+
+.home-page .home-section-heading p {
+    max-width: 650px;
+    margin: auto;
+    color: #777;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* SPECIALITY CARDS */
+
+.home-page .home-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.home-page .home-feature-card {
+    padding: 35px 28px;
+    background: #fffdf8;
+    border: 1px solid #e2d4b8;
+    border-radius: 4px;
+    text-align: center;
+    transition: .25s ease;
+}
+
+.home-page .home-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.08);
+}
+
+.home-page .feature-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 20px;
+    border: 1px solid #c9a45c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b08335;
+    font-size: 20px;
+}
+
+.home-page .home-feature-card h3 {
+    margin: 0 0 12px;
+    color: #222;
+    font-family: Georgia, serif;
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.home-page .home-feature-card p {
+    margin: 0;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* MEALS */
+
+.home-page .home-meals {
+    padding: 90px 0;
+    background: #111111;
+}
+
+.home-page .dark-heading h2 {
+    color: #ffffff;
+}
+
+.home-page .home-meal-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.home-page .home-meal-card {
+    min-height: 265px;
+    padding: 30px 22px;
+    background: #171717;
+    border: 1px solid #5f4922;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    transition: .25s ease;
+}
+
+.home-page .home-meal-card:hover {
+    background: #1d1d1d;
+    border-color: #c9a45c;
+    transform: translateY(-5px);
+}
+
+.home-page .meal-number {
+    margin-bottom: 22px;
+    color: #c9a45c;
+    font-family: Georgia, serif;
+    font-size: 18px;
+}
+
+.home-page .home-meal-card h3 {
+    margin: 0 0 12px;
+    color: #ffffff;
+    font-family: Georgia, serif;
+    font-size: 23px;
+    font-weight: 400;
+}
+
+.home-page .home-meal-card p {
+    min-height: 48px;
+    color: #aaa;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.home-page .home-meal-card span {
+    display: inline-block;
+    margin-top: 15px;
+    color: #c9a45c;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* FINAL CTA */
+
+.home-page .home-cta {
+    padding: 80px 0;
+    background: #f5f0e5;
+    text-align: center;
+}
+
+.home-page .home-cta-content > span {
+    color: #a77c32;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.home-page .home-cta h2 {
+    margin: 12px 0 10px;
+    color: #222;
+    font-family: Georgia, serif;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.home-page .home-cta p {
+    margin: 0 0 25px;
+    color: #777;
+    font-size: 14px;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .home-page .home-feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-page .home-meal-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .home-page .home-hero {
+        min-height: 580px;
+    }
+
+    .home-page .home-hero h1 {
+        font-size: 43px;
+    }
+
+    .home-page .home-tagline {
+        font-size: 18px;
+    }
+
+    .home-page .home-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home-page .home-btn {
+        width: 180px;
+    }
+
+    .home-page .home-section-heading h2 {
+        font-size: 30px;
+    }
+
+    .home-page .home-meal-grid {
+        grid-template-columns: 1fr;
+    }
+
+}/* =====================================================
+   MTC HOTEL - CUSTOMER HEADER
+   Does NOT affect ADMIN SIDEBAR
+   ===================================================== */
+
+.site-header {
+    background: #111111;
+    border-bottom: 1px solid #302715;
+    position: relative;
+    z-index: 100;
+}
+
+.site-header .header-inner {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+/* LOGO */
+
+.site-header .logo {
+    width: 145px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    line-height: 1;
+}
+
+.site-header .logo-symbol {
+    color: #c9a45c;
+    font-family: Georgia, serif;
+    font-size: 22px;
+    margin-bottom: 4px;
+}
+
+.site-header .logo-name {
+    color: #ffffff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    padding-left: 5px;
+}
+
+.site-header .logo-hotel {
+    color: #c9a45c;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    padding-left: 5px;
+    margin-top: 4px;
+}
+
+/* NAVIGATION */
+
+.site-header .main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    flex: 1;
+}
+
+.site-header .main-nav a {
+    position: relative;
+    padding: 31px 0;
+    color: #d5d5d5;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .7px;
+    transition: .2s ease;
+}
+
+.site-header .main-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 23px;
+    height: 1px;
+    background: #c9a45c;
+    transform: scaleX(0);
+    transition: .2s ease;
+}
+
+.site-header .main-nav a:hover {
+    color: #c9a45c;
+}
+
+.site-header .main-nav a:hover::after {
+    transform: scaleX(1);
+}
+
+/* RIGHT SIDE */
+
+.site-header .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.site-header .cart-button,
+.site-header .login-button {
+    min-height: 36px;
+    padding: 0 13px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    transition: .2s ease;
+}
+
+.site-header .cart-button {
+    color: #d5d5d5;
+    border: 1px solid #403722;
+    background: transparent;
+}
+
+.site-header .cart-button:hover {
+    color: #c9a45c;
+    border-color: #c9a45c;
+}
+
+.site-header .login-button {
+    color: #171717;
+    background: #c9a45c;
+    border: 1px solid #c9a45c;
+}
+
+.site-header .login-button:hover {
+    background: #dfbd78;
+    border-color: #dfbd78;
+}
+
+/* MOBILE HEADER */
+
+@media (max-width: 1000px) {
+
+    .site-header .header-inner {
+        min-height: 75px;
+        flex-wrap: wrap;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .site-header .main-nav {
+        order: 3;
+        width: 100%;
+        flex-basis: 100%;
+        overflow-x: auto;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+
+    .site-header .main-nav a {
+        padding: 10px 0;
+        white-space: nowrap;
+    }
+
+    .site-header .main-nav a::after {
+        bottom: 3px;
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .site-header .logo {
+        width: 100px;
+    }
+
+    .site-header .logo-name {
+        font-size: 21px;
+    }
+
+    .site-header .header-actions {
+        gap: 5px;
+    }
+
+    .site-header .cart-button,
+    .site-header .login-button {
+        padding: 0 9px;
+        font-size: 9px;
+    }
+
+}
+/* HOME HEADER - FINAL SPACING FIX */
+
+.site-header .header-inner {
+    width: min(1400px, 94%);
+    margin: 0 auto;
+}
+
+.site-header .main-nav {
+    gap: 18px;
+}
+
+.site-header .main-nav a {
+    white-space: nowrap;
+}
+
+.site-header .header-actions {
+    gap: 7px;
+}
+
+.site-header .cart-button,
+.site-header .login-button {
+    white-space: nowrap;
+}
+/* =====================================================
+   MTC HOTEL - CUSTOMER MENU
+   Customer Menu Only
+   ===================================================== */
+
+.customer-menu-page {
+    background: #f5f1e8;
+    min-height: 100vh;
+}
+
+/* MENU HEADER */
+
+.customer-menu-header {
+    padding: 80px 20px 70px;
+    background: #111111;
+    text-align: center;
+    border-bottom: 1px solid #3b301c;
+}
+
+.customer-menu-container {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+}
+
+.menu-eyebrow {
+    color: #c9a45c;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+}
+
+.customer-menu-header h1 {
+    margin: 0;
+    color: #ffffff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 52px;
+    font-weight: 400;
+}
+
+.customer-menu-header p {
+    margin: 15px 0 0;
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* MENU SECTION */
+
+.customer-menu-section {
+    padding: 55px 0 90px;
+}
+
+/* FILTERS */
+
+.customer-menu-filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.customer-menu-filter {
+    min-width: 105px;
+    padding: 11px 18px;
+    background: transparent;
+    color: #555;
+    border: 1px solid #d8cdbb;
+    border-radius: 3px;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .6px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.customer-menu-filter:hover {
+    border-color: #b08335;
+    color: #9b7028;
+}
+
+.customer-menu-filter.active {
+    background: #c9a45c;
+    border-color: #c9a45c;
+    color: #171717;
+}
+
+/* FOOD GRID */
+
+.customer-food-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* FOOD CARD */
+
+.customer-food-card {
+    overflow: hidden;
+    background: #fffdf8;
+    border: 1px solid #e2d5be;
+    border-radius: 5px;
+    transition: .25s ease;
+}
+
+.customer-food-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .10);
+    border-color: #c9a45c;
+}
+
+/* FOOD IMAGE */
+
+.customer-food-image {
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+    background: #171717;
+}
+
+.customer-food-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: .35s ease;
+}
+
+.customer-food-card:hover .customer-food-image img {
+    transform: scale(1.04);
+}
+
+/* PLACEHOLDER */
+
+.customer-food-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(
+            circle at center,
+            #292929,
+            #111111
+        );
+    color: #c9a45c;
+}
+
+.customer-food-placeholder span {
+    font-size: 38px;
+    margin-bottom: 8px;
+}
+
+.customer-food-placeholder small {
+    font-size: 9px;
+    letter-spacing: 4px;
+    font-weight: 700;
+}
+
+/* FEATURED */
+
+.customer-featured {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 7px 10px;
+    background: #c9a45c;
+    color: #171717;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .6px;
+    border-radius: 2px;
+}
+
+/* FOOD INFORMATION */
+
+.customer-food-info {
+    padding: 22px;
+}
+
+.customer-food-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.customer-food-category {
+    display: block;
+    margin-bottom: 6px;
+    color: #a77c32;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.customer-food-top h2 {
+    margin: 0;
+    color: #222;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 1.25;
+}
+
+.customer-food-price {
+    flex-shrink: 0;
+    text-align: right;
+}
+
+.customer-food-price strong {
+    display: block;
+    color: #222;
+    font-family: Georgia, serif;
+    font-size: 20px;
+    white-space: nowrap;
+}
+
+.customer-food-price del {
+    display: block;
+    margin-top: 3px;
+    color: #999;
+    font-size: 11px;
+}
+
+/* DESCRIPTION */
+
+.customer-food-description {
+    min-height: 43px;
+    margin: 14px 0 18px;
+    color: #777;
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+/* BOTTOM */
+
+.customer-food-bottom {
+    padding-top: 15px;
+    border-top: 1px solid #eee6d9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.customer-food-meal {
+    color: #999;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+}
+
+.customer-add-button {
+    min-width: 82px;
+    min-height: 34px;
+    padding: 0 13px;
+    background: #171717;
+    color: #c9a45c;
+    border: 1px solid #c9a45c;
+    border-radius: 3px;
+    font-family: inherit;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.customer-add-button:hover {
+    background: #c9a45c;
+    color: #171717;
+}
+
+/* EMPTY MENU */
+
+.customer-menu-empty {
+    padding: 80px 20px;
+    text-align: center;
+    background: #fffdf8;
+    border: 1px solid #e2d5be;
+}
+
+.customer-menu-empty > div {
+    color: #c9a45c;
+    font-size: 38px;
+}
+
+.customer-menu-empty h2 {
+    margin: 15px 0 8px;
+    font-family: Georgia, serif;
+    font-weight: 400;
+}
+
+.customer-menu-empty p {
+    margin: 0;
+    color: #777;
+    font-size: 13px;
+}
+
+/* TABLET */
+
+@media (max-width: 950px) {
+
+    .customer-food-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .customer-menu-header {
+        padding: 60px 15px 50px;
+    }
+
+    .customer-menu-header h1 {
+        font-size: 40px;
+    }
+
+    .customer-menu-section {
+        padding-top: 35px;
+    }
+
+    .customer-food-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .customer-menu-filters {
+        gap: 7px;
+    }
+
+    .customer-menu-filter {
+        min-width: 85px;
+        padding: 10px 12px;
+    }
+}
+/* =========================================
+   MTC HOTEL - QUICK ACTIONS FINAL DESIGN
+   ========================================= */
+
+.dashboard-section .quick-actions {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    width: 100% !important;
+}
+
+.dashboard-section .quick-action-card {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-height: 72px !important;
+    padding: 14px 45px 14px 14px !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+
+    gap: 13px !important;
+
+    background: #ffffff !important;
+    border: 1px solid #e8e2d8 !important;
+    border-radius: 9px !important;
+
+    text-decoration: none !important;
+    color: #111827 !important;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.035) !important;
+
+    position: relative !important;
+    transition: all 0.2s ease !important;
+}
+
+.dashboard-section .quick-action-card:hover {
+    transform: translateY(-2px) !important;
+    border-color: #d6bd86 !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08) !important;
+}
+
+.dashboard-section .quick-action-icon {
+    width: 45px !important;
+    height: 45px !important;
+    min-width: 45px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border-radius: 50% !important;
+    background: #f7f0df !important;
+
+    font-size: 21px !important;
+    flex-shrink: 0 !important;
+}
+
+.dashboard-section .quick-action-card h3 {
+    margin: 0 0 3px 0 !important;
+    padding: 0 !important;
+
+    font-size: 14px !important;
+    font-weight: 700 !important;
+
+    color: #111827 !important;
+}
+
+.dashboard-section .quick-action-card p {
+    margin: 0 !important;
+    padding: 0 !important;
+
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+
+    color: #6b7280 !important;
+}
+
+.dashboard-section .quick-action-card::after {
+    content: "›" !important;
+
+    position: absolute !important;
+    right: 17px !important;
+    top: 50% !important;
+
+    transform: translateY(-50%) !important;
+
+    font-size: 28px !important;
+    font-weight: 300 !important;
+
+    color: #555555 !important;
+}
+
+
+/* =========================================
+   SYSTEM STATUS
+   ========================================= */
+
+.dashboard-section .system-status-card {
+    width: 100% !important;
+    box-sizing: border-box !important;
+
+    background: #ffffff !important;
+    border: 1px solid #e8e2d8 !important;
+    border-radius: 9px !important;
+
+    overflow: hidden !important;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.035) !important;
+}
+
+.dashboard-section .status-row {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    padding: 14px 17px !important;
+
+    border-bottom: 1px solid #eeeae3 !important;
+
+    font-size: 13px !important;
+}
+
+.dashboard-section .status-row:last-child {
+    border-bottom: none !important;
+}
+
+.dashboard-section .status-online {
+    color: #27965a !important;
+    font-size: 12px !important;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .dashboard-section .quick-actions {
+        grid-template-columns: 1fr !important;
+    }
+
+}
+/* =========================================
+   STEP 3 - COMPACT DASHBOARD LAYOUT
+   ========================================= */
+
+.dashboard-welcome {
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+    padding: 18px 22px !important;
+    min-height: 78px !important;
+}
+
+.dashboard-welcome h2 {
+    font-size: 21px !important;
+    margin-bottom: 4px !important;
+}
+
+.dashboard-welcome p {
+    font-size: 12px !important;
+}
+
+
+/* STAT CARDS */
+
+.dashboard-stats {
+    gap: 10px !important;
+    margin-bottom: 22px !important;
+}
+
+.stat-card {
+    min-height: 65px !important;
+    padding: 11px 14px !important;
+    gap: 11px !important;
+}
+
+.stat-icon {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    font-size: 22px !important;
+}
+
+.stat-card span {
+    font-size: 11px !important;
+    margin-bottom: 3px !important;
+}
+
+.stat-card strong {
+    font-size: 20px !important;
+}
+
+
+/* SECTION */
+
+.dashboard-section {
+    margin-bottom: 20px !important;
+}
+
+.dashboard-section-title {
+    margin-bottom: 10px !important;
+}
+
+.dashboard-section-title h2 {
+    font-size: 19px !important;
+    margin-bottom: 3px !important;
+}
+
+.dashboard-section-title p {
+    font-size: 12px !important;
+}
+
+
+/* QUICK ACTION CARDS */
+
+.dashboard-section .quick-action-card {
+    min-height: 68px !important;
+    padding: 12px 45px 12px 14px !important;
+}
+
+.dashboard-section .quick-action-icon {
+    width: 43px !important;
+    height: 43px !important;
+    min-width: 43px !important;
+}
+
+.dashboard-section .quick-action-card h3 {
+    font-size: 13px !important;
+}
+
+.dashboard-section .quick-action-card p {
+    font-size: 11px !important;
+}
+
+
+/* SYSTEM STATUS */
+
+.system-status-card {
+    margin-top: 5px !important;
+}
+
+.status-row {
+    padding: 12px 15px !important;
+}
+
+
+/* REMOVE EXCESSIVE PAGE SPACE */
+
+.dashboard-welcome,
+.dashboard-stats,
+.dashboard-section {
+    box-sizing: border-box;
+}
+/* =========================================
+   STEP 4 - PROFESSIONAL HEADER
+   ========================================= */
+
+.admin-header {
+    background: #ffffff !important;
+    border-bottom: 1px solid #e5e1d8 !important;
+    min-height: 72px !important;
+    padding: 0 32px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* PAGE TITLE */
+
+.admin-header h1,
+.admin-header .page-title {
+    color: #111827 !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+}
+
+.admin-header p,
+.admin-header .subtitle {
+    color: #7b8088 !important;
+    font-size: 12px !important;
+    margin: 3px 0 0 !important;
+}
+
+
+/* ADMIN PROFILE */
+
+.admin-profile {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.admin-avatar {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+
+    border-radius: 50% !important;
+
+    background: #c99b3b !important;
+    color: #111827 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    font-size: 16px !important;
+    font-weight: 600 !important;
+}
+
+.admin-profile-name {
+    color: #111827 !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+}
+
+.admin-profile-role {
+    color: #7b8088 !important;
+    font-size: 11px !important;
+    margin-top: 2px !important;
+}
+
+
+/* =========================================
+   PAGE BACKGROUND
+   ========================================= */
+
+body {
+    background: #f6f4ef !important;
+}
+
+.admin-content,
+.dashboard-container,
+.main-content {
+    background: #f6f4ef !important;
+}
+
+
+/* =========================================
+   DASHBOARD WIDTH
+   ========================================= */
+
+.dashboard-welcome,
+.dashboard-stats,
+.dashboard-section {
+    max-width: 100% !important;
+}
+/* =========================================
+   STEP 5 - MAIN DASHBOARD FINISHING
+   ========================================= */
+
+.dashboard-welcome,
+.dashboard-stats,
+.dashboard-section {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Clean welcome card */
+.dashboard-welcome {
+    background: #ffffff !important;
+    border: 1px solid #e7e2d9 !important;
+    border-radius: 9px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Clean statistic cards */
+.stat-card {
+    background: #ffffff !important;
+    border: 1px solid #e7e2d9 !important;
+    border-radius: 9px !important;
+}
+
+/* Subtle individual icon backgrounds */
+.dashboard-stats .stat-card:nth-child(1) .stat-icon {
+    background: #f7f0df !important;
+}
+
+.dashboard-stats .stat-card:nth-child(2) .stat-icon {
+    background: #e7f4e9 !important;
+}
+
+.dashboard-stats .stat-card:nth-child(3) .stat-icon {
+    background: #fde9eb !important;
+}
+
+.dashboard-stats .stat-card:nth-child(4) .stat-icon {
+    background: #f9efd5 !important;
+}
+
+/* Section typography */
+.dashboard-section-title h2 {
+    color: #111827 !important;
+    font-weight: 700 !important;
+}
+
+.dashboard-section-title p {
+    color: #6b7280 !important;
+}
+
+/* Better page scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Remove ugly default link appearance inside dashboard */
+.dashboard-welcome a,
+.quick-action-card {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Better focus for keyboard users */
+.dashboard-welcome a:focus,
+.quick-action-card:focus {
+    outline: 2px solid #c99b3b;
+    outline-offset: 2px;
+}
+/* =========================================
+   MTC HOTEL ADMIN HEADER
+   ========================================= */
+
+body.admin-page {
+    margin: 0;
+    padding: 0;
+    background: #f6f4ef !important;
+    color: #111827;
+}
+
+
+/* HEADER */
+
+.admin-header {
+    width: 100%;
+    height: 72px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e6e1d8;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 32px;
+
+    box-sizing: border-box;
+
+    position: relative;
+    z-index: 10;
+}
+
+
+/* LEFT SIDE */
+
+.admin-header-left {
+    display: flex;
+    align-items: center;
+}
+
+.admin-page-heading h1 {
+    margin: 0;
+
+    font-size: 23px;
+    line-height: 1.2;
+
+    font-weight: 700;
+
+    color: #111827;
+}
+
+.admin-page-heading p {
+    margin: 4px 0 0;
+
+    font-size: 11px;
+
+    color: #858585;
+}
+
+
+/* RIGHT SIDE */
+
+.admin-header-right {
+    display: flex;
+    align-items: center;
+}
+
+.admin-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/* ADMIN AVATAR */
+
+.admin-avatar {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: #c49a4a;
+
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+
+/* PROFILE TEXT */
+
+.admin-profile-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-profile-name {
+    font-size: 13px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+.admin-profile-role {
+    margin-top: 2px;
+
+    font-size: 10px;
+
+    color: #888888;
+}
+
+
+/* =========================================
+   MAIN ADMIN AREA
+   ========================================= */
+
+.admin-main {
+    width: 100%;
+
+    min-height: calc(100vh - 72px);
+
+    background: #f6f4ef;
+
+    padding: 25px 32px 35px;
+
+    box-sizing: border-box;
+}
+
+.admin-container {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.admin-footer {
+    background: #ffffff;
+
+    border-top: 1px solid #e6e1d8;
+
+    padding: 16px 32px;
+}
+
+.admin-footer-inner {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.admin-footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.admin-footer-text {
+    text-align: right;
+}
+
+.admin-footer-text p {
+    margin: 0 0 3px;
+
+    color: #555555;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.admin-footer-text span {
+    color: #999999;
+
+    font-size: 10px;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .admin-header {
+        height: auto;
+        min-height: 65px;
+
+        padding: 12px 16px;
+    }
+
+    .admin-page-heading h1 {
+        font-size: 19px;
+    }
+
+    .admin-page-heading p {
+        display: none;
+    }
+
+    .admin-profile-info {
+        display: none;
+    }
+
+    .admin-main {
+        padding: 18px 14px 25px;
+    }
+
+    .admin-footer {
+        padding: 14px 16px;
+    }
+
+    .admin-footer-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .admin-footer-text {
+        text-align: center;
+    }
+}
+/* =========================================
+   STEP 8 - REFERENCE STYLE CARD FINISH
+   ========================================= */
+
+body.admin-page .dashboard-welcome {
+    border-radius: 12px !important;
+    padding: 20px 22px !important;
+    background: #ffffff !important;
+    border: 1px solid #e7e2d9 !important;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.035) !important;
+}
+
+body.admin-page .dashboard-welcome h2 {
+    font-size: 21px !important;
+    color: #1c1c1c !important;
+    letter-spacing: -0.2px;
+}
+
+body.admin-page .dashboard-add-btn {
+    background: #b99042 !important;
+    border-radius: 7px !important;
+    padding: 10px 17px !important;
+    font-size: 12px !important;
+}
+
+body.admin-page .dashboard-add-btn:hover {
+    background: #a47d34 !important;
+}
+
+
+/* STATISTICS */
+
+body.admin-page .dashboard-stats {
+    gap: 12px !important;
+}
+
+body.admin-page .stat-card {
+    border-radius: 10px !important;
+    border: 1px solid #e7e2d9 !important;
+    background: #ffffff !important;
+    box-shadow: 0 2px 9px rgba(0, 0, 0, 0.035) !important;
+}
+
+body.admin-page .stat-card:hover {
+    transform: translateY(-2px) !important;
+}
+
+body.admin-page .stat-card span {
+    color: #777777 !important;
+}
+
+body.admin-page .stat-card strong {
+    color: #202020 !important;
+}
+
+
+/* QUICK ACTIONS */
+
+body.admin-page .quick-actions {
+    gap: 12px !important;
+}
+
+body.admin-page .quick-action-card {
+    border-radius: 10px !important;
+    border: 1px solid #e7e2d9 !important;
+    background: #ffffff !important;
+    box-shadow: 0 2px 9px rgba(0, 0, 0, 0.035) !important;
+}
+
+body.admin-page .quick-action-card:hover {
+    border-color: #d4b978 !important;
+    transform: translateY(-2px) !important;
+}
+
+body.admin-page .quick-action-icon {
+    background: #f8f1e2 !important;
+}
+
+
+/* SYSTEM STATUS */
+
+body.admin-page .system-status-card {
+    border-radius: 10px !important;
+    border: 1px solid #e7e2d9 !important;
+    background: #ffffff !important;
+}
+
+body.admin-page .status-row {
+    padding: 13px 16px !important;
+}
+
+
+/* SECTION HEADINGS */
+
+body.admin-page .dashboard-section-title h2 {
+    color: #202020 !important;
+    font-size: 18px !important;
+}
+
+body.admin-page .dashboard-section-title p {
+    color: #858585 !important;
+}
+/* =========================================
+   STEP 9 - FINAL DASHBOARD POLISH
+   ========================================= */
+
+body.admin-page .admin-container {
+    padding: 0 !important;
+}
+
+/* Welcome area */
+body.admin-page .dashboard-welcome {
+    margin-bottom: 14px !important;
+}
+
+/* Stats */
+body.admin-page .dashboard-stats {
+    margin-bottom: 24px !important;
+}
+
+/* Sections */
+body.admin-page .dashboard-section {
+    margin-bottom: 24px !important;
+}
+
+/* Keep content visually aligned */
+body.admin-page .dashboard-welcome,
+body.admin-page .dashboard-stats,
+body.admin-page .dashboard-section {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Cleaner typography */
+body.admin-page {
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+body.admin-page .dashboard-section-title h2,
+body.admin-page .dashboard-welcome h2,
+body.admin-page .stat-card strong,
+body.admin-page .quick-action-card h3 {
+    letter-spacing: -0.15px;
+}
+
+/* Footer stays subtle */
+body.admin-page .admin-footer {
+    margin-top: 10px !important;
+}
+/* =========================================
+   STEP 10 - FINAL ADMIN PANEL LAYOUT
+   ========================================= */
+
+body.admin-page .admin-main {
+    padding: 24px 30px 35px !important;
+    background: #f5f3ee !important;
+}
+
+body.admin-page .admin-container {
+    width: 100% !important;
+    max-width: 1180px !important;
+    margin: 0 auto !important;
+}
+
+/* Make all dashboard content align perfectly */
+
+body.admin-page .dashboard-welcome,
+body.admin-page .dashboard-stats,
+body.admin-page .dashboard-section {
+    width: 100% !important;
+}
+
+/* Consistent rounded design */
+
+body.admin-page .dashboard-welcome,
+body.admin-page .stat-card,
+body.admin-page .quick-action-card,
+body.admin-page .system-status-card {
+    border-radius: 10px !important;
+}
+
+/* Cleaner hover */
+
+body.admin-page .stat-card,
+body.admin-page .quick-action-card {
+    cursor: pointer;
+}
+
+/* Header line */
+
+body.admin-page .admin-header {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.025) !important;
+}
+
+/* Footer */
+
+body.admin-page .admin-footer {
+    background: #ffffff !important;
+    color: #777777 !important;
+}
+
+/* Desktop spacing */
+
+@media (min-width: 1100px) {
+
+    body.admin-page .dashboard-stats {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+
+    body.admin-page .quick-actions {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+
+    body.admin-page .admin-main {
+        padding: 20px !important;
+    }
+
+    body.admin-page .dashboard-stats {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    body.admin-page .admin-main {
+        padding: 15px !important;
+    }
+
+    body.admin-page .dashboard-stats {
+        grid-template-columns: 1fr !important;
+    }
+
+    body.admin-page .quick-actions {
+        grid-template-columns: 1fr !important;
+    }
+}
+/* =========================================
+   STEP 11 - REFERENCE OUTER FRAME
+   ========================================= */
+
+body.admin-page {
+    background: #1b1b1b !important;
+    min-height: 100vh;
+}
+
+/* Header becomes part of the dashboard frame */
+body.admin-page .admin-header {
+    width: calc(100% - 28px) !important;
+    max-width: 1400px !important;
+    margin: 8px auto 0 !important;
+
+    border-radius: 20px 20px 0 0 !important;
+
+    padding-left: 36px !important;
+    padding-right: 36px !important;
+}
+
+/* Main dashboard frame */
+body.admin-page .admin-main {
+    width: calc(100% - 28px) !important;
+    max-width: 1400px !important;
+
+    margin: 0 auto !important;
+
+    background: #f6f4ef !important;
+
+    padding: 24px 36px 35px !important;
+
+    box-sizing: border-box !important;
+}
+
+/* Footer finishes the rounded dashboard */
+body.admin-page .admin-footer {
+    width: calc(100% - 28px) !important;
+    max-width: 1400px !important;
+
+    margin: 0 auto 8px !important;
+
+    border-radius: 0 0 20px 20px !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* =========================================
+   ADD FOOD BUTTON
+   ========================================= */
+
+body.admin-page .dashboard-add-btn {
+    background: #b58a35 !important;
+    color: #ffffff !important;
+
+    text-decoration: none !important;
+
+    border: none !important;
+    border-radius: 7px !important;
+
+    padding: 10px 18px !important;
+
+    font-size: 13px !important;
+    font-weight: 600 !important;
+
+    box-shadow: 0 3px 8px rgba(181, 138, 53, 0.25) !important;
+}
+
+body.admin-page .dashboard-add-btn:hover {
+    background: #9f7629 !important;
+    color: #ffffff !important;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    body.admin-page .admin-header {
+        width: calc(100% - 12px) !important;
+        margin-top: 6px !important;
+
+        border-radius: 14px 14px 0 0 !important;
+
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+    }
+
+    body.admin-page .admin-main {
+        width: calc(100% - 12px) !important;
+
+        padding: 18px 16px 25px !important;
+    }
+
+    body.admin-page .admin-footer {
+        width: calc(100% - 12px) !important;
+        margin-bottom: 6px !important;
+
+        border-radius: 0 0 14px 14px !important;
+    }
+}
+/* =========================================
+   STEP 12 - STAT CARDS REFERENCE STYLE
+   ========================================= */
+
+body.admin-page .dashboard-stats {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 11px !important;
+    margin-top: 10px !important;
+    margin-bottom: 25px !important;
+}
+
+body.admin-page .stat-card {
+    min-height: 66px !important;
+
+    padding: 12px 14px !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    gap: 12px !important;
+
+    border-radius: 9px !important;
+
+    background: #ffffff !important;
+
+    border: 1px solid #e6e1d8 !important;
+
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.035) !important;
+}
+
+body.admin-page .stat-icon {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+
+    border-radius: 8px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    font-size: 22px !important;
+}
+
+body.admin-page .stat-card span {
+    font-size: 11px !important;
+    color: #777777 !important;
+
+    margin-bottom: 3px !important;
+}
+
+body.admin-page .stat-card strong {
+    font-size: 20px !important;
+    line-height: 1 !important;
+
+    color: #111827 !important;
+}
+
+
+/* Individual card icon backgrounds */
+
+body.admin-page .stat-card:nth-child(1) .stat-icon {
+    background: #f6eedc !important;
+}
+
+body.admin-page .stat-card:nth-child(2) .stat-icon {
+    background: #e5f3e8 !important;
+}
+
+body.admin-page .stat-card:nth-child(3) .stat-icon {
+    background: #fde8eb !important;
+}
+
+body.admin-page .stat-card:nth-child(4) .stat-icon {
+    background: #f8edcf !important;
+}
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    body.admin-page .dashboard-stats {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 600px) {
+
+    body.admin-page .dashboard-stats {
+        grid-template-columns: 1fr !important;
+    }
+}
+/* =====================================================
+   STEP 13 - QUICK ACTIONS FINAL DESIGN
+   ===================================================== */
+
+body.admin-page .dashboard-section .quick-actions {
+    display: grid !important;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+
+    gap: 12px !important;
+
+    width: 100% !important;
+
+    margin-top: 8px !important;
+}
+
+
+/* ACTION CARD */
+
+body.admin-page .dashboard-section .quick-action-card {
+
+    min-height: 62px !important;
+
+    width: 100% !important;
+
+    box-sizing: border-box !important;
+
+    padding: 12px 42px 12px 14px !important;
+
+    display: flex !important;
+
+    flex-direction: row !important;
+
+    align-items: center !important;
+
+    gap: 12px !important;
+
+    position: relative !important;
+
+    background: #ffffff !important;
+
+    border: 1px solid #e6e1d8 !important;
+
+    border-radius: 9px !important;
+
+    text-decoration: none !important;
+
+    box-shadow: 0 2px 7px rgba(0,0,0,0.035) !important;
+
+    transition: all 0.2s ease !important;
+}
+
+
+/* HOVER */
+
+body.admin-page .dashboard-section .quick-action-card:hover {
+
+    transform: translateY(-2px) !important;
+
+    border-color: #cda95e !important;
+
+    box-shadow: 0 5px 14px rgba(0,0,0,0.07) !important;
+}
+
+
+/* ICON */
+
+body.admin-page .dashboard-section .quick-action-icon {
+
+    width: 43px !important;
+
+    height: 43px !important;
+
+    min-width: 43px !important;
+
+    border-radius: 50% !important;
+
+    background: #f7efdf !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    font-size: 20px !important;
+
+    flex-shrink: 0 !important;
+}
+
+
+/* TEXT AREA */
+
+body.admin-page .dashboard-section .quick-action-card h3 {
+
+    margin: 0 0 3px 0 !important;
+
+    padding: 0 !important;
+
+    color: #111827 !important;
+
+    font-size: 13px !important;
+
+    font-weight: 700 !important;
+
+    line-height: 1.2 !important;
+}
+
+
+body.admin-page .dashboard-section .quick-action-card p {
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    color: #6f7680 !important;
+
+    font-size: 11px !important;
+
+    line-height: 1.35 !important;
+}
+
+
+/* RIGHT ARROW */
+
+body.admin-page .dashboard-section .quick-action-card::after {
+
+    content: "›" !important;
+
+    position: absolute !important;
+
+    right: 17px !important;
+
+    top: 50% !important;
+
+    transform: translateY(-50%) !important;
+
+    color: #8a6330 !important;
+
+    font-size: 27px !important;
+
+    font-weight: 300 !important;
+}
+
+
+/* DIFFERENT ICON COLORS */
+
+body.admin-page .quick-action-card:nth-child(1)
+.quick-action-icon {
+    background: #f7efdf !important;
+}
+
+body.admin-page .quick-action-card:nth-child(2)
+.quick-action-icon {
+    background: #f4eee1 !important;
+}
+
+body.admin-page .quick-action-card:nth-child(3)
+.quick-action-icon {
+    background: #f8efdf !important;
+}
+
+body.admin-page .quick-action-card:nth-child(4)
+.quick-action-icon {
+    background: #f4eee4 !important;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    body.admin-page .dashboard-section .quick-actions {
+
+        grid-template-columns: 1fr !important;
+
+    }
+
+}
+/* =====================================================
+   STEP 14 - SYSTEM STATUS FINAL DESIGN
+   ===================================================== */
+
+body.admin-page .dashboard-section .system-status-card {
+    width: 100% !important;
+    background: #ffffff !important;
+    border: 1px solid #e6e1d8 !important;
+    border-radius: 9px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.035) !important;
+}
+
+
+/* STATUS ROW */
+
+body.admin-page .dashboard-section .status-row {
+    min-height: 46px !important;
+    box-sizing: border-box !important;
+
+    padding: 11px 16px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    border-bottom: 1px solid #eeeae3 !important;
+
+    font-size: 12px !important;
+}
+
+
+/* LAST ROW */
+
+body.admin-page .dashboard-section .status-row:last-child {
+    border-bottom: none !important;
+}
+
+
+/* LABEL */
+
+body.admin-page .dashboard-section .status-row span {
+    color: #4b5563 !important;
+    font-weight: 500 !important;
+}
+
+
+/* ONLINE STATUS */
+
+body.admin-page .dashboard-section .status-online {
+    color: #27965a !important;
+
+    font-size: 11px !important;
+    font-weight: 600 !important;
+}
+
+
+/* STATUS SECTION SPACING */
+
+body.admin-page .dashboard-section:last-child {
+    margin-bottom: 10px !important;
+}
+/* =====================================================
+   STEP 15 - FINAL SPACING & TYPOGRAPHY
+   ===================================================== */
+
+body.admin-page .dashboard-welcome {
+    min-height: 78px !important;
+    box-sizing: border-box !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    padding: 18px 22px !important;
+}
+
+body.admin-page .dashboard-welcome h2 {
+    margin: 0 0 4px 0 !important;
+
+    font-size: 21px !important;
+    line-height: 1.25 !important;
+
+    font-weight: 700 !important;
+
+    color: #111827 !important;
+}
+
+body.admin-page .dashboard-welcome p {
+    margin: 0 !important;
+
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+
+    color: #737373 !important;
+}
+
+
+/* QUICK ACTION HEADING */
+
+body.admin-page .dashboard-section-title {
+    margin-bottom: 12px !important;
+}
+
+body.admin-page .dashboard-section-title h2 {
+    margin: 0 0 4px 0 !important;
+
+    font-size: 20px !important;
+    line-height: 1.25 !important;
+
+    font-weight: 700 !important;
+
+    color: #111827 !important;
+}
+
+body.admin-page .dashboard-section-title p {
+    margin: 0 !important;
+
+    font-size: 11px !important;
+
+    color: #737373 !important;
+}
+
+
+/* SECTION SPACING */
+
+body.admin-page .dashboard-section {
+    margin-top: 0 !important;
+    margin-bottom: 24px !important;
+}
+
+
+/* STAT CARD TEXT */
+
+body.admin-page .stat-card > div:last-child {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+
+/* ADD FOOD BUTTON */
+
+body.admin-page .dashboard-add-btn {
+    display: inline-flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    white-space: nowrap !important;
+
+    min-width: 100px !important;
+}
+
+
+/* REMOVE DEFAULT LINK EFFECTS */
+
+body.admin-page a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* MOBILE WELCOME */
+
+@media (max-width: 600px) {
+
+    body.admin-page .dashboard-welcome {
+        min-height: auto !important;
+
+        flex-direction: column !important;
+
+        align-items: flex-start !important;
+
+        gap: 14px !important;
+    }
+
+    body.admin-page .dashboard-add-btn {
+        width: 100% !important;
+    }
+}
+/* =====================================================
+   STEP 16 - REMOVE OLD LINK STYLING
+   ===================================================== */
+
+body.admin-page .dashboard-add-btn,
+body.admin-page .dashboard-add-btn:visited,
+body.admin-page .dashboard-add-btn:link {
+    display: inline-flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: #b58a35 !important;
+    color: #ffffff !important;
+
+    text-decoration: none !important;
+
+    border: 0 !important;
+    outline: 0 !important;
+
+    border-radius: 7px !important;
+
+    padding: 10px 18px !important;
+
+    font-size: 13px !important;
+    font-weight: 600 !important;
+
+    line-height: 1 !important;
+
+    box-shadow: 0 3px 8px rgba(181, 138, 53, 0.22) !important;
+}
+
+body.admin-page .dashboard-add-btn:hover,
+body.admin-page .dashboard-add-btn:active {
+    background: #9f7629 !important;
+    color: #ffffff !important;
+
+    text-decoration: none !important;
+
+    transform: translateY(-1px) !important;
+}
+
+
+/* QUICK ACTION LINKS */
+
+body.admin-page .quick-action-card,
+body.admin-page .quick-action-card:visited,
+body.admin-page .quick-action-card:link {
+    color: #111827 !important;
+    text-decoration: none !important;
+}
+
+body.admin-page .quick-action-card:hover {
+    text-decoration: none !important;
+}
+
+
+/* ALL DASHBOARD LINKS */
+
+body.admin-page .dashboard-welcome a,
+body.admin-page .dashboard-section a {
+    text-decoration: none;
+}
+/* =====================================================
+   STEP 17 - FINAL SIDEBAR + ADD FOOD FIX
+   ===================================================== */
+
+
+/* -----------------------------
+   ADD FOOD BUTTON
+   ----------------------------- */
+
+body.admin-page a.dashboard-add-btn,
+body.admin-page a.dashboard-add-btn:link,
+body.admin-page a.dashboard-add-btn:visited {
+
+    display: inline-flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: #b58a35 !important;
+    color: #ffffff !important;
+
+    text-decoration: none !important;
+
+    border: none !important;
+    border-radius: 7px !important;
+
+    padding: 10px 18px !important;
+
+    font-size: 14px !important;
+    font-weight: 600 !important;
+
+    line-height: 1 !important;
+
+    box-shadow: 0 3px 8px rgba(181, 138, 53, 0.20) !important;
+
+    transition: all 0.2s ease !important;
+}
+
+body.admin-page a.dashboard-add-btn:hover {
+
+    background: #9f7629 !important;
+    color: #ffffff !important;
+
+    text-decoration: none !important;
+
+    transform: translateY(-1px) !important;
+}
+
+
+/* -----------------------------
+   SIDEBAR LOGO FIX
+   ----------------------------- */
+
+.admin-sidebar,
+.sidebar {
+
+    overflow: visible !important;
+}
+
+
+/* Keep logo completely inside sidebar */
+
+.admin-sidebar .logo,
+.sidebar .logo {
+
+    position: relative !important;
+
+    left: 0 !important;
+    right: auto !important;
+
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+    transform: none !important;
+
+    max-width: 100% !important;
+}
+
+
+/* Logo container */
+
+.admin-sidebar .sidebar-logo,
+.sidebar .sidebar-logo {
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: flex-start !important;
+
+    padding-left: 22px !important;
+    padding-right: 15px !important;
+
+    box-sizing: border-box !important;
+
+    overflow: hidden !important;
+}
+
+
+/* Prevent logo text from being pushed outside */
+
+.admin-sidebar .logo-name,
+.admin-sidebar .logo-hotel,
+.sidebar .logo-name,
+.sidebar .logo-hotel {
+
+    white-space: nowrap !important;
+}
+
+
+/* -----------------------------
+   GENERAL SIDEBAR WIDTH SAFETY
+   ----------------------------- */
+
+.admin-sidebar,
+.sidebar {
+
+    box-sizing: border-box !important;
+}
+/* =====================================================
+   STEP 18 - QUICK ACTIONS PROFESSIONAL DESIGN
+   ===================================================== */
+
+body.admin-page .dashboard-section {
+    margin-top: 26px !important;
+}
+
+
+/* SECTION TITLE */
+
+body.admin-page .dashboard-section-title {
+    margin-bottom: 14px !important;
+}
+
+body.admin-page .dashboard-section-title h2 {
+    margin: 0 !important;
+
+    font-size: 21px !important;
+    font-weight: 700 !important;
+
+    color: #111827 !important;
+}
+
+body.admin-page .dashboard-section-title p {
+    margin: 5px 0 0 !important;
+
+    font-size: 13px !important;
+
+    color: #6b7280 !important;
+}
+
+
+/* QUICK ACTION GRID */
+
+body.admin-page .quick-actions {
+
+    display: grid !important;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+
+    gap: 14px !important;
+
+    width: 100% !important;
+}
+
+
+/* QUICK ACTION CARD */
+
+body.admin-page .quick-action-card {
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    gap: 15px !important;
+
+    min-height: 82px !important;
+
+    padding: 16px 18px !important;
+
+    background: #ffffff !important;
+
+    border: 1px solid #e5e1da !important;
+
+    border-radius: 10px !important;
+
+    box-sizing: border-box !important;
+
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.04) !important;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease !important;
+}
+
+
+/* HOVER */
+
+body.admin-page .quick-action-card:hover {
+
+    transform: translateY(-2px) !important;
+
+    border-color: #d4b36a !important;
+
+    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.07) !important;
+
+    text-decoration: none !important;
+}
+
+
+/* ICON */
+
+body.admin-page .quick-action-icon {
+
+    width: 46px !important;
+    height: 46px !important;
+
+    min-width: 46px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: #f7f0df !important;
+
+    border-radius: 9px !important;
+
+    font-size: 21px !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* TEXT */
+
+body.admin-page .quick-action-card h3 {
+
+    margin: 0 0 4px !important;
+
+    font-size: 15px !important;
+
+    font-weight: 650 !important;
+
+    color: #111827 !important;
+}
+
+body.admin-page .quick-action-card p {
+
+    margin: 0 !important;
+
+    font-size: 12px !important;
+
+    line-height: 1.45 !important;
+
+    color: #6b7280 !important;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    body.admin-page .quick-actions {
+        grid-template-columns: 1fr !important;
+    }
+
+}
+/* =====================================================
+   STEP 19 - SYSTEM STATUS PROFESSIONAL DESIGN
+   ===================================================== */
+
+body.admin-page .system-status-card {
+
+    width: 100% !important;
+
+    background: #ffffff !important;
+
+    border: 1px solid #e5e1da !important;
+
+    border-radius: 10px !important;
+
+    padding: 4px 18px !important;
+
+    box-sizing: border-box !important;
+
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.04) !important;
+}
+
+
+/* STATUS ROW */
+
+body.admin-page .status-row {
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: space-between !important;
+
+    min-height: 52px !important;
+
+    border-bottom: 1px solid #eeeae4 !important;
+}
+
+
+/* REMOVE BORDER FROM LAST ROW */
+
+body.admin-page .status-row:last-child {
+    border-bottom: none !important;
+}
+
+
+/* STATUS NAME */
+
+body.admin-page .status-row > span {
+
+    font-size: 14px !important;
+
+    font-weight: 500 !important;
+
+    color: #374151 !important;
+}
+
+
+/* STATUS VALUE */
+
+body.admin-page .status-row > strong {
+
+    font-size: 13px !important;
+
+    font-weight: 600 !important;
+}
+
+
+/* ONLINE STATUS */
+
+body.admin-page .status-online {
+
+    color: #278a58 !important;
+
+    white-space: nowrap !important;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+
+    body.admin-page .system-status-card {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+
+    body.admin-page .status-row {
+        min-height: 48px !important;
+    }
+
+}
+/* =====================================================
+   STEP 20 - QUICK ACTION COLORS
+   ===================================================== */
+
+
+/* QUICK ACTION ICONS */
+
+body.admin-page .quick-action-icon {
+    background: #f7f0df !important;
+    color: #b58a35 !important;
+
+    border: none !important;
+}
+
+
+/* FORCE EMOJI / SYMBOLS TO USE THE GOLD THEME */
+
+body.admin-page .quick-action-card:first-child .quick-action-icon {
+    color: #b58a35 !important;
+}
+
+body.admin-page .quick-action-card:nth-child(2) .quick-action-icon {
+    color: #b58a35 !important;
+}
+
+body.admin-page .quick-action-card:nth-child(3) .quick-action-icon {
+    color: #b58a35 !important;
+}
+
+body.admin-page .quick-action-card:nth-child(4) .quick-action-icon {
+    color: #b58a35 !important;
+}
+
+
+/* QUICK ACTION ARROW */
+
+body.admin-page .quick-action-card::after {
+    color: #b58a35 !important;
+}
+
+
+/* TEXT SHOULD STAY DARK */
+
+body.admin-page .quick-action-card h3 {
+    color: #111827 !important;
+}
+
+body.admin-page .quick-action-card p {
+    color: #6b7280 !important;
+}
+
+
+/* REMOVE OLD BLUE/PURPLE LINK COLOR */
+
+body.admin-page .quick-action-card,
+body.admin-page .quick-action-card:link,
+body.admin-page .quick-action-card:visited {
+    color: #111827 !important;
+}
+
+
+/* HOVER */
+
+body.admin-page .quick-action-card:hover {
+    border-color: #d4b36a !important;
+}
+
+body.admin-page .quick-action-card:hover .quick-action-icon {
+    background: #f3e7c8 !important;
+}
+/* =====================================================
+   STEP 21 - FINAL DASHBOARD SPACING + FOOTER
+   ===================================================== */
+
+
+/* MAIN DASHBOARD CONTAINER */
+
+body.admin-page .admin-container {
+    padding-top: 34px !important;
+    padding-bottom: 34px !important;
+}
+
+
+/* WELCOME CARD */
+
+body.admin-page .dashboard-welcome {
+    margin-bottom: 14px !important;
+}
+
+
+/* STAT CARDS */
+
+body.admin-page .dashboard-stats {
+    margin-bottom: 26px !important;
+}
+
+
+/* QUICK ACTIONS */
+
+body.admin-page .dashboard-section + .dashboard-section {
+    margin-top: 28px !important;
+}
+
+
+/* SYSTEM STATUS */
+
+body.admin-page .system-status-card {
+    margin-bottom: 8px !important;
+}
+
+
+/* ADMIN FOOTER */
+
+body.admin-page .admin-footer {
+    background: #171717 !important;
+
+    border-top: 1px solid #292929 !important;
+
+    color: #ffffff !important;
+}
+
+
+body.admin-page .admin-footer-inner {
+    min-height: 72px !important;
+
+    padding: 14px 28px !important;
+
+    box-sizing: border-box !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: space-between !important;
+
+    gap: 20px !important;
+}
+
+
+/* FOOTER BRAND */
+
+body.admin-page .admin-footer-logo {
+    display: flex !important;
+
+    align-items: center !important;
+
+    gap: 7px !important;
+}
+
+
+body.admin-page .footer-logo-symbol {
+    color: #b58a35 !important;
+
+    font-size: 20px !important;
+}
+
+
+body.admin-page .footer-logo-name {
+    color: #ffffff !important;
+
+    font-size: 17px !important;
+
+    font-weight: 700 !important;
+
+    letter-spacing: 1px !important;
+}
+
+
+body.admin-page .footer-logo-hotel {
+    color: #b58a35 !important;
+
+    font-size: 11px !important;
+
+    font-weight: 600 !important;
+
+    letter-spacing: 1.5px !important;
+}
+
+
+/* FOOTER TEXT */
+
+body.admin-page .admin-footer-text {
+    text-align: right !important;
+}
+
+
+body.admin-page .admin-footer-text p {
+    margin: 0 0 3px !important;
+
+    color: #d1d5db !important;
+
+    font-size: 12px !important;
+}
+
+
+body.admin-page .admin-footer-text span {
+    color: #777777 !important;
+
+    font-size: 11px !important;
+}
+
+
+/* MOBILE FOOTER */
+
+@media (max-width: 700px) {
+
+    body.admin-page .admin-footer-inner {
+        flex-direction: column !important;
+
+        justify-content: center !important;
+
+        text-align: center !important;
+    }
+
+    body.admin-page .admin-footer-text {
+        text-align: center !important;
+    }
+
+}
+/* =====================================================
+   STEP 22 - PROFESSIONAL STAT CARD ICONS
+   ===================================================== */
+
+body.admin-page .stat-icon {
+    font-size: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 56px !important;
+    height: 56px !important;
+
+    min-width: 56px !important;
+
+    border-radius: 10px !important;
+}
+
+
+/* TOTAL FOODS */
+
+body.admin-page .stat-card:nth-child(1) .stat-icon {
+    background: #f7f0df !important;
+}
+
+body.admin-page .stat-card:nth-child(1) .stat-icon::before {
+    content: "♨";
+
+    font-size: 25px !important;
+    font-family: Arial, sans-serif !important;
+
+    color: #b58a35 !important;
+}
+
+
+/* AVAILABLE */
+
+body.admin-page .stat-card:nth-child(2) .stat-icon {
+    background: #e4f4ea !important;
+}
+
+body.admin-page .stat-card:nth-child(2) .stat-icon::before {
+    content: "✓";
+
+    font-size: 29px !important;
+    font-weight: 700 !important;
+
+    color: #278a58 !important;
+}
+
+
+/* UNAVAILABLE */
+
+body.admin-page .stat-card:nth-child(3) .stat-icon {
+    background: #fbe7e9 !important;
+}
+
+body.admin-page .stat-card:nth-child(3) .stat-icon::before {
+    content: "×";
+
+    font-size: 32px !important;
+    font-weight: 500 !important;
+
+    color: #d94b61 !important;
+}
+
+
+/* FEATURED */
+
+body.admin-page .stat-card:nth-child(4) .stat-icon {
+    background: #f7f0df !important;
+}
+
+body.admin-page .stat-card:nth-child(4) .stat-icon::before {
+    content: "★";
+
+    font-size: 25px !important;
+
+    color: #b58a35 !important;
+}
+/* =====================================================
+   STEP 23 - RESPONSIVE ADMIN DASHBOARD
+   ===================================================== */
+
+@media (max-width: 900px) {
+
+    body.admin-page .dashboard-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    body.admin-page .quick-actions {
+        grid-template-columns: 1fr !important;
+    }
+
+    body.admin-page .admin-header {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
+}
+
+
+/* TABLET / MOBILE */
+
+@media (max-width: 650px) {
+
+    body.admin-page .admin-header {
+        flex-direction: column !important;
+
+        align-items: flex-start !important;
+
+        gap: 14px !important;
+    }
+
+    body.admin-page .admin-header-right {
+        width: 100% !important;
+
+        justify-content: flex-start !important;
+    }
+
+
+    body.admin-page .dashboard-stats {
+        grid-template-columns: 1fr !important;
+    }
+
+
+    body.admin-page .dashboard-welcome {
+        flex-direction: column !important;
+
+        align-items: flex-start !important;
+
+        gap: 16px !important;
+    }
+
+
+    body.admin-page .dashboard-welcome h2 {
+        font-size: 22px !important;
+    }
+
+
+    body.admin-page .dashboard-add-btn {
+        width: 100% !important;
+
+        box-sizing: border-box !important;
+    }
+
+
+    body.admin-page .quick-action-card {
+        min-height: 76px !important;
+
+        padding: 14px !important;
+    }
+
+
+    body.admin-page .quick-action-icon {
+        width: 42px !important;
+        height: 42px !important;
+
+        min-width: 42px !important;
+    }
+
+
+    body.admin-page .status-row {
+        gap: 10px !important;
+    }
+
+}
+
+
+/* VERY SMALL SCREENS */
+
+@media (max-width: 400px) {
+
+    body.admin-page .admin-container {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+
+    body.admin-page .stat-card {
+        padding: 14px !important;
+    }
+
+    body.admin-page .dashboard-section-title h2 {
+        font-size: 19px !important;
+    }
+
+}
+/* =====================================================
+   STEP 25 - FINAL ADMIN PANEL POLISH
+   ===================================================== */
+
+body.admin-page {
+    background: #1b1b1b !important;
+}
+
+
+/* MAIN ADMIN CONTENT */
+
+body.admin-page .admin-main {
+    background: #f5f3ef !important;
+
+    min-height: calc(100vh - 140px) !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* CONTENT CONTAINER */
+
+body.admin-page .admin-container {
+    width: calc(100% - 40px) !important;
+
+    max-width: 1400px !important;
+
+    margin: 0 auto !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* KEEP CARDS INSIDE THE CONTENT */
+
+body.admin-page .dashboard-welcome,
+body.admin-page .dashboard-stats,
+body.admin-page .dashboard-section {
+    max-width: 100% !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* CLEAN SCROLLBAR */
+
+body.admin-page::-webkit-scrollbar {
+    width: 9px !important;
+}
+
+body.admin-page::-webkit-scrollbar-track {
+    background: #1b1b1b !important;
+}
+
+body.admin-page::-webkit-scrollbar-thumb {
+    background: #555555 !important;
+
+    border-radius: 10px !important;
+}
+
+body.admin-page::-webkit-scrollbar-thumb:hover {
+    background: #b58a35 !important;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    body.admin-page .admin-container {
+        width: calc(100% - 24px) !important;
+    }
+
+}
+/* =========================================================
+   STEP 26 - FIX ADMIN FOOD TABLE IMAGE SIZE
+   ========================================================= */
+
+body.admin-page .admin-table-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    box-sizing: border-box !important;
+}
+
+body.admin-page .admin-table {
+    width: 100% !important;
+    min-width: 1050px !important;
+    table-layout: auto !important;
+}
+
+body.admin-page .admin-table td,
+body.admin-page .admin-table th {
+    vertical-align: middle !important;
+}
+
+/* Food image container */
+body.admin-page .table-food-image {
+    width: 64px !important;
+    height: 64px !important;
+    min-width: 64px !important;
+    max-width: 64px !important;
+    min-height: 64px !important;
+    max-height: 64px !important;
+
+    object-fit: cover !important;
+    display: block !important;
+
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+}
+
+/* Food image inside table */
+body.admin-page img.table-food-image {
+    width: 64px !important;
+    height: 64px !important;
+    min-width: 64px !important;
+    max-width: 64px !important;
+    min-height: 64px !important;
+    max-height: 64px !important;
+
+    object-fit: cover !important;
+    border-radius: 8px !important;
+}
+
+/* Food name + description */
+body.admin-page .table-food {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    min-width: 240px !important;
+}
+
+body.admin-page .table-food-name {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #222 !important;
+    line-height: 1.3 !important;
+}
+
+body.admin-page .table-food-category {
+    margin-top: 4px !important;
+    font-size: 12px !important;
+    color: #888 !important;
+    line-height: 1.4 !important;
+}
+
+/* Keep table rows compact */
+body.admin-page .admin-table tbody tr {
+    height: 82px !important;
+}
+
+body.admin-page .admin-table tbody td {
+    padding: 10px 14px !important;
+}
+
+/* Prevent action buttons from becoming huge */
+body.admin-page .admin-table td:last-child {
+    min-width: 280px !important;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+
+    body.admin-page .admin-table {
+        min-width: 1050px !important;
+    }
+
+    body.admin-page .table-food-image,
+    body.admin-page img.table-food-image {
+        width: 58px !important;
+        height: 58px !important;
+        min-width: 58px !important;
+        max-width: 58px !important;
+        min-height: 58px !important;
+        max-height: 58px !important;
+    }
+}
+/* =========================================================
+   ADMIN FOODS - FORCE CORRECT TABLE IMAGE SIZE
+   ========================================================= */
+
+body.admin-page .admin-table-card {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    background: #ffffff !important;
+}
+
+body.admin-page .admin-table {
+    display: table !important;
+    width: 100% !important;
+    height: auto !important;
+    min-width: 1100px !important;
+    background: #ffffff !important;
+    border-collapse: collapse !important;
+}
+
+body.admin-page .admin-table tbody tr {
+    display: table-row !important;
+    height: 84px !important;
+}
+
+body.admin-page .admin-table tbody td {
+    display: table-cell !important;
+    height: 84px !important;
+    padding: 10px 14px !important;
+    vertical-align: middle !important;
+}
+
+/* IMPORTANT: force image to small size */
+body.admin-page .admin-table .table-food img.table-food-image {
+    display: block !important;
+
+    width: 60px !important;
+    height: 60px !important;
+
+    min-width: 60px !important;
+    min-height: 60px !important;
+
+    max-width: 60px !important;
+    max-height: 60px !important;
+
+    width: 60px !important;
+    height: 60px !important;
+
+    object-fit: cover !important;
+    object-position: center !important;
+
+    position: static !important;
+    float: none !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    border-radius: 8px !important;
+}
+
+/* Food row layout */
+body.admin-page .admin-table .table-food {
+    display: flex !important;
+    width: auto !important;
+    max-width: 350px !important;
+    min-width: 240px !important;
+
+    height: 64px !important;
+
+    align-items: center !important;
+    gap: 12px !important;
+
+    position: static !important;
+}
+
+/* Prevent parent from stretching image */
+body.admin-page .admin-table .table-food > div {
+    max-width: 250px !important;
+}
+
+/* Food name */
+body.admin-page .admin-table .table-food-name {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #222222 !important;
+}
+
+/* Description */
+body.admin-page .admin-table .table-food-category {
+    font-size: 12px !important;
+    color: #888888 !important;
+    margin-top: 3px !important;
+}
+
+/* Make sure table doesn't become a giant image container */
+body.admin-page .admin-table td:first-child {
+    width: 350px !important;
+    max-width: 350px !important;
+}
+
+/* Hide any background image accidentally applied to table */
+body.admin-page .admin-table,
+body.admin-page .admin-table-card,
+body.admin-page .admin-table tbody,
+body.admin-page .admin-table tr,
+body.admin-page .admin-table td {
+    background-image: none !important;
+}
+/* =========================================================
+   STEP 26 - FIX FOOD TABLE IMAGE
+   IMPORTANT: ADMIN USES .admin-body
+   ========================================================= */
+
+body.admin-body .admin-table-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    box-sizing: border-box !important;
+}
+
+body.admin-body .admin-table {
+    width: 100% !important;
+    min-width: 1100px !important;
+    border-collapse: collapse !important;
+    table-layout: auto !important;
+}
+
+/* Food image */
+body.admin-body .table-food-image {
+    width: 60px !important;
+    height: 60px !important;
+    min-width: 60px !important;
+    min-height: 60px !important;
+    max-width: 60px !important;
+    max-height: 60px !important;
+
+    object-fit: cover !important;
+    object-position: center !important;
+
+    display: block !important;
+    position: static !important;
+    float: none !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    border-radius: 8px !important;
+}
+
+/* Specifically target the actual IMG element */
+body.admin-body img.table-food-image {
+    width: 60px !important;
+    height: 60px !important;
+    min-width: 60px !important;
+    min-height: 60px !important;
+    max-width: 60px !important;
+    max-height: 60px !important;
+
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* Food row */
+body.admin-body .table-food {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: auto !important;
+    height: 64px !important;
+}
+
+/* First column */
+body.admin-body .admin-table td:first-child {
+    width: 350px !important;
+    max-width: 350px !important;
+}
+
+/* Table cells */
+body.admin-body .admin-table tbody td {
+    padding: 10px 14px !important;
+    vertical-align: middle !important;
+}
+
+/* Table rows */
+body.admin-body .admin-table tbody tr {
+    height: 82px !important;
+}
+
+/* Food name */
+body.admin-body .table-food-name {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+}
+
+/* Description */
+body.admin-body .table-food-category {
+    font-size: 12px !important;
+    color: #888 !important;
+    margin-top: 4px !important;
+}
+/* =========================================================
+   STEP 27 - PROFESSIONAL FOOD MANAGEMENT PAGE
+   ========================================================= */
+
+body.admin-body .menu-page-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 20px !important;
+    margin-bottom: 22px !important;
+}
+
+body.admin-body .menu-page-header h2 {
+    margin: 0 0 5px !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    color: #222 !important;
+}
+
+body.admin-body .menu-page-header p {
+    margin: 0 !important;
+    font-size: 13px !important;
+    color: #888 !important;
+}
+
+body.admin-body .menu-add-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #b58a35 !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    padding: 10px 17px !important;
+    border-radius: 7px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    box-shadow: 0 3px 8px rgba(181,138,53,.18) !important;
+}
+
+body.admin-body .menu-add-btn:hover {
+    background: #9f7629 !important;
+    color: #ffffff !important;
+}
+
+/* TABLE CARD */
+
+body.admin-body .admin-table-card {
+    background: #ffffff !important;
+    border: 1px solid #e7e0d5 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 3px 12px rgba(0,0,0,.05) !important;
+}
+
+/* TABLE HEADER */
+
+body.admin-body .admin-table thead th {
+    background: #faf8f4 !important;
+    color: #6f6250 !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: .7px !important;
+    padding: 14px !important;
+    border-bottom: 1px solid #e7e0d5 !important;
+    white-space: nowrap !important;
+}
+
+/* TABLE ROWS */
+
+body.admin-body .admin-table tbody tr {
+    border-bottom: 1px solid #eee9e1 !important;
+}
+
+body.admin-body .admin-table tbody tr:last-child {
+    border-bottom: none !important;
+}
+
+body.admin-body .admin-table tbody tr:hover {
+    background: #fffdf8 !important;
+}
+
+body.admin-body .admin-table tbody td {
+    font-size: 13px !important;
+    color: #444 !important;
+}
+
+/* PRICE */
+
+body.admin-body .admin-table td strong {
+    color: #222 !important;
+    font-weight: 700 !important;
+}
+
+/* STATUS BADGES */
+
+body.admin-body .status-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+    padding: 5px 9px !important;
+    border-radius: 20px !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+}
+
+body.admin-body .status-available {
+    background: #eaf7ee !important;
+    color: #287a3d !important;
+}
+
+body.admin-body .status-unavailable {
+    background: #fdecec !important;
+    color: #b33a3a !important;
+}
+
+body.admin-body .status-featured {
+    background: #fff5dc !important;
+    color: #9a721d !important;
+}
+/* =========================================================
+   STEP 28 - FOOD ACTION BUTTONS
+   ========================================================= */
+
+body.admin-body .admin-table td:last-child > div {
+    display: flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+    flex-wrap: wrap !important;
+}
+
+body.admin-body .admin-table .admin-btn,
+body.admin-body .admin-table .admin-btn:visited,
+body.admin-body .admin-table .admin-btn:link {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 6px 10px !important;
+
+    border-radius: 6px !important;
+    border: 1px solid #ddd5c8 !important;
+
+    background: #ffffff !important;
+    color: #4b4032 !important;
+
+    font-size: 12px !important;
+    font-weight: 600 !important;
+
+    text-decoration: none !important;
+    white-space: nowrap !important;
+
+    line-height: 1.2 !important;
+}
+
+body.admin-body .admin-table .admin-btn:hover {
+    background: #f7f2e8 !important;
+    color: #9a721d !important;
+    border-color: #c9a45a !important;
+    text-decoration: none !important;
+}
+
+/* Edit */
+body.admin-body .admin-table .admin-btn-primary {
+    background: #fff8e8 !important;
+    color: #8b6419 !important;
+    border-color: #dfc88f !important;
+}
+
+/* Hide / Show */
+body.admin-body .admin-table .admin-btn-secondary {
+    background: #f7f7f7 !important;
+    color: #555 !important;
+    border-color: #ddd !important;
+}
+
+/* Delete */
+body.admin-body .admin-table .admin-btn-danger {
+    background: #fff1f1 !important;
+    color: #b33a3a !important;
+    border-color: #e7bcbc !important;
+}
+
+body.admin-body .admin-table .admin-btn-danger:hover {
+    background: #fce2e2 !important;
+    color: #9e2929 !important;
+}
+/* =========================================================
+   STEP 29 - BETTER FOOD TABLE WIDTH
+   ========================================================= */
+
+body.admin-body .admin-table-card {
+    overflow-x: auto !important;
+    width: 100% !important;
+}
+
+body.admin-body .admin-table {
+    width: 100% !important;
+    min-width: 0 !important;
+    table-layout: auto !important;
+}
+
+/* Food column */
+body.admin-body .admin-table th:first-child,
+body.admin-body .admin-table td:first-child {
+    width: 30% !important;
+    min-width: 260px !important;
+}
+
+/* Category */
+body.admin-body .admin-table th:nth-child(2),
+body.admin-body .admin-table td:nth-child(2) {
+    width: 11% !important;
+}
+
+/* Meal */
+body.admin-body .admin-table th:nth-child(3),
+body.admin-body .admin-table td:nth-child(3) {
+    width: 10% !important;
+}
+
+/* Price */
+body.admin-body .admin-table th:nth-child(4),
+body.admin-body .admin-table td:nth-child(4) {
+    width: 9% !important;
+    white-space: nowrap !important;
+}
+
+/* Availability */
+body.admin-body .admin-table th:nth-child(5),
+body.admin-body .admin-table td:nth-child(5) {
+    width: 12% !important;
+    white-space: nowrap !important;
+}
+
+/* Featured */
+body.admin-body .admin-table th:nth-child(6),
+body.admin-body .admin-table td:nth-child(6) {
+    width: 11% !important;
+    white-space: nowrap !important;
+}
+
+/* Actions */
+body.admin-body .admin-table th:last-child,
+body.admin-body .admin-table td:last-child {
+    width: 17% !important;
+    min-width: 220px !important;
+}
+
+/* Keep food information compact */
+body.admin-body .table-food {
+    min-width: 0 !important;
+    max-width: 100% !important;
+}
+
+body.admin-body .table-food > div:last-child {
+    min-width: 0 !important;
+}
+
+body.admin-body .table-food-name,
+body.admin-body .table-food-category {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+/* Smaller screens */
+@media (max-width: 1100px) {
+
+    body.admin-body .admin-table {
+        min-width: 1000px !important;
+    }
+
+}
+/* =========================================================
+   STEP 30 - RESTORE FOOD COLUMN
+   ========================================================= */
+
+body.admin-body .admin-table {
+    width: 100% !important;
+    min-width: 1100px !important;
+    table-layout: auto !important;
+}
+
+body.admin-body .admin-table th:first-child,
+body.admin-body .admin-table td:first-child {
+    display: table-cell !important;
+    visibility: visible !important;
+    width: 350px !important;
+    min-width: 350px !important;
+    max-width: 350px !important;
+}
+
+body.admin-body .admin-table .table-food {
+    display: flex !important;
+    visibility: visible !important;
+    align-items: center !important;
+    width: 100% !important;
+    min-width: 250px !important;
+}
+
+body.admin-body .admin-table .table-food-image,
+body.admin-body .admin-table img.table-food-image {
+    width: 60px !important;
+    height: 60px !important;
+    min-width: 60px !important;
+    max-width: 60px !important;
+    min-height: 60px !important;
+    max-height: 60px !important;
+    object-fit: cover !important;
+    flex-shrink: 0 !important;
+}
+/* =========================================================
+   STEP 36 - CATEGORIES PAGE
+   ========================================================= */
+
+body.admin-body .category-page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+body.admin-body .category-page-header h2 {
+    margin: 0 0 5px;
+    font-size: 24px;
+    color: #222;
+}
+
+body.admin-body .category-page-header p {
+    margin: 0;
+    font-size: 13px;
+    color: #888;
+}
+
+/* SUMMARY */
+
+body.admin-body .category-summary {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #ffffff;
+    border: 1px solid #e7e0d5;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 22px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.04);
+}
+
+body.admin-body .category-summary-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff5dc;
+    color: #a97816;
+    border-radius: 8px;
+    font-size: 21px;
+}
+
+body.admin-body .category-summary span {
+    display: block;
+    font-size: 11px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: .7px;
+}
+
+body.admin-body .category-summary strong {
+    display: block;
+    margin-top: 3px;
+    font-size: 21px;
+    color: #222;
+}
+
+/* CATEGORY GRID */
+
+body.admin-body .category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+body.admin-body .category-card {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    min-width: 0;
+    background: #ffffff;
+    border: 1px solid #e7e0d5;
+    border-radius: 10px;
+    padding: 17px;
+    box-sizing: border-box;
+    transition: .2s ease;
+}
+
+body.admin-body .category-card:hover {
+    border-color: #c9a45a;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,.06);
+}
+
+body.admin-body .category-card-icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff5dc;
+    border-radius: 8px;
+    font-size: 19px;
+}
+
+body.admin-body .category-card-content {
+    min-width: 0;
+    flex: 1;
+}
+
+body.admin-body .category-card-content h3 {
+    margin: 0;
+    font-size: 15px;
+    color: #222;
+    font-weight: 700;
+}
+
+body.admin-body .category-card-content p {
+    margin: 4px 0 0;
+    font-size: 11px;
+    color: #999;
+}
+
+body.admin-body .category-arrow {
+    color: #b58a35;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* EMPTY STATE */
+
+body.admin-body .category-empty {
+    background: #ffffff;
+    border: 1px solid #e7e0d5;
+    border-radius: 12px;
+    padding: 70px 30px;
+    text-align: center;
+}
+
+body.admin-body .category-empty-icon {
+    font-size: 45px;
+    color: #b58a35;
+    margin-bottom: 12px;
+}
+
+body.admin-body .category-empty h2 {
+    margin: 0 0 8px;
+    color: #222;
+}
+
+body.admin-body .category-empty p {
+    margin: 0 0 20px;
+    color: #888;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+    body.admin-body .category-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    body.admin-body .category-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* =========================================================
+   STEP 38 - CLICKABLE CATEGORY CARDS
+   ========================================================= */
+
+body.admin-body a.category-card,
+body.admin-body a.category-card:visited,
+body.admin-body a.category-card:link {
+    color: inherit;
+    text-decoration: none;
+}
+
+body.admin-body a.category-card:hover {
+    color: inherit;
+    text-decoration: none;
+}
+/* =========================================================
+   STEP 39 - FOOD CATEGORY FILTER
+   ========================================================= */
+
+body.admin-body .food-filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: -8px 0 20px;
+}
+
+body.admin-body .active-category-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 13px;
+    background: #fff5dc;
+    border: 1px solid #ead7a9;
+    border-radius: 7px;
+    color: #8b6419;
+    font-size: 13px;
+}
+
+body.admin-body .all-foods-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 14px;
+    border: 1px solid #d8cbb8;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #333333;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: .2s ease;
+}
+
+body.admin-body .all-foods-btn:hover {
+    background: #b58a35;
+    border-color: #b58a35;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+@media (max-width: 600px) {
+
+    body.admin-body .food-filter-bar {
+        flex-wrap: wrap;
+    }
+
+}
+/* =========================================================
+   STEP 42 - MEAL TIMINGS PAGE
+   ========================================================= */
+
+body.admin-body .meal-timings-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+body.admin-body .meal-timings-header h2 {
+    margin: 0 0 5px;
+    font-size: 24px;
+    color: #222222;
+}
+
+body.admin-body .meal-timings-header p {
+    margin: 0;
+    color: #888888;
+    font-size: 13px;
+}
+
+
+/* SUMMARY */
+
+body.admin-body .meal-timings-summary {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #ffffff;
+    border: 1px solid #e7e0d5;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 22px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.04);
+}
+
+body.admin-body .meal-summary-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff5dc;
+    color: #a97816;
+    border-radius: 8px;
+    font-size: 22px;
+}
+
+body.admin-body .meal-timings-summary span {
+    display: block;
+    color: #888888;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .7px;
+}
+
+body.admin-body .meal-timings-summary strong {
+    display: block;
+    margin-top: 3px;
+    color: #222222;
+    font-size: 21px;
+}
+
+
+/* GRID */
+
+body.admin-body .meal-timings-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+
+/* CARD */
+
+body.admin-body .meal-timing-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #e7e0d5;
+    border-radius: 11px;
+    padding: 22px;
+    min-width: 0;
+    box-sizing: border-box;
+    transition: .2s ease;
+}
+
+body.admin-body .meal-timing-card:hover {
+    border-color: #c9a45a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,.06);
+}
+
+
+/* ICON */
+
+body.admin-body .meal-timing-icon {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff5dc;
+    border-radius: 10px;
+    font-size: 24px;
+}
+
+
+/* CONTENT */
+
+body.admin-body .meal-timing-content {
+    min-width: 0;
+    flex: 1;
+}
+
+body.admin-body .meal-timing-content h3 {
+    margin: 0 0 6px;
+    color: #222222;
+    font-size: 18px;
+}
+
+body.admin-body .meal-time {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: #a97816;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+body.admin-body .meal-timing-content p {
+    margin: 0;
+    color: #888888;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* STATUS */
+
+body.admin-body .meal-timing-status {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 5px 9px;
+    background: #eaf7ef;
+    color: #287a3d;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+body.admin-body .meal-timing-status span {
+    font-size: 9px;
+}
+
+
+/* INFORMATION */
+
+body.admin-body .meal-timing-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 22px;
+    padding: 16px 18px;
+    background: #fffaf0;
+    border: 1px solid #ead9b4;
+    border-radius: 10px;
+}
+
+body.admin-body .meal-info-icon {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #b58a35;
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+body.admin-body .meal-timing-info strong {
+    display: block;
+    margin-bottom: 3px;
+    color: #5d461c;
+    font-size: 13px;
+}
+
+body.admin-body .meal-timing-info p {
+    margin: 0;
+    color: #806f50;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+
+    body.admin-body .meal-timings-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    body.admin-body .meal-timing-card {
+        padding: 18px;
+    }
+
+    body.admin-body .meal-timing-status {
+        position: static;
+        margin-left: auto;
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    body.admin-body .meal-timing-card {
+        flex-wrap: wrap;
+    }
+
+    body.admin-body .meal-timing-status {
+        width: 100%;
+        margin-left: 0;
+        text-align: center;
+    }
+
+}
+/* =========================================================
+   STEP 45 - OFFERS & COMBOS PAGE
+   ========================================================= */
+
+body.admin-body .offers-page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+body.admin-body .offers-page-header h2 {
+    margin: 0 0 5px;
+    font-size: 24px;
+    color: #222222;
+}
+
+body.admin-body .offers-page-header p {
+    margin: 0;
+    color: #888888;
+    font-size: 13px;
+}
+
+
+/* SUMMARY */
+
+body.admin-body .offers-summary {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #ffffff;
+    border: 1px solid #e7e0d5;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 22px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.04);
+}
+
+body.admin-body .offers-summary-icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff5dc;
+    color: #a97816;
+    border-radius: 8px;
+    font-size: 22px;
+}
+
+body.admin-body .offers-summary span {
+    display: block;
+    color: #888888;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .7px;
+}
+
+body.admin-body .offers-summary strong {
+    display: block;
+    margin-top: 3px;
+    color: #222222;
+    font-size: 21px;
+}
+
+
+/* OFFERS GRID */
+
+body.admin-body .offers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+
+/* OFFER CARD */
+
+body.admin-body .offer-card {
+    display: flex;
+    gap: 17px;
+    background: #ffffff;
+    border: 1px solid #e7e0d5;
+    border-radius: 11px;
+    padding: 21px;
+    min-width: 0;
+    box-sizing: border-box;
+    transition: .2s ease;
+}
+
+body.admin-body .offer-card:hover {
+    border-color: #c9a45a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,.06);
+}
+
+
+/* ICON */
+
+body.admin-body .offer-card-icon {
+    width: 54px;
+    height: 54px;
+    min-width: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff5dc;
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+
+/* CONTENT */
+
+body.admin-body .offer-card-content {
+    flex: 1;
+    min-width: 0;
+}
+
+body.admin-body .offer-card-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+body.admin-body .offer-card-heading h3 {
+    margin: 0;
+    color: #222222;
+    font-size: 18px;
+}
+
+body.admin-body .offer-status {
+    flex-shrink: 0;
+    padding: 5px 9px;
+    background: #eaf7ef;
+    color: #287a3d;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+body.admin-body .offer-description {
+    margin: 8px 0 16px;
+    color: #888888;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* BOTTOM */
+
+body.admin-body .offer-card-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 10px;
+    padding-top: 13px;
+    border-top: 1px solid #eee8de;
+}
+
+body.admin-body .offer-price-label {
+    display: block;
+    margin-bottom: 3px;
+    color: #999999;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+}
+
+body.admin-body .offer-price {
+    color: #a97816;
+    font-size: 20px;
+}
+
+body.admin-body .offer-action {
+    color: #b58a35;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* INFORMATION */
+
+body.admin-body .offers-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 22px;
+    padding: 16px 18px;
+    background: #fffaf0;
+    border: 1px solid #ead9b4;
+    border-radius: 10px;
+}
+
+body.admin-body .offers-info-icon {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #b58a35;
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+body.admin-body .offers-info strong {
+    display: block;
+    margin-bottom: 3px;
+    color: #5d461c;
+    font-size: 13px;
+}
+
+body.admin-body .offers-info p {
+    margin: 0;
+    color: #806f50;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+
+    body.admin-body .offers-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    body.admin-body .offer-card-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    body.admin-body .offer-status {
+        align-self: flex-start;
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    body.admin-body .offer-card {
+        padding: 17px;
+    }
+
+    body.admin-body .offer-card-icon {
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+        font-size: 21px;
+    }
+
+    body.admin-body .offer-card-heading h3 {
+        font-size: 16px;
+    }
+
+}
+/* =========================================
+   CUSTOMERS PAGE
+   ========================================= */
+
+body.admin-page .customer-summary-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: #ffffff;
+    border: 1px solid #e4d8c3;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 28px 0;
+    box-sizing: border-box;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+body.admin-page .customer-summary-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 10px;
+    background: #fff4dc;
+    color: #b58a35;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+body.admin-page .customer-summary-card span {
+    display: block;
+    color: #777777;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+body.admin-page .customer-summary-card strong {
+    display: block;
+    color: #111111;
+    font-size: 26px;
+    line-height: 1;
+}
+
+body.admin-page .customer-empty-card {
+    background: #ffffff;
+    border: 1px solid #e4d8c3;
+    border-radius: 12px;
+    padding: 65px 30px;
+    text-align: center;
+    box-sizing: border-box;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+body.admin-page .customer-empty-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    border-radius: 14px;
+    background: #fff4dc;
+    color: #b58a35;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+}
+
+body.admin-page .customer-empty-card h2 {
+    margin: 0 0 12px;
+    color: #111111;
+    font-size: 28px;
+}
+
+body.admin-page .customer-empty-card p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #777777;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+
+    body.admin-page .customer-summary-card {
+        padding: 18px;
+    }
+
+    body.admin-page .customer-empty-card {
+        padding: 45px 20px;
+    }
+
+    body.admin-page .customer-empty-card h2 {
+        font-size: 23px;
+    }
+
+}
+/* =========================================================
+   STEP 26 - CUSTOMERS PAGE
+   ========================================================= */
+
+body.admin-page .customers-welcome {
+    margin-bottom: 24px !important;
+}
+
+body.admin-page .customers-welcome h2 {
+    margin: 0 0 6px !important;
+    color: #111827 !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+}
+
+body.admin-page .customers-welcome p {
+    margin: 0 !important;
+    color: #6b7280 !important;
+    font-size: 15px !important;
+}
+
+
+/* CUSTOMER STAT */
+
+body.admin-page .customer-stat-card {
+    display: flex !important;
+    align-items: center !important;
+    gap: 18px !important;
+
+    width: 100% !important;
+    min-height: 96px !important;
+
+    padding: 20px 24px !important;
+    margin-bottom: 24px !important;
+
+    background: #ffffff !important;
+    border: 1px solid #e5ddd0 !important;
+    border-radius: 14px !important;
+
+    box-sizing: border-box !important;
+}
+
+
+body.admin-page .customer-stat-icon {
+    width: 54px !important;
+    height: 54px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: #fff3d9 !important;
+    border-radius: 12px !important;
+
+    font-size: 25px !important;
+}
+
+
+body.admin-page .customer-stat-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 3px !important;
+}
+
+
+body.admin-page .customer-stat-content span {
+    color: #6b7280 !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.7px !important;
+}
+
+
+body.admin-page .customer-stat-content strong {
+    color: #111827 !important;
+    font-size: 27px !important;
+    line-height: 1.1 !important;
+    font-weight: 700 !important;
+}
+
+
+/* CUSTOMER MAIN CARD */
+
+body.admin-page .customers-content-card {
+    width: 100% !important;
+    min-height: 300px !important;
+
+    background: #ffffff !important;
+    border: 1px solid #e5ddd0 !important;
+    border-radius: 14px !important;
+
+    box-sizing: border-box !important;
+    padding: 32px !important;
+}
+
+
+/* EMPTY STATE */
+
+body.admin-page .customers-empty-state {
+    min-height: 230px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    text-align: center !important;
+}
+
+
+body.admin-page .customers-empty-icon {
+    width: 64px !important;
+    height: 64px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    margin-bottom: 18px !important;
+
+    background: #fff3d9 !important;
+    border-radius: 50% !important;
+
+    font-size: 28px !important;
+}
+
+
+body.admin-page .customers-empty-state h2 {
+    margin: 0 0 10px !important;
+
+    color: #111827 !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+}
+
+
+body.admin-page .customers-empty-state p {
+    max-width: 650px !important;
+
+    margin: 0 !important;
+
+    color: #6b7280 !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+}
+
+
+/* CUSTOMER SECTION HEADER */
+
+body.admin-page .customers-section-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+
+    padding-bottom: 18px !important;
+    margin-bottom: 20px !important;
+
+    border-bottom: 1px solid #eee7dc !important;
+}
+
+
+body.admin-page .customers-section-header h2 {
+    margin: 0 0 5px !important;
+
+    color: #111827 !important;
+    font-size: 21px !important;
+}
+
+
+body.admin-page .customers-section-header p {
+    margin: 0 !important;
+
+    color: #6b7280 !important;
+    font-size: 14px !important;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+    body.admin-page .customers-welcome h2 {
+        font-size: 24px !important;
+    }
+
+    body.admin-page .customer-stat-card {
+        padding: 18px !important;
+    }
+
+    body.admin-page .customers-content-card {
+        padding: 22px !important;
+    }
+
+    body.admin-page .customers-empty-state {
+        min-height: 200px !important;
+    }
+
+    body.admin-page .customers-empty-state h2 {
+        font-size: 21px !important;
+    }
+
+    body.admin-page .customers-empty-state p {
+        font-size: 14px !important;
+    }
+}
+/* =========================================================
+   STEP 29 - ORDERS PAGE
+   ========================================================= */
+
+body.admin-page .orders-welcome {
+    margin-bottom: 24px !important;
+}
+
+body.admin-page .orders-welcome h2 {
+    margin: 0 0 6px !important;
+    color: #111827 !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+}
+
+body.admin-page .orders-welcome p {
+    margin: 0 !important;
+    color: #6b7280 !important;
+    font-size: 15px !important;
+}
+
+
+/* ORDER STATISTICS */
+
+body.admin-page .orders-stats {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 18px !important;
+    margin-bottom: 24px !important;
+}
+
+
+body.admin-page .order-stat-card {
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+
+    min-height: 96px !important;
+
+    padding: 18px 20px !important;
+
+    background: #ffffff !important;
+    border: 1px solid #e5ddd0 !important;
+    border-radius: 14px !important;
+
+    box-sizing: border-box !important;
+}
+
+
+body.admin-page .order-stat-icon {
+    width: 50px !important;
+    height: 50px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    flex-shrink: 0 !important;
+
+    background: #fff3d9 !important;
+    color: #b58a35 !important;
+
+    border-radius: 12px !important;
+
+    font-size: 22px !important;
+    font-weight: 700 !important;
+}
+
+
+body.admin-page .order-stat-green {
+    background: #e8f7ee !important;
+    color: #16834b !important;
+}
+
+
+body.admin-page .order-stat-orange {
+    background: #fff3df !important;
+    color: #b87912 !important;
+}
+
+
+body.admin-page .order-stat-red {
+    background: #fdecef !important;
+    color: #d33d61 !important;
+}
+
+
+body.admin-page .order-stat-card span {
+    display: block !important;
+
+    margin-bottom: 4px !important;
+
+    color: #6b7280 !important;
+
+    font-size: 12px !important;
+    font-weight: 600 !important;
+
+    text-transform: uppercase !important;
+    letter-spacing: 0.6px !important;
+}
+
+
+body.admin-page .order-stat-card strong {
+    display: block !important;
+
+    color: #111827 !important;
+
+    font-size: 25px !important;
+    font-weight: 700 !important;
+}
+
+
+/* ORDERS CARD */
+
+body.admin-page .orders-card {
+    width: 100% !important;
+
+    min-height: 340px !important;
+
+    padding: 0 !important;
+
+    background: #ffffff !important;
+
+    border: 1px solid #e5ddd0 !important;
+    border-radius: 14px !important;
+
+    overflow: hidden !important;
+
+    box-sizing: border-box !important;
+}
+
+
+body.admin-page .orders-card-header {
+    padding: 22px 26px !important;
+
+    border-bottom: 1px solid #eee7dc !important;
+}
+
+
+body.admin-page .orders-card-header h2 {
+    margin: 0 0 5px !important;
+
+    color: #111827 !important;
+
+    font-size: 21px !important;
+    font-weight: 700 !important;
+}
+
+
+body.admin-page .orders-card-header p {
+    margin: 0 !important;
+
+    color: #6b7280 !important;
+
+    font-size: 14px !important;
+}
+
+
+/* EMPTY STATE */
+
+body.admin-page .orders-empty-state {
+    min-height: 270px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 30px !important;
+
+    text-align: center !important;
+
+    box-sizing: border-box !important;
+}
+
+
+body.admin-page .orders-empty-icon {
+    width: 64px !important;
+    height: 64px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    margin-bottom: 18px !important;
+
+    background: #fff3d9 !important;
+
+    border-radius: 50% !important;
+
+    font-size: 27px !important;
+}
+
+
+body.admin-page .orders-empty-state h2 {
+    margin: 0 0 10px !important;
+
+    color: #111827 !important;
+
+    font-size: 24px !important;
+    font-weight: 700 !important;
+}
+
+
+body.admin-page .orders-empty-state p {
+    max-width: 680px !important;
+
+    margin: 0 !important;
+
+    color: #6b7280 !important;
+
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+
+    body.admin-page .orders-stats {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    body.admin-page .orders-stats {
+        grid-template-columns: 1fr !important;
+    }
+
+    body.admin-page .orders-welcome h2 {
+        font-size: 24px !important;
+    }
+
+    body.admin-page .orders-card-header {
+        padding: 20px !important;
+    }
+
+    body.admin-page .orders-empty-state {
+        padding: 24px 18px !important;
+    }
+
+}
+/* =========================================================
+   ORDERS PAGE - PROFESSIONAL DESIGN
+   ========================================================= */
+
+body.admin-page .orders-welcome {
+    margin-bottom: 22px !important;
+}
+
+/* ORDER STATISTICS */
+body.admin-page .orders-stats {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+    margin-bottom: 24px !important;
+}
+
+body.admin-page .order-stat-card {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+
+    background: #ffffff !important;
+    border: 1px solid #e5ddd0 !important;
+    border-radius: 12px !important;
+
+    padding: 20px !important;
+    min-height: 92px !important;
+
+    box-sizing: border-box !important;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04) !important;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+body.admin-page .order-stat-card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07) !important;
+}
+
+
+/* STAT ICON */
+body.admin-page .order-stat-icon {
+    width: 52px !important;
+    height: 52px !important;
+
+    min-width: 52px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border-radius: 11px !important;
+
+    background: #fff4dc !important;
+    color: #b57d16 !important;
+
+    font-size: 23px !important;
+    font-weight: 700 !important;
+}
+
+
+/* COMPLETED */
+body.admin-page .order-stat-icon.order-stat-green {
+    background: #e9f7ef !important;
+    color: #18864b !important;
+}
+
+
+/* PENDING */
+body.admin-page .order-stat-icon.order-stat-orange {
+    background: #fff2df !important;
+    color: #c27a08 !important;
+}
+
+
+/* CANCELLED */
+body.admin-page .order-stat-icon.order-stat-red {
+    background: #fdeaea !important;
+    color: #c63c3c !important;
+}
+
+
+/* STAT TEXT */
+body.admin-page .order-stat-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+}
+
+body.admin-page .order-stat-content span {
+    color: #7b7f87 !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.6px !important;
+}
+
+body.admin-page .order-stat-content strong {
+    color: #111827 !important;
+    font-size: 25px !important;
+    line-height: 1.1 !important;
+    font-weight: 700 !important;
+}
+
+
+/* =========================================================
+   RECENT ORDERS CARD
+   ========================================================= */
+
+body.admin-page .orders-card {
+    background: #ffffff !important;
+
+    border: 1px solid #e5ddd0 !important;
+    border-radius: 12px !important;
+
+    padding: 26px !important;
+
+    box-sizing: border-box !important;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04) !important;
+}
+
+body.admin-page .orders-card-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    padding-bottom: 18px !important;
+    border-bottom: 1px solid #eee7dc !important;
+}
+
+body.admin-page .orders-card-header h2 {
+    margin: 0 0 6px 0 !important;
+
+    color: #111827 !important;
+
+    font-size: 22px !important;
+    font-weight: 700 !important;
+}
+
+body.admin-page .orders-card-header p {
+    margin: 0 !important;
+
+    color: #7b7f87 !important;
+
+    font-size: 14px !important;
+}
+
+
+/* EMPTY STATE */
+body.admin-page .orders-empty-state {
+    text-align: center !important;
+
+    padding: 55px 20px !important;
+}
+
+body.admin-page .orders-empty-icon {
+    width: 68px !important;
+    height: 68px !important;
+
+    margin: 0 auto 18px auto !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border-radius: 50% !important;
+
+    background: #fff4dc !important;
+    color: #b57d16 !important;
+
+    font-size: 28px !important;
+}
+
+body.admin-page .orders-empty-state h2 {
+    margin: 0 0 10px 0 !important;
+
+    color: #111827 !important;
+
+    font-size: 22px !important;
+    font-weight: 700 !important;
+}
+
+body.admin-page .orders-empty-state p {
+    max-width: 650px !important;
+
+    margin: 0 auto !important;
+
+    color: #7b7f87 !important;
+
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+}
+
+
+/* =========================================================
+   ORDERS RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    body.admin-page .orders-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    body.admin-page .orders-stats {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+
+    body.admin-page .order-stat-card {
+        padding: 16px !important;
+    }
+
+    body.admin-page .orders-card {
+        padding: 18px !important;
+    }
+
+    body.admin-page .orders-empty-state {
+        padding: 40px 15px !important;
+    }
+
+}
+/* =========================================================
+   MTC HOTEL - ORDERS PAGE
+   ========================================================= */
+
+body.admin-page .orders-welcome {
+    margin-bottom: 24px !important;
+}
+
+body.admin-page .orders-stats {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 20px !important;
+    margin-bottom: 28px !important;
+}
+
+body.admin-page .order-stat-card {
+    background: #ffffff !important;
+    border: 1px solid #e5dfd4 !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+    box-sizing: border-box !important;
+    min-height: 105px !important;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04) !important;
+}
+
+body.admin-page .order-stat-icon {
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
+    border-radius: 10px !important;
+    background: #fff4d9 !important;
+    color: #b58a35 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+}
+
+body.admin-page .order-stat-green {
+    background: #e9f7ef !important;
+    color: #16834b !important;
+}
+
+body.admin-page .order-stat-orange {
+    background: #fff3df !important;
+    color: #c47a08 !important;
+}
+
+body.admin-page .order-stat-red {
+    background: #fdecec !important;
+    color: #c0392b !important;
+}
+
+body.admin-page .order-stat-card span {
+    display: block !important;
+    color: #777 !important;
+    font-size: 12px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    margin-bottom: 5px !important;
+}
+
+body.admin-page .order-stat-card strong {
+    display: block !important;
+    color: #111827 !important;
+    font-size: 24px !important;
+    line-height: 1.1 !important;
+}
+
+/* Recent orders */
+
+body.admin-page .orders-card {
+    background: #ffffff !important;
+    border: 1px solid #e5dfd4 !important;
+    border-radius: 12px !important;
+    padding: 28px !important;
+    box-sizing: border-box !important;
+    min-height: 300px !important;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04) !important;
+}
+
+body.admin-page .orders-card-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding-bottom: 20px !important;
+    border-bottom: 1px solid #eee8dc !important;
+}
+
+body.admin-page .orders-card-header h2 {
+    margin: 0 0 6px !important;
+    color: #111827 !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+}
+
+body.admin-page .orders-card-header p {
+    margin: 0 !important;
+    color: #777 !important;
+    font-size: 14px !important;
+}
+
+body.admin-page .orders-empty-state {
+    text-align: center !important;
+    padding: 55px 20px !important;
+}
+
+body.admin-page .orders-empty-icon {
+    width: 64px !important;
+    height: 64px !important;
+    margin: 0 auto 18px !important;
+    border-radius: 50% !important;
+    background: #fff4d9 !important;
+    color: #b58a35 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 26px !important;
+}
+
+body.admin-page .orders-empty-state h2 {
+    margin: 0 0 10px !important;
+    color: #111827 !important;
+    font-size: 22px !important;
+}
+
+body.admin-page .orders-empty-state p {
+    max-width: 650px !important;
+    margin: 0 auto !important;
+    color: #777 !important;
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+}
+
+/* Responsive */
+
+@media (max-width: 1000px) {
+    body.admin-page .orders-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    body.admin-page .orders-stats {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+    }
+
+    body.admin-page .order-stat-card {
+        min-height: 90px !important;
+    }
+
+    body.admin-page .orders-card {
+        padding: 20px !important;
+    }
+
+    body.admin-page .orders-empty-state {
+        padding: 40px 10px !important;
+    }
+}
