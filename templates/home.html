@@ -34,14 +34,17 @@
                 dining experience in the heart of Chickballapur.
             </p>
 
+            <!-- CUSTOMER / ADMIN ACCESS -->
             <div class="home-buttons">
 
-                <a href="#" class="home-btn home-btn-primary">
-                    VIEW MENU
+                <a href="{{ url_for('customer_login') }}"
+                   class="home-btn home-btn-primary">
+                    ORDER FOOD
                 </a>
 
-                <a href="#" class="home-btn home-btn-outline">
-                    CONTACT US
+                <a href="{{ url_for('admin_login') }}"
+                   class="home-btn home-btn-outline">
+                    ADMIN LOGIN
                 </a>
 
             </div>
@@ -153,7 +156,8 @@
 
             <div class="home-meal-grid">
 
-                <a href="#" class="home-meal-card">
+                <a href="{{ url_for('customer_menu') }}"
+                   class="home-meal-card">
 
                     <div class="meal-number">01</div>
 
@@ -168,7 +172,8 @@
                 </a>
 
 
-                <a href="#" class="home-meal-card">
+                <a href="{{ url_for('customer_menu') }}"
+                   class="home-meal-card">
 
                     <div class="meal-number">02</div>
 
@@ -183,7 +188,8 @@
                 </a>
 
 
-                <a href="#" class="home-meal-card">
+                <a href="{{ url_for('customer_menu') }}"
+                   class="home-meal-card">
 
                     <div class="meal-number">03</div>
 
@@ -198,7 +204,8 @@
                 </a>
 
 
-                <a href="#" class="home-meal-card">
+                <a href="{{ url_for('customer_menu') }}"
+                   class="home-meal-card">
 
                     <div class="meal-number">04</div>
 
@@ -234,7 +241,8 @@
                     Experience the taste and hospitality of MTC HOTEL.
                 </p>
 
-                <a href="#" class="home-btn home-btn-primary">
+                <a href="{{ url_for('customer_menu') }}"
+                   class="home-btn home-btn-primary">
                     EXPLORE MENU
                 </a>
 
