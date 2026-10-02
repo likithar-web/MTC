@@ -1,0 +1,1861 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>MTC HOTEL - Menu</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f7f3eb;
+
+            color: #222;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+
+            background: white;
+
+            border-bottom:
+                1px solid #e5dfd3;
+
+            padding: 18px 4.5%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+        }
+
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+        }
+
+
+        .logo-symbol {
+
+            width: 58px;
+
+            height: 58px;
+
+            border-radius: 50%;
+
+            background: #b58a35;
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 27px;
+
+            font-weight: bold;
+        }
+
+
+        .brand-text h1 {
+
+            margin: 0;
+
+            font-size: 30px;
+
+            letter-spacing: 3px;
+        }
+
+
+        .brand-text p {
+
+            margin: 2px 0 0;
+
+            color: #777;
+
+            font-size: 14px;
+
+            letter-spacing: 3px;
+        }
+
+
+        .header-right {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+        }
+
+
+        .welcome {
+
+            color: #555;
+
+            font-size: 15px;
+        }
+
+
+        .cart-button {
+
+            border: none;
+
+            background: #b58a35;
+
+            color: white;
+
+            padding: 12px 18px;
+
+            border-radius: 7px;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        .my-orders-button {
+
+            text-decoration: none;
+
+            background: white;
+
+            color: #b58a35;
+
+            border: 1px solid #b58a35;
+
+            padding: 11px 17px;
+
+            border-radius: 7px;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+        }
+
+
+        .my-orders-button:hover {
+
+            background: #b58a35;
+
+            color: white;
+
+        }
+
+
+        .cart-button:hover {
+
+            background: #987127;
+        }
+
+
+        .logout {
+
+            text-decoration: none;
+
+            background: #b58a35;
+
+            color: white;
+
+            padding: 12px 18px;
+
+            border-radius: 7px;
+
+            font-weight: bold;
+        }
+
+
+        .logout:hover {
+
+            background: #987127;
+        }
+
+
+        /* =========================
+           MAIN CONTAINER
+        ========================= */
+
+        .container {
+
+            width: 92%;
+
+            max-width: 1450px;
+
+            margin: 42px auto;
+        }
+
+
+        .page-title {
+
+            text-align: center;
+
+            margin-bottom: 32px;
+        }
+
+
+        .page-title h2 {
+
+            margin: 0;
+
+            font-size: 42px;
+        }
+
+
+        .page-title p {
+
+            color: #777;
+
+            margin-top: 10px;
+
+            font-size: 18px;
+        }
+
+
+        /* =========================
+           CATEGORY BUTTONS
+        ========================= */
+
+        .categories {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+
+            margin-bottom: 42px;
+        }
+
+
+        .category-btn {
+
+            border: 1px solid #b58a35;
+
+            background: white;
+
+            color: #222;
+
+            padding: 11px 23px;
+
+            border-radius: 7px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            font-size: 16px;
+        }
+
+
+        .category-btn.active,
+        .category-btn:hover {
+
+            background: #b58a35;
+
+            color: white;
+        }
+
+
+        /* =========================
+           FOOD GRID
+        ========================= */
+
+        .food-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 32px;
+        }
+
+
+        .food-card {
+
+            background: white;
+
+            border-radius: 14px;
+
+            overflow: hidden;
+
+            border:
+                1px solid #e5dfd3;
+
+            box-shadow:
+                0 5px 18px
+                rgba(0, 0, 0, 0.07);
+        }
+
+
+        .food-image {
+
+            width: 100%;
+
+            height: 285px;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+
+        .no-image {
+
+            height: 285px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #eee8dc;
+
+            color: #888;
+        }
+
+
+        .food-content {
+
+            padding: 24px;
+        }
+
+
+        .food-top {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 10px;
+        }
+
+
+        .food-name {
+
+            margin: 0;
+
+            font-size: 28px;
+        }
+
+
+        .food-price {
+
+            color: #b58a35;
+
+            font-size: 23px;
+
+            font-weight: bold;
+
+            white-space: nowrap;
+        }
+
+
+        .category {
+
+            margin-top: 8px;
+
+            color: #b58a35;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.5px;
+        }
+
+
+        .description {
+
+            color: #666;
+
+            line-height: 1.55;
+
+            margin: 18px 0;
+
+            min-height: 54px;
+
+            font-size: 17px;
+        }
+
+
+        .add-btn {
+
+            width: 100%;
+
+            border: none;
+
+            background: #b58a35;
+
+            color: white;
+
+            padding: 14px;
+
+            border-radius: 7px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        .add-btn:hover {
+
+            background: #987127;
+        }
+
+
+        /* =========================
+           CART OVERLAY
+        ========================= */
+
+        .cart-overlay {
+
+            position: fixed;
+
+            inset: 0;
+
+            background:
+                rgba(0, 0, 0, 0.45);
+
+            display: none;
+
+            z-index: 2000;
+        }
+
+
+        .cart-overlay.show {
+
+            display: block;
+        }
+
+
+        .cart-panel {
+
+            position: absolute;
+
+            right: 0;
+
+            top: 0;
+
+            width: 430px;
+
+            max-width: 100%;
+
+            height: 100%;
+
+            background: white;
+
+            display: flex;
+
+            flex-direction: column;
+
+            box-shadow:
+                -5px 0 20px
+                rgba(0, 0, 0, 0.15);
+        }
+
+
+        .cart-header {
+
+            padding: 22px;
+
+            border-bottom:
+                1px solid #eee;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        .cart-header h2 {
+
+            margin: 0;
+        }
+
+
+        .close-cart {
+
+            border: none;
+
+            background: #eee;
+
+            width: 38px;
+
+            height: 38px;
+
+            border-radius: 50%;
+
+            font-size: 20px;
+
+            cursor: pointer;
+        }
+
+
+        .cart-items {
+
+            flex: 1;
+
+            overflow-y: auto;
+
+            padding: 18px;
+        }
+
+
+        .cart-item {
+
+            display: flex;
+
+            gap: 12px;
+
+            padding: 15px 0;
+
+            border-bottom:
+                1px solid #eee;
+        }
+
+
+        .cart-item-image {
+
+            width: 75px;
+
+            height: 65px;
+
+            object-fit: cover;
+
+            border-radius: 7px;
+        }
+
+
+        .cart-item-info {
+
+            flex: 1;
+        }
+
+
+        .cart-item-name {
+
+            font-weight: bold;
+
+            font-size: 16px;
+        }
+
+
+        .cart-item-price {
+
+            color: #b58a35;
+
+            margin-top: 5px;
+
+            font-weight: bold;
+        }
+
+
+        .quantity-controls {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            margin-top: 8px;
+        }
+
+
+        .quantity-controls button {
+
+            width: 27px;
+
+            height: 27px;
+
+            border: none;
+
+            background: #b58a35;
+
+            color: white;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+        }
+
+
+        .quantity {
+
+            min-width: 22px;
+
+            text-align: center;
+
+            font-weight: bold;
+        }
+
+
+        .remove-item {
+
+            border: none;
+
+            background: transparent;
+
+            color: #b33;
+
+            cursor: pointer;
+
+            font-size: 12px;
+
+            margin-top: 5px;
+        }
+
+
+        .cart-footer {
+
+            padding: 22px;
+
+            border-top:
+                1px solid #eee;
+        }
+
+
+        .cart-total {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: 21px;
+
+            font-weight: bold;
+
+            margin-bottom: 18px;
+        }
+
+
+        .cart-total span:last-child {
+
+            color: #b58a35;
+        }
+
+
+        .checkout-btn {
+
+            width: 100%;
+
+            border: none;
+
+            background: #b58a35;
+
+            color: white;
+
+            padding: 15px;
+
+            border-radius: 7px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        .checkout-btn:hover {
+
+            background: #987127;
+        }
+
+
+        .empty-cart {
+
+            text-align: center;
+
+            color: #777;
+
+            padding: 50px 20px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .food-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            header {
+
+                padding: 15px 4%;
+            }
+
+
+            .welcome {
+
+                display: none;
+            }
+
+
+            .logout {
+
+                padding: 9px 12px;
+            }
+
+
+            .cart-button {
+
+                padding: 9px 12px;
+            }
+
+
+            .my-orders-button {
+
+                padding: 9px 12px;
+
+                font-size: 13px;
+
+            }
+
+
+            .container {
+
+                width: 94%;
+            }
+
+
+            .food-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .page-title h2 {
+
+                font-size: 30px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+
+    <div class="brand">
+
+
+        <div class="logo-symbol">
+
+            ♨
+
+        </div>
+
+
+        <div class="brand-text">
+
+            <h1>
+                MTC
+            </h1>
+
+            <p>
+                HOTEL
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="header-right">
+
+
+        {% if session.get("customer_name") %}
+
+            <div class="welcome">
+
+                Welcome,
+                {{ session.get("customer_name") }}
+
+            </div>
+
+        {% endif %}
+
+
+
+        <a
+            href="{{ url_for('my_orders') }}"
+            class="my-orders-button"
+        >
+
+            📦 My Orders
+
+        </a>
+
+
+        <button
+            class="cart-button"
+            onclick="openCart()"
+        >
+
+            🛒 Cart
+            (<span id="cartCount">0</span>)
+
+        </button>
+
+
+
+        <a
+            href="{{ url_for('customer_logout') }}"
+            class="logout"
+        >
+
+            Logout
+
+        </a>
+
+
+    </div>
+
+
+</header>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<div class="container">
+
+
+    <div class="page-title">
+
+
+        <h2>
+            Our Menu
+        </h2>
+
+
+        <p>
+            Freshly prepared food from MTC HOTEL
+        </p>
+
+
+    </div>
+
+
+
+    <!-- CATEGORY BUTTONS -->
+
+    <div class="categories">
+
+
+        <button
+            class="category-btn active"
+            onclick="filterFoods('all', this)"
+        >
+
+            All
+
+        </button>
+
+
+        <button
+            class="category-btn"
+            onclick="filterFoods('breakfast', this)"
+        >
+
+            Breakfast
+
+        </button>
+
+
+        <button
+            class="category-btn"
+            onclick="filterFoods('lunch', this)"
+        >
+
+            Lunch
+
+        </button>
+
+
+        <button
+            class="category-btn"
+            onclick="filterFoods('evening', this)"
+        >
+
+            Evening
+
+        </button>
+
+
+        <button
+            class="category-btn"
+            onclick="filterFoods('dinner', this)"
+        >
+
+            Dinner
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- FOOD GRID -->
+
+    {% if foods %}
+
+
+        <div class="food-grid">
+
+
+            {% for food in foods %}
+
+
+                <div
+                    class="food-card"
+                    data-category="{{ food.meal|lower }}"
+                >
+
+
+                    {% if food.image %}
+
+
+                        <img
+                            src="{{ url_for(
+                                'static',
+                                filename='uploads/foods/' + food.image
+                            ) }}"
+                            alt="{{ food.name }}"
+                            class="food-image"
+                        >
+
+
+                    {% else %}
+
+
+                        <div class="no-image">
+
+                            No Image Available
+
+                        </div>
+
+
+                    {% endif %}
+
+
+
+                    <div class="food-content">
+
+
+                        <div class="food-top">
+
+
+                            <h3 class="food-name">
+
+                                {{ food.name }}
+
+                            </h3>
+
+
+
+                            <div class="food-price">
+
+
+                                {% if food.offer_price %}
+
+
+                                    ₹{{ "%.0f"|format(
+                                        food.offer_price
+                                    ) }}
+
+
+                                {% else %}
+
+
+                                    ₹{{ "%.0f"|format(
+                                        food.price
+                                    ) }}
+
+
+                                {% endif %}
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        {% if food.category %}
+
+
+                            <div class="category">
+
+                                {{ food.category }}
+
+                            </div>
+
+
+                        {% endif %}
+
+
+
+                        <p class="description">
+
+
+                            {% if food.description %}
+
+                                {{ food.description }}
+
+                            {% else %}
+
+                                Freshly prepared at MTC HOTEL.
+
+                            {% endif %}
+
+
+                        </p>
+
+
+
+                        <button
+                            class="add-btn"
+                            data-id="{{ food.id }}"
+                            data-name="{{ food.name }}"
+                            data-price="{{ food.offer_price if food.offer_price else food.price }}"
+                            data-image="{{
+                                url_for(
+                                    'static',
+                                    filename='uploads/foods/' + food.image
+                                ) if food.image else ''
+                            }}"
+                            onclick="addFoodFromButton(this)"
+                        >
+
+                            🛒 Add to Cart
+
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+            {% endfor %}
+
+
+        </div>
+
+
+    {% else %}
+
+
+        <div class="empty-cart">
+
+            <h3>
+                Menu is currently unavailable
+            </h3>
+
+            <p>
+                Please check again later.
+            </p>
+
+        </div>
+
+
+    {% endif %}
+
+
+</div>
+
+
+
+<!-- =========================
+     CART
+========================= -->
+
+<div
+    class="cart-overlay"
+    id="cartOverlay"
+    onclick="closeCartOutside(event)"
+>
+
+
+    <div
+        class="cart-panel"
+        onclick="event.stopPropagation()"
+    >
+
+
+        <div class="cart-header">
+
+
+            <h2>
+                Your Cart
+            </h2>
+
+
+            <button
+                class="close-cart"
+                onclick="closeCart()"
+            >
+
+                ×
+
+            </button>
+
+
+        </div>
+
+
+
+        <div
+            class="cart-items"
+            id="cartItems"
+        >
+
+        </div>
+
+
+
+        <div class="cart-footer">
+
+
+            <div class="cart-total">
+
+
+                <span>
+                    Total
+                </span>
+
+
+                <span id="cartTotal">
+                    ₹0
+                </span>
+
+
+            </div>
+
+
+
+            <button
+                class="checkout-btn"
+                onclick="goToCheckout()"
+            >
+
+                Proceed to Checkout
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =========================
+   LOAD CART
+========================= */
+
+let cart = JSON.parse(
+
+    localStorage.getItem("mtc_cart") || "[]"
+
+);
+
+
+
+/* =========================
+   SAVE CART
+========================= */
+
+function saveCart() {
+
+    localStorage.setItem(
+
+        "mtc_cart",
+
+        JSON.stringify(cart)
+
+    );
+
+}
+
+
+
+/* =========================
+   ADD FOOD FROM BUTTON
+========================= */
+
+function addFoodFromButton(button) {
+
+
+    const id =
+        Number(button.dataset.id);
+
+
+    const name =
+        button.dataset.name;
+
+
+    const price =
+        Number(button.dataset.price);
+
+
+    const image =
+        button.dataset.image;
+
+
+    addToCart(
+
+        id,
+
+        name,
+
+        price,
+
+        image
+
+    );
+
+}
+
+
+
+/* =========================
+   ADD TO CART
+========================= */
+
+function addToCart(
+
+    id,
+    name,
+    price,
+    image
+
+) {
+
+
+    const existing = cart.find(
+
+        item => item.id === id
+
+    );
+
+
+    if (existing) {
+
+
+        existing.quantity += 1;
+
+
+    } else {
+
+
+        cart.push({
+
+            id: id,
+
+            name: name,
+
+            price: Number(price),
+
+            image: image,
+
+            quantity: 1
+
+        });
+
+
+    }
+
+
+    saveCart();
+
+    updateCart();
+
+    openCart();
+
+
+}
+
+
+
+/* =========================
+   INCREASE
+========================= */
+
+function increaseQuantity(id) {
+
+
+    const item = cart.find(
+
+        item => item.id === id
+
+    );
+
+
+    if (item) {
+
+        item.quantity += 1;
+
+    }
+
+
+    saveCart();
+
+    updateCart();
+
+
+}
+
+
+
+/* =========================
+   DECREASE
+========================= */
+
+function decreaseQuantity(id) {
+
+
+    const item = cart.find(
+
+        item => item.id === id
+
+    );
+
+
+    if (!item) {
+
+        return;
+
+    }
+
+
+    item.quantity -= 1;
+
+
+    if (item.quantity <= 0) {
+
+
+        cart = cart.filter(
+
+            item => item.id !== id
+
+        );
+
+
+    }
+
+
+    saveCart();
+
+    updateCart();
+
+
+}
+
+
+
+/* =========================
+   REMOVE
+========================= */
+
+function removeFromCart(id) {
+
+
+    cart = cart.filter(
+
+        item => item.id !== id
+
+    );
+
+
+    saveCart();
+
+    updateCart();
+
+
+}
+
+
+
+/* =========================
+   UPDATE CART
+========================= */
+
+function updateCart() {
+
+
+    const cartItems =
+        document.getElementById(
+            "cartItems"
+        );
+
+
+    const cartCount =
+        document.getElementById(
+            "cartCount"
+        );
+
+
+    const cartTotal =
+        document.getElementById(
+            "cartTotal"
+        );
+
+
+    let count = 0;
+
+    let total = 0;
+
+
+    cart.forEach(
+
+        item => {
+
+            count += item.quantity;
+
+            total +=
+                item.price *
+                item.quantity;
+
+        }
+
+    );
+
+
+    cartCount.textContent =
+        count;
+
+
+    cartTotal.textContent =
+        "₹" +
+        Math.round(total);
+
+
+
+    if (cart.length === 0) {
+
+
+        cartItems.innerHTML = `
+
+            <div class="empty-cart">
+
+                <h3>
+                    Your cart is empty
+                </h3>
+
+                <p>
+                    Add some delicious food
+                    from our menu.
+                </p>
+
+            </div>
+
+        `;
+
+
+        return;
+
+    }
+
+
+
+    cartItems.innerHTML =
+
+        cart.map(
+
+            item => `
+
+                <div class="cart-item">
+
+
+                    ${
+                        item.image
+
+                        ? `
+
+                            <img
+                                src="${item.image}"
+                                class="cart-item-image"
+                                alt="${item.name}"
+                            >
+
+                          `
+
+                        : ""
+
+                    }
+
+
+
+                    <div class="cart-item-info">
+
+
+                        <div class="cart-item-name">
+
+                            ${item.name}
+
+                        </div>
+
+
+
+                        <div class="cart-item-price">
+
+                            ₹${Math.round(
+                                item.price
+                            )}
+
+                        </div>
+
+
+
+                        <div
+                            class="quantity-controls"
+                        >
+
+
+                            <button
+                                onclick="decreaseQuantity(
+                                    ${item.id}
+                                )"
+                            >
+
+                                −
+
+                            </button>
+
+
+
+                            <span
+                                class="quantity"
+                            >
+
+                                ${item.quantity}
+
+                            </span>
+
+
+
+                            <button
+                                onclick="increaseQuantity(
+                                    ${item.id}
+                                )"
+                            >
+
+                                +
+
+                            </button>
+
+
+                        </div>
+
+
+
+                        <button
+                            class="remove-item"
+                            onclick="removeFromCart(
+                                ${item.id}
+                            )"
+                        >
+
+                            Remove
+
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+            `
+
+        ).join("");
+
+
+}
+
+
+
+/* =========================
+   OPEN CART
+========================= */
+
+function openCart() {
+
+
+    document
+        .getElementById("cartOverlay")
+        .classList.add("show");
+
+
+}
+
+
+
+/* =========================
+   CLOSE CART
+========================= */
+
+function closeCart() {
+
+
+    document
+        .getElementById("cartOverlay")
+        .classList.remove("show");
+
+
+}
+
+
+
+/* =========================
+   CLOSE CART OUTSIDE
+========================= */
+
+function closeCartOutside(event) {
+
+
+    if (
+
+        event.target.id ===
+        "cartOverlay"
+
+    ) {
+
+
+        closeCart();
+
+
+    }
+
+
+}
+
+
+
+/* =========================
+   GO TO CHECKOUT
+========================= */
+
+function goToCheckout() {
+
+
+    if (cart.length === 0) {
+
+
+        alert(
+
+            "Your cart is empty."
+
+        );
+
+
+        return;
+
+
+    }
+
+
+    window.location.href =
+        "/checkout";
+
+
+}
+
+
+
+/* =========================
+   FILTER FOOD
+========================= */
+
+function filterFoods(
+
+    category,
+
+    button
+
+) {
+
+
+    const cards =
+        document.querySelectorAll(
+            ".food-card"
+        );
+
+
+    const buttons =
+        document.querySelectorAll(
+            ".category-btn"
+        );
+
+
+    buttons.forEach(
+
+        btn => {
+
+            btn.classList.remove(
+                "active"
+            );
+
+        }
+
+    );
+
+
+    button.classList.add(
+        "active"
+    );
+
+
+    cards.forEach(
+
+        card => {
+
+
+            const meal =
+
+                (
+
+                    card.getAttribute(
+                        "data-category"
+                    ) || ""
+
+                ).toLowerCase();
+
+
+
+            if (
+
+                category === "all" ||
+
+                meal === category
+
+            ) {
+
+
+                card.style.display = "";
+
+
+            } else {
+
+
+                card.style.display = "none";
+
+
+            }
+
+
+        }
+
+    );
+
+
+}
+
+
+
+/* =========================
+   INITIAL CART LOAD
+========================= */
+
+updateCart();
+
+
+</script>
+
+
+</body>
+
+</html>

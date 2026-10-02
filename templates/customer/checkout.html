@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>MTC HOTEL - Checkout</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f3eb;
+            color: #222;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid #e5dfd3;
+            padding: 18px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo-symbol {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: #b58a35;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+        }
+
+        .brand h1 {
+            margin: 0;
+            letter-spacing: 3px;
+        }
+
+        .brand p {
+            margin: 2px 0 0;
+            color: #777;
+            letter-spacing: 3px;
+        }
+
+        .back {
+            text-decoration: none;
+            background: #b58a35;
+            color: white;
+            padding: 11px 18px;
+            border-radius: 7px;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1150px;
+            margin: 40px auto;
+        }
+
+        .page-title {
+            margin-bottom: 25px;
+        }
+
+        .page-title h2 {
+            margin: 0;
+            font-size: 34px;
+        }
+
+        .page-title p {
+            color: #777;
+            margin-top: 8px;
+        }
+
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #e5dfd3;
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .field {
+            margin-bottom: 17px;
+        }
+
+        .field label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        .field input,
+        .field textarea {
+            width: 100%;
+            border: 1px solid #d8d0c2;
+            border-radius: 7px;
+            padding: 12px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .field textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .payment-option {
+            display: block;
+            border: 1px solid #d8d0c2;
+            border-radius: 8px;
+            padding: 13px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .payment-option input {
+            margin-right: 8px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .summary-name {
+            font-weight: bold;
+        }
+
+        .summary-quantity {
+            color: #777;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .summary-price {
+            color: #b58a35;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        .total-row span:last-child {
+            color: #b58a35;
+        }
+
+        .place-order {
+            width: 100%;
+            border: none;
+            background: #b58a35;
+            color: white;
+            padding: 14px;
+            border-radius: 7px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .place-order:hover {
+            background: #987127;
+        }
+
+        .place-order:disabled {
+            opacity: .65;
+            cursor: not-allowed;
+        }
+
+        .empty {
+            background: white;
+            border: 1px solid #e5dfd3;
+            border-radius: 12px;
+            padding: 50px;
+            text-align: center;
+        }
+
+        @media (max-width: 800px) {
+            .checkout-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="brand">
+
+        <div class="logo-symbol">
+            ♨
+        </div>
+
+        <div>
+
+            <h1>MTC</h1>
+
+            <p>HOTEL</p>
+
+        </div>
+
+    </div>
+
+
+    <a
+        href="{{ url_for('customer_menu') }}"
+        class="back"
+    >
+        ← Back to Menu
+    </a>
+
+</header>
+
+
+
+<div class="container">
+
+
+    <div class="page-title">
+
+        <h2>
+            Checkout
+        </h2>
+
+        <p>
+            Confirm your details before placing your order.
+        </p>
+
+    </div>
+
+
+
+    <div
+        id="emptyCheckout"
+        class="empty"
+        style="display:none;"
+    >
+
+        <h3>
+            Your cart is empty
+        </h3>
+
+        <p>
+            Add some food before proceeding to checkout.
+        </p>
+
+        <br>
+
+        <a
+            href="{{ url_for('customer_menu') }}"
+            class="back"
+        >
+            Browse Menu
+        </a>
+
+    </div>
+
+
+
+    <div
+        id="checkoutContent"
+        class="checkout-grid"
+    >
+
+
+        <div class="card">
+
+
+            <h3>
+                Customer Details
+            </h3>
+
+
+            <div class="field">
+
+                <label>
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="customerName"
+                    value="{{ session.get('customer_name', '') }}"
+                    placeholder="Enter your full name"
+                >
+
+            </div>
+
+
+
+            <div class="field">
+
+                <label>
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="customerPhone"
+                    placeholder="Enter your phone number"
+                >
+
+            </div>
+
+
+
+            <div class="field">
+
+                <label>
+                    Delivery Address
+                </label>
+
+                <textarea
+                    id="customerAddress"
+                    placeholder="Enter your complete delivery address"
+                ></textarea>
+
+            </div>
+
+
+
+            <h3>
+                Payment Method
+            </h3>
+
+
+
+            <label class="payment-option">
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="Cash on Delivery"
+                    checked
+                >
+
+                Cash on Delivery
+
+            </label>
+
+
+
+            <label class="payment-option">
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="UPI / Online Payment"
+                >
+
+                UPI / Online Payment
+
+            </label>
+
+
+
+            <button
+                id="placeOrderButton"
+                class="place-order"
+                onclick="placeOrder()"
+            >
+
+                Place Order
+
+            </button>
+
+
+        </div>
+
+
+
+        <div class="card">
+
+
+            <h3>
+                Order Summary
+            </h3>
+
+
+            <div id="summaryItems"></div>
+
+
+            <div class="total-row">
+
+                <span>
+                    Total
+                </span>
+
+                <span id="summaryTotal">
+                    ₹0
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+
+const cart = JSON.parse(
+    localStorage.getItem("mtc_cart") || "[]"
+);
+
+
+
+function loadCheckout() {
+
+
+    const emptyCheckout =
+        document.getElementById(
+            "emptyCheckout"
+        );
+
+
+    const checkoutContent =
+        document.getElementById(
+            "checkoutContent"
+        );
+
+
+    const summaryItems =
+        document.getElementById(
+            "summaryItems"
+        );
+
+
+    const summaryTotal =
+        document.getElementById(
+            "summaryTotal"
+        );
+
+
+    if (cart.length === 0) {
+
+        emptyCheckout.style.display =
+            "block";
+
+        checkoutContent.style.display =
+            "none";
+
+        return;
+
+    }
+
+
+    let total = 0;
+
+
+    summaryItems.innerHTML =
+        cart.map(item => {
+
+
+            const subtotal =
+                Number(item.price) *
+                Number(item.quantity);
+
+
+            total += subtotal;
+
+
+            return `
+
+                <div class="summary-item">
+
+                    <div>
+
+                        <div class="summary-name">
+
+                            ${item.name}
+
+                        </div>
+
+
+                        <div class="summary-quantity">
+
+                            Quantity:
+                            ${item.quantity}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-price">
+
+                        ₹${Math.round(subtotal)}
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }).join("");
+
+
+    summaryTotal.textContent =
+        "₹" + Math.round(total);
+
+}
+
+
+
+async function placeOrder() {
+
+
+    if (cart.length === 0) {
+
+        alert(
+            "Your cart is empty."
+        );
+
+        return;
+
+    }
+
+
+    const name =
+        document.getElementById(
+            "customerName"
+        ).value.trim();
+
+
+    const phone =
+        document.getElementById(
+            "customerPhone"
+        ).value.trim();
+
+
+    const address =
+        document.getElementById(
+            "customerAddress"
+        ).value.trim();
+
+
+    const payment =
+        document.querySelector(
+            'input[name="payment"]:checked'
+        ).value;
+
+
+    if (!name) {
+
+        alert(
+            "Please enter your name."
+        );
+
+        return;
+
+    }
+
+
+    if (!phone) {
+
+        alert(
+            "Please enter your phone number."
+        );
+
+        return;
+
+    }
+
+
+    if (!address) {
+
+        alert(
+            "Please enter your delivery address."
+        );
+
+        return;
+
+    }
+
+
+    const button =
+        document.getElementById(
+            "placeOrderButton"
+        );
+
+
+    button.disabled = true;
+
+    button.textContent =
+        "Placing Order...";
+
+
+    try {
+
+
+        const response =
+            await fetch(
+                "/api/place-order",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify({
+
+                        name: name,
+
+                        phone: phone,
+
+                        address: address,
+
+                        payment_method:
+                            payment,
+
+                        items: cart.map(
+                            item => ({
+
+                                id: item.id,
+
+                                quantity:
+                                    item.quantity
+
+                            })
+                        )
+
+                    })
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok ||
+            !data.success) {
+
+            throw new Error(
+                data.message ||
+                "Unable to place order."
+            );
+
+        }
+
+
+        localStorage.removeItem(
+            "mtc_cart"
+        );
+
+
+        window.location.href =
+            "/order-success/" +
+            data.order_id;
+
+
+    } catch (error) {
+
+
+        alert(
+            error.message
+        );
+
+
+        button.disabled = false;
+
+        button.textContent =
+            "Place Order";
+
+    }
+
+}
+
+
+loadCheckout();
+
+
+</script>
+
+
+</body>
+
+</html>

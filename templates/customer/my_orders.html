@@ -1,0 +1,523 @@
+{% extends "base.html" %}
+
+{% block title %}
+My Orders | MTC HOTEL
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+    .orders-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 45px 20px 70px;
+    }
+
+    .orders-heading {
+        text-align: center;
+        margin-bottom: 35px;
+    }
+
+    .orders-heading h1 {
+        margin: 0 0 8px;
+        font-size: 40px;
+        color: #111111;
+    }
+
+    .orders-heading p {
+        margin: 0;
+        color: #6f6f6f;
+        font-size: 17px;
+    }
+
+    .order-card {
+        background: #ffffff;
+        border: 1px solid #e3dccf;
+        border-radius: 16px;
+        margin-bottom: 22px;
+        overflow: hidden;
+        box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
+    }
+
+    .order-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 24px;
+        background: #faf6ed;
+        border-bottom: 1px solid #e8e1d5;
+    }
+
+    .order-number {
+        font-size: 21px;
+        font-weight: 700;
+        color: #111111;
+    }
+
+    .order-date {
+        margin-top: 5px;
+        color: #777777;
+        font-size: 13px;
+    }
+
+    .status-badge {
+        display: inline-block;
+        padding: 8px 14px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 700;
+        background: #fff1cc;
+        color: #966d17;
+        white-space: nowrap;
+    }
+
+    .status-badge.confirmed {
+        background: #e9f5ff;
+        color: #17638f;
+    }
+
+    .status-badge.preparing {
+        background: #fff0df;
+        color: #a85f17;
+    }
+
+    .status-badge.ready {
+        background: #e8f7eb;
+        color: #26733b;
+    }
+
+    .status-badge.delivered {
+        background: #e6f7ee;
+        color: #22734a;
+    }
+
+    .status-badge.cancelled {
+        background: #fdeaea;
+        color: #a52b2b;
+    }
+
+    .order-card-body {
+        padding: 24px;
+    }
+
+    .tracking {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 8px;
+        margin-bottom: 28px;
+    }
+
+    .tracking-step {
+        text-align: center;
+        position: relative;
+    }
+
+    .tracking-dot {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        margin: 0 auto 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #eee9df;
+        color: #777777;
+        font-weight: 700;
+        position: relative;
+        z-index: 2;
+    }
+
+    .tracking-step.active .tracking-dot,
+    .tracking-step.completed .tracking-dot {
+        background: #b58a35;
+        color: #ffffff;
+    }
+
+    .tracking-label {
+        font-size: 12px;
+        color: #777777;
+    }
+
+    .tracking-step.active .tracking-label,
+    .tracking-step.completed .tracking-label {
+        color: #222222;
+        font-weight: 700;
+    }
+
+    .tracking-line {
+        position: absolute;
+        top: 17px;
+        left: 50%;
+        width: 100%;
+        height: 3px;
+        background: #eee9df;
+        z-index: 1;
+    }
+
+    .tracking-step.completed .tracking-line {
+        background: #b58a35;
+    }
+
+    .tracking-step:last-child .tracking-line {
+        display: none;
+    }
+
+    .order-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .details-title {
+        margin: 0 0 12px;
+        font-size: 17px;
+        color: #111111;
+    }
+
+    .item-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee9e1;
+    }
+
+    .item-name {
+        color: #333333;
+    }
+
+    .item-price {
+        color: #b58a35;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .total-row {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .total-price {
+        color: #b58a35;
+    }
+
+    .info-line {
+        margin: 8px 0;
+        color: #555555;
+        line-height: 1.5;
+    }
+
+    .empty-orders {
+        background: #ffffff;
+        border: 1px solid #e3dccf;
+        border-radius: 16px;
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    .empty-orders h2 {
+        margin: 0 0 8px;
+    }
+
+    .empty-orders p {
+        color: #777777;
+        margin-bottom: 22px;
+    }
+
+    .menu-button {
+        display: inline-block;
+        background: #b58a35;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 12px 22px;
+        border-radius: 8px;
+        font-weight: 700;
+    }
+
+    @media (max-width: 700px) {
+
+        .orders-heading h1 {
+            font-size: 32px;
+        }
+
+        .order-card-header {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        .tracking {
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+
+        .tracking-line {
+            display: none;
+        }
+
+        .tracking-step {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-align: left;
+        }
+
+        .tracking-dot {
+            margin: 0;
+            flex: 0 0 34px;
+        }
+
+        .order-details {
+            grid-template-columns: 1fr;
+        }
+    }
+
+</style>
+
+
+<div class="orders-container">
+
+    <div class="orders-heading">
+
+        <h1>
+            My Orders
+        </h1>
+
+        <p>
+            Track your MTC HOTEL orders and their current status.
+        </p>
+
+    </div>
+
+
+    {% if orders %}
+
+        {% for order in orders %}
+
+            {% set status_index = {
+                "Pending": 0,
+                "Confirmed": 1,
+                "Preparing": 2,
+                "Ready": 3,
+                "Delivered": 4
+            }.get(order.status, 0) %}
+
+            <div class="order-card">
+
+                <div class="order-card-header">
+
+                    <div>
+
+                        <div class="order-number">
+                            Order #{{ order.id }}
+                        </div>
+
+                        <div class="order-date">
+
+                            {{
+                                order.created_at.strftime(
+                                    "%d %b %Y, %I:%M %p"
+                                )
+                                if order.created_at
+                                else ""
+                            }}
+
+                        </div>
+
+                    </div>
+
+
+                    <div>
+
+                        <span
+                            class="status-badge
+                            {% if order.status == 'Confirmed' %}confirmed{% endif %}
+                            {% if order.status == 'Preparing' %}preparing{% endif %}
+                            {% if order.status == 'Ready' %}ready{% endif %}
+                            {% if order.status == 'Delivered' %}delivered{% endif %}
+                            {% if order.status == 'Cancelled' %}cancelled{% endif %}"
+                        >
+                            {{ order.status }}
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="order-card-body">
+
+                    {% if order.status != "Cancelled" %}
+
+                        <div class="tracking">
+
+                            {% for step in [
+                                "Pending",
+                                "Confirmed",
+                                "Preparing",
+                                "Ready",
+                                "Delivered"
+                            ] %}
+
+                                {% set step_index = loop.index0 %}
+
+                                <div
+                                    class="tracking-step
+                                    {% if step_index < status_index %}completed{% endif %}
+                                    {% if step_index == status_index %}active{% endif %}"
+                                >
+
+                                    <div class="tracking-dot">
+
+                                        {% if step_index < status_index %}
+                                            ✓
+                                        {% else %}
+                                            {{ loop.index }}
+                                        {% endif %}
+
+                                    </div>
+
+                                    <div class="tracking-label">
+                                        {{ step }}
+                                    </div>
+
+                                    {% if not loop.last %}
+
+                                        <div class="tracking-line"></div>
+
+                                    {% endif %}
+
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+                    {% endif %}
+
+
+                    <div class="order-details">
+
+
+                        <div>
+
+                            <h3 class="details-title">
+                                Ordered Items
+                            </h3>
+
+                            {% for item in order.items %}
+
+                                <div class="item-row">
+
+                                    <div class="item-name">
+
+                                        {{ item.food_name }}
+                                        × {{ item.quantity }}
+
+                                    </div>
+
+                                    <div class="item-price">
+
+                                        ₹{{
+                                            "%.0f"|format(
+                                                item.subtotal
+                                            )
+                                        }}
+
+                                    </div>
+
+                                </div>
+
+                            {% endfor %}
+
+
+                            <div class="total-row">
+
+                                <span>
+                                    Total
+                                </span>
+
+                                <span class="total-price">
+
+                                    ₹{{
+                                        "%.0f"|format(
+                                            order.total_amount
+                                        )
+                                    }}
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3 class="details-title">
+                                Delivery Details
+                            </h3>
+
+                            <div class="info-line">
+                                <strong>Name:</strong>
+                                {{ order.customer_name }}
+                            </div>
+
+                            <div class="info-line">
+                                <strong>Phone:</strong>
+                                {{ order.phone }}
+                            </div>
+
+                            <div class="info-line">
+                                <strong>Address:</strong>
+                                {{ order.address }}
+                            </div>
+
+                            <div class="info-line">
+                                <strong>Payment:</strong>
+                                {{ order.payment_method }}
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+
+    {% else %}
+
+        <div class="empty-orders">
+
+            <h2>
+                No orders yet
+            </h2>
+
+            <p>
+                Your orders will appear here after you place an order.
+            </p>
+
+            <a
+                href="{{ url_for('customer_menu') }}"
+                class="menu-button"
+            >
+                Browse Menu
+            </a>
+
+        </div>
+
+    {% endif %}
+
+
+</div>
+
+{% endblock %}

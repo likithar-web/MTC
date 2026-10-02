@@ -1,7 +1,7 @@
 {% extends "admin/base.html" %}
 
 {% block title %}
-Orders | MTC HOTEL
+Orders | MTC HOTEL Admin
 {% endblock %}
 
 {% block page_title %}
@@ -10,114 +10,469 @@ Orders
 
 {% block content %}
 
-<!-- ORDER PAGE HEADER -->
-<div class="dashboard-welcome orders-welcome">
+<style>
 
-    <div>
-        <h2>Order Management</h2>
+    .orders-page {
+        width: 100%;
+    }
+
+    .orders-intro {
+        background: #ffffff;
+        border: 1px solid #e4ded2;
+        border-radius: 14px;
+        padding: 24px 28px;
+        margin-bottom: 22px;
+        box-shadow: 0 4px 14px rgba(0,0,0,.04);
+    }
+
+    .orders-intro h2 {
+        margin: 0 0 7px;
+        font-size: 28px;
+    }
+
+    .orders-intro p {
+        margin: 0;
+        color: #777;
+    }
+
+    .orders-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-bottom: 22px;
+    }
+
+    .order-stat {
+        background: #fff;
+        border: 1px solid #e4ded2;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 14px rgba(0,0,0,.04);
+    }
+
+    .order-stat-label {
+        color: #777;
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .order-stat-value {
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    .orders-card {
+        background: #fff;
+        border: 1px solid #e4ded2;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 4px 14px rgba(0,0,0,.04);
+    }
+
+    .orders-card-header {
+        padding: 22px 24px;
+        border-bottom: 1px solid #eee8dd;
+    }
+
+    .orders-card-header h3 {
+        margin: 0 0 5px;
+        font-size: 21px;
+    }
+
+    .orders-card-header p {
+        margin: 0;
+        color: #777;
+        font-size: 14px;
+    }
+
+    .orders-table-wrap {
+        overflow-x: auto;
+    }
+
+    .orders-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 1000px;
+    }
+
+    .orders-table th {
+        background: #f8f3e8;
+        color: #6f6f6f;
+        text-align: left;
+        font-size: 12px;
+        letter-spacing: .6px;
+        text-transform: uppercase;
+        padding: 15px 18px;
+        border-bottom: 1px solid #e8e1d5;
+    }
+
+    .orders-table td {
+        padding: 17px 18px;
+        border-bottom: 1px solid #eee9e1;
+        vertical-align: top;
+    }
+
+    .order-id {
+        font-weight: 700;
+        color: #b58a35;
+    }
+
+    .customer-name {
+        font-weight: 700;
+    }
+
+    .customer-phone,
+    .customer-address {
+        margin-top: 4px;
+        color: #777;
+        font-size: 13px;
+    }
+
+    .customer-address {
+        max-width: 220px;
+    }
+
+    .items-list {
+        margin: 0;
+        padding-left: 18px;
+    }
+
+    .items-list li {
+        margin-bottom: 4px;
+    }
+
+    .order-total {
+        font-weight: 700;
+        color: #b58a35;
+        white-space: nowrap;
+    }
+
+    .payment {
+        font-size: 13px;
+        color: #555;
+    }
+
+    .status-form {
+        display: flex;
+        gap: 7px;
+        align-items: center;
+    }
+
+    .status-select {
+        border: 1px solid #d8d0c2;
+        border-radius: 7px;
+        padding: 8px 9px;
+        background: #fff;
+        font-size: 13px;
+        min-width: 125px;
+    }
+
+    .status-save {
+        border: none;
+        background: #b58a35;
+        color: #fff;
+        border-radius: 7px;
+        padding: 8px 11px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    .status-save:hover {
+        background: #987127;
+    }
+
+    .order-date {
+        color: #666;
+        font-size: 13px;
+        white-space: nowrap;
+    }
+
+    .empty-orders {
+        padding: 65px 20px;
+        text-align: center;
+        color: #777;
+    }
+
+    @media (max-width: 850px) {
+        .orders-stats {
+            grid-template-columns: 1fr;
+        }
+    }
+
+</style>
+
+
+<div class="orders-page">
+
+    <div class="orders-intro">
+
+        <h2>
+            Order Management
+        </h2>
 
         <p>
-            Manage customer orders and order status for MTC HOTEL.
+            View and update customer orders placed through the MTC HOTEL website.
         </p>
-    </div>
-
-</div>
-
-
-<!-- ORDER STATISTICS -->
-<div class="orders-stats">
-
-    <!-- TOTAL ORDERS -->
-    <div class="order-stat-card">
-
-        <div class="order-stat-icon">
-            🛒
-        </div>
-
-        <div class="order-stat-content">
-            <span>Total Orders</span>
-            <strong>0</strong>
-        </div>
 
     </div>
 
 
-    <!-- COMPLETED -->
-    <div class="order-stat-card">
+    <div class="orders-stats">
 
-        <div class="order-stat-icon order-stat-green">
-            ✓
+        <div class="order-stat">
+
+            <div class="order-stat-label">
+                Total Orders
+            </div>
+
+            <div class="order-stat-value">
+                {{ orders|length }}
+            </div>
+
         </div>
 
-        <div class="order-stat-content">
-            <span>Completed</span>
-            <strong>0</strong>
+
+        <div class="order-stat">
+
+            <div class="order-stat-label">
+                Pending Orders
+            </div>
+
+            <div class="order-stat-value">
+                {{
+                    orders
+                    |selectattr("status", "equalto", "Pending")
+                    |list
+                    |length
+                }}
+            </div>
+
+        </div>
+
+
+        <div class="order-stat">
+
+            <div class="order-stat-label">
+                Total Sales
+            </div>
+
+            <div class="order-stat-value">
+                ₹{{
+                    "%.0f"|format(
+                        orders|sum(attribute="total_amount")
+                    )
+                }}
+            </div>
+
         </div>
 
     </div>
 
 
-    <!-- PENDING -->
-    <div class="order-stat-card">
+    <div class="orders-card">
 
-        <div class="order-stat-icon order-stat-orange">
-            ⏱
-        </div>
+        <div class="orders-card-header">
 
-        <div class="order-stat-content">
-            <span>Pending</span>
-            <strong>0</strong>
-        </div>
-
-    </div>
-
-
-    <!-- CANCELLED -->
-    <div class="order-stat-card">
-
-        <div class="order-stat-icon order-stat-red">
-            ×
-        </div>
-
-        <div class="order-stat-content">
-            <span>Cancelled</span>
-            <strong>0</strong>
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- RECENT ORDERS -->
-<div class="orders-card">
-
-    <div class="orders-card-header">
-
-        <div>
-            <h2>Recent Orders</h2>
+            <h3>
+                Customer Orders
+            </h3>
 
             <p>
-                View and manage customer orders.
+                Latest orders appear first. Change the status using the dropdown.
             </p>
+
         </div>
 
-    </div>
+
+        {% if orders %}
+
+            <div class="orders-table-wrap">
+
+                <table class="orders-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Items</th>
+                            <th>Amount</th>
+                            <th>Payment</th>
+                            <th>Status</th>
+                            <th>Date</th>
+
+                        </tr>
+
+                    </thead>
 
 
-    <!-- EMPTY STATE -->
-    <div class="orders-empty-state">
+                    <tbody>
 
-        <div class="orders-empty-icon">
-            🛒
-        </div>
+                        {% for order in orders %}
 
-        <h2>No Orders Yet</h2>
+                            <tr>
 
-        <p>
-            Customer orders will appear here when customers
-            place orders through the MTC HOTEL system.
-        </p>
+                                <td>
+
+                                    <div class="order-id">
+                                        #{{ order.id }}
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="customer-name">
+                                        {{ order.customer_name }}
+                                    </div>
+
+                                    <div class="customer-phone">
+                                        {{ order.phone }}
+                                    </div>
+
+                                    <div class="customer-address">
+                                        {{ order.address }}
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <ul class="items-list">
+
+                                        {% for item in order.items %}
+
+                                            <li>
+                                                {{ item.food_name }}
+                                                × {{ item.quantity }}
+                                            </li>
+
+                                        {% endfor %}
+
+                                    </ul>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="order-total">
+                                        ₹{{
+                                            "%.0f"|format(
+                                                order.total_amount
+                                            )
+                                        }}
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="payment">
+                                        {{ order.payment_method }}
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <form
+                                        class="status-form"
+                                        method="POST"
+                                        action="{{
+                                            url_for(
+                                                'update_order_status',
+                                                order_id=order.id
+                                            )
+                                        }}"
+                                    >
+
+                                        <select
+                                            name="status"
+                                            class="status-select"
+                                        >
+
+                                            {% for status in [
+                                                "Pending",
+                                                "Confirmed",
+                                                "Preparing",
+                                                "Ready",
+                                                "Delivered",
+                                                "Cancelled"
+                                            ] %}
+
+                                                <option
+                                                    value="{{ status }}"
+                                                    {% if order.status == status %}
+                                                        selected
+                                                    {% endif %}
+                                                >
+                                                    {{ status }}
+                                                </option>
+
+                                            {% endfor %}
+
+                                        </select>
+
+
+                                        <button
+                                            type="submit"
+                                            class="status-save"
+                                        >
+                                            Save
+                                        </button>
+
+                                    </form>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="order-date">
+
+                                        {{
+                                            order.created_at.strftime(
+                                                "%d %b %Y, %I:%M %p"
+                                            )
+                                            if order.created_at
+                                            else "-"
+                                        }}
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        {% else %}
+
+            <div class="empty-orders">
+
+                <h3>
+                    No orders yet
+                </h3>
+
+                <p>
+                    Customer orders will appear here after they place an order.
+                </p>
+
+            </div>
+
+        {% endif %}
 
     </div>
 
